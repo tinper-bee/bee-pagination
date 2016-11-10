@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import PaginationButton from 'bee-pagination-button';
+import PaginationButton from './PaginationButton';
 
 
 const propTypes = {
