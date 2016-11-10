@@ -119,7 +119,7 @@ class Pagination extends React.Component {
       startPage = 1;
       endPage = items;
     }
-
+    //将所有的button循环渲染出来
     for (let pagenumber = startPage; pagenumber <= endPage; pagenumber++) {
       pageButtons.push(
         <PaginationButton
@@ -132,7 +132,7 @@ class Pagination extends React.Component {
         </PaginationButton>
       );
     }
-
+    //如果boundaryLinks和eclipsis且startPage!=1 需要加上before More Button
     if (boundaryLinks && ellipsis && startPage !== 1) {
       pageButtons.unshift(
         <PaginationButton
@@ -145,7 +145,7 @@ class Pagination extends React.Component {
           </span>
         </PaginationButton>
       );
-
+      //加上最小边界 Button
       pageButtons.unshift(
         <PaginationButton
           {...buttonProps}
@@ -157,7 +157,7 @@ class Pagination extends React.Component {
         </PaginationButton>
       );
     }
-
+    //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
     if (maxButtons && hasHiddenPagesAfter && ellipsis) {
       pageButtons.push(
         <PaginationButton
@@ -170,7 +170,7 @@ class Pagination extends React.Component {
           </span>
         </PaginationButton>
       );
-
+       //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
       if (boundaryLinks && endPage !== items) {
         pageButtons.push(
           <PaginationButton
@@ -210,6 +210,11 @@ class Pagination extends React.Component {
       "u-pagination": true
     };
 
+    /**
+     *  页按钮属性
+     *  onSelect:暴露在外层交互动作，也是与父组件Pagination的交流接口
+     *  componentClass: 用户定义的按钮dom元素类型
+     */
     const buttonProps = {
       onSelect,
       componentClass: buttonComponentClass,
