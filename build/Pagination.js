@@ -14,9 +14,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _beePaginationButton = require('bee-pagination-button');
+var _PaginationButton = require('./PaginationButton');
 
-var _beePaginationButton2 = _interopRequireDefault(_beePaginationButton);
+var _PaginationButton2 = _interopRequireDefault(_PaginationButton);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -134,10 +134,10 @@ var Pagination = function (_React$Component) {
       startPage = 1;
       endPage = items;
     }
-
+    //将所有的button循环渲染出来
     for (var pagenumber = startPage; pagenumber <= endPage; pagenumber++) {
       pageButtons.push(_react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         _extends({}, buttonProps, {
           key: pagenumber,
           eventKey: pagenumber,
@@ -146,10 +146,10 @@ var Pagination = function (_React$Component) {
         pagenumber
       ));
     }
-
+    //如果boundaryLinks和eclipsis且startPage!=1 需要加上before More Button
     if (boundaryLinks && ellipsis && startPage !== 1) {
       pageButtons.unshift(_react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         {
           key: 'ellipsisFirst',
           disabled: true,
@@ -161,9 +161,9 @@ var Pagination = function (_React$Component) {
           ellipsis === true ? '\u2026' : ellipsis
         )
       ));
-
+      //加上最小边界 Button
       pageButtons.unshift(_react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         _extends({}, buttonProps, {
           key: 1,
           eventKey: 1,
@@ -172,10 +172,10 @@ var Pagination = function (_React$Component) {
         '1'
       ));
     }
-
+    //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
     if (maxButtons && hasHiddenPagesAfter && ellipsis) {
       pageButtons.push(_react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         {
           key: 'ellipsis',
           disabled: true,
@@ -187,10 +187,10 @@ var Pagination = function (_React$Component) {
           ellipsis === true ? '\u2026' : ellipsis
         )
       ));
-
+      //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
       if (boundaryLinks && endPage !== items) {
         pageButtons.push(_react2["default"].createElement(
-          _beePaginationButton2["default"],
+          _PaginationButton2["default"],
           _extends({}, buttonProps, {
             key: items,
             eventKey: items,
@@ -225,6 +225,11 @@ var Pagination = function (_React$Component) {
       "u-pagination": true
     };
 
+    /**
+     *  页按钮属性
+     *  onSelect:暴露在外层交互动作，也是与父组件Pagination的交流接口
+     *  componentClass: 用户定义的按钮dom元素类型
+     */
     var buttonProps = {
       onSelect: onSelect,
       componentClass: buttonComponentClass
@@ -236,7 +241,7 @@ var Pagination = function (_React$Component) {
         className: (0, _classnames2["default"])(className, classes)
       }),
       first && _react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         _extends({}, buttonProps, {
           eventKey: 1,
           disabled: activePage === 1
@@ -248,7 +253,7 @@ var Pagination = function (_React$Component) {
         )
       ),
       prev && _react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         _extends({}, buttonProps, {
           eventKey: activePage - 1,
           disabled: activePage === 1
@@ -261,7 +266,7 @@ var Pagination = function (_React$Component) {
       ),
       this.renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps),
       next && _react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         _extends({}, buttonProps, {
           eventKey: activePage + 1,
           disabled: activePage >= items
@@ -273,7 +278,7 @@ var Pagination = function (_React$Component) {
         )
       ),
       last && _react2["default"].createElement(
-        _beePaginationButton2["default"],
+        _PaginationButton2["default"],
         _extends({}, buttonProps, {
           eventKey: items,
           disabled: activePage >= items
