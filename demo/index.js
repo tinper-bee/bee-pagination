@@ -123,7 +123,6 @@ class Demo5 extends React.Component {
 	        	last
 	        	prev
 	        	next
-	        	boundaryLinks
 		        items={20}
 		        maxButtons={5}
 		        activePage={this.state.activePage}

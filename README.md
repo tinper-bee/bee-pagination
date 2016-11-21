@@ -1,7 +1,7 @@
 # bee-pagination
 [![npm version](https://img.shields.io/npm/v/bee-pagination.svg)](https://www.npmjs.com/package/bee-pagination)
 [![Build Status](https://img.shields.io/travis/tinper-bee/generator-tinper-bee/master.svg)](https://travis-ci.org/tinper-bee/bee-pagination)
-[![devDependency Status](https://img.shields.io/david/dev/tinper-bee/bee-pagination.svg)](https://david-dm.org/tinper-bee/bee-pagination#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/github/tinper-bee/bee-pagination/badge.svg?branch=master)](https://coveralls.io/github/tinper-bee/bee-pagination?branch=master)
 
 用于内容过多，分页显示内容
 
