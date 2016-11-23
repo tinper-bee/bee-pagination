@@ -1,21 +1,18 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-
-// TODO: This should be `<Pagination.Item>`.
-
-// TODO: This should use `componentClass` like other components.
 
 const propTypes = {
-  className: React.PropTypes.string,
-  eventKey: React.PropTypes.any,
-  onSelect: React.PropTypes.func,
-  disabled: React.PropTypes.bool,
-  active: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
+  className: PropTypes.string,
+  eventKey: PropTypes.any,
+  onSelect: PropTypes.func,
+  disabled: PropTypes.bool,
+  active: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 const defaultProps = {
+  componentClass: 'a',
   active: false,
   disabled: false
 };
@@ -58,7 +55,7 @@ class PaginationButton extends React.Component {
         className={classNames(className, { active, disabled })}
         style={style}
       >
-        <a href="#"
+        <Component href="#"
           {...props}
           disabled={disabled}
           onClick={ this.handleClick }

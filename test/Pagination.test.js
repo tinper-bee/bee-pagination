@@ -26,6 +26,42 @@ describe('Pagination test', function() {
 		
 	})
 
+	it('no border page button should be exist', function() {
+
+		
+		let pagination = mount(<Pagination items={10} activePage={2} noBorder/>);
+
+		expect(pagination.find('ul').hasClass('u-pagination-no-border')).to.equal(true);
+		
+	})
+
+	it('gap page button should be exist', function() {
+
+		
+		let pagination = mount(<Pagination items={10} activePage={2} gap/>);
+
+		expect(pagination.find('ul').hasClass('u-pagination-gap')).to.equal(true);
+		
+	})
+
+	it('lg size should be right', function() {
+
+		
+		let pagination = mount(<Pagination items={10} activePage={2} size="lg"/>);
+
+		expect(pagination.find('ul').hasClass('u-pagination-lg')).to.equal(true);
+		
+	})
+
+	it('sm size should be right', function() {
+
+		
+		let pagination = mount(<Pagination items={10} activePage={2} size="sm"/>);
+
+		expect(pagination.find('ul').hasClass('u-pagination-sm')).to.equal(true);
+		
+	})
+
 	it('active page should be right', function() {
 
 		

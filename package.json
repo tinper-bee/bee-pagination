@@ -29,10 +29,10 @@
   "test": "bee-tools run test",
   "chrome": "bee-tools run chrome",
   "browsers": "bee-tools run browsers",
-  "pub": "bee-tools run pub"
+  "pub": "bee-tools run pub",
+  "coveralls": "bee-tools run coverage"
  },
  "dependencies": {
-  "bee-pagination-button": "0.0.2",
   "classnames": "^2.2.5",
   "tinper-bee-core": "latest"
  },

@@ -136,9 +136,6 @@
   background-color: transparent;
   border-bottom: 0px solid #d7d7d7;
   border-top: 0px solid #d7d7d7;
-  // width: 22px;
-  // height: 34px;
-  // line-height: 32px;
   padding: 7px 11px;
   line-height: 1.57142857;
 }
@@ -179,14 +176,17 @@
     border: none;
 }
 // 有间距的分页
-.pagination-gap>li:first-child>a,
-.pagination-gap>li:last-child>a {
+.u-pagination-gap>li:first-child>a,
+.u-pagination-gap>li:last-child>a {
     border-radius: 5px;
 }
 .u-pagination > li:last-child > a, .u-pagination > li:last-child > span {
     border-right: 1px solid #d7d7d7;
 }
-.pagination-gap {
+.u-pagination-no-border > li:last-child > a, .u-pagination > li:last-child > span {
+    border: none;
+}
+.u-pagination-gap {
     > li {
         > a {
             margin: 0 5px;
@@ -213,10 +213,10 @@
 
 
 // Size Modifier
-.pagination-lg {
+.u-pagination-lg {
     @include pagination-size($pagination-lg-padding-vertical, $pagination-lg-padding-horizontal, $pagination-lg-font-size, $line-height-large, $border-radius-large);
 }
 
-.pagination-sm {
+.u-pagination-sm {
     @include pagination-size($pagination-small-padding-vertical, $pagination-small-padding-horizontal, $pagination-small-font-size, $line-height-small, $border-radius-small);
 }

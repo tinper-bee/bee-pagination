@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import React from 'react';
+import classnames from 'classnames';
+import React, { PropTypes } from 'react';
 import PaginationButton from './PaginationButton';
 
 
@@ -7,73 +7,73 @@ const propTypes = {
   /**
    * 当前激活状态页
    */
-  activePage: React.PropTypes.number,
+  activePage: PropTypes.number,
   /**
    * 总页数
    */
-  items: React.PropTypes.number,
+  items: PropTypes.number,
   /**
    * 显示按钮从1到maxButton的按钮数
    */
-  maxButtons: React.PropTypes.number,
+  maxButtons: PropTypes.number,
 
   /**
    * 当为true,不管切换到多少页都显示第一页和最后一页的按钮
    */
-  boundaryLinks: React.PropTypes.bool,
+  boundaryLinks: PropTypes.bool,
 
   /**
    * 当为true,显示省略号，否则
    * 
    */
-  ellipsis: React.PropTypes.oneOfType([
-    React.PropTypes.bool, 
-    React.PropTypes.node,
+  ellipsis: PropTypes.oneOfType([
+    PropTypes.bool, 
+    PropTypes.node,
   ]),
 
   /**
    *  当为true,显示点击到第一页的按钮
    */
-  first: React.PropTypes.oneOfType([
-    React.PropTypes.bool, 
-    React.PropTypes.node,
+  first: PropTypes.oneOfType([
+    PropTypes.bool, 
+    PropTypes.node,
   ]),
 
   /**
    *  当为true,显示点击到最后一页的按钮
    */
-  last: React.PropTypes.oneOfType([
-    React.PropTypes.bool, 
-    React.PropTypes.node,
+  last: PropTypes.oneOfType([
+    PropTypes.bool, 
+    PropTypes.node,
   ]),
 
   /**
    * 当为true,显示前一页按钮
    */
-  prev: React.PropTypes.oneOfType([
-    React.PropTypes.bool, 
-    React.PropTypes.node,
+  prev: PropTypes.oneOfType([
+    PropTypes.bool, 
+    PropTypes.node,
   ]),
 
   /**
    * 当为true,显示下一页按钮
    */
-  next: React.PropTypes.oneOfType([
-    React.PropTypes.bool, 
-    React.PropTypes.node,
+  next: PropTypes.oneOfType([
+    PropTypes.bool, 
+    PropTypes.node,
   ]),
 
   /**
    * 暴露给用户的切换页的方法
    */
-  onSelect: React.PropTypes.func,
+  onSelect: PropTypes.func,
 
   /**
    * You can use a custom element for the buttons
    */
-  buttonComponentClass: React.PropTypes.oneOfType([
-    React.PropTypes.element,
-    React.PropTypes.string
+  buttonComponentClass: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string
   ])
 };
 
@@ -87,6 +87,9 @@ const defaultProps = {
   next: false,
   ellipsis: true,
   boundaryLinks: false,
+  clsPrefix: 'u-pagination',
+  gap:false,
+  noBorder:false
 };
 
 class Pagination extends React.Component {
@@ -201,14 +204,26 @@ class Pagination extends React.Component {
       next,
       onSelect,
       buttonComponentClass,
+      noBorder,
       className,
+      clsPrefix,
+      size,
+      gap,
       ...others
     } = this.props;
 
 
-    const classes = {
-      "u-pagination": true
-    };
+    const classes = {};
+    if(noBorder){
+        classes[`${clsPrefix}-no-border`] = true;
+    }
+    if(size){
+        classes[`${clsPrefix}-${size}`] = true;
+    }
+    if(gap){
+        classes[`${clsPrefix}-gap`] = true;
+    }
+    let classNames = classnames(clsPrefix,classes);
 
     /**
      *  页按钮属性
@@ -223,7 +238,7 @@ class Pagination extends React.Component {
     return (
       <ul
         {...others}
-        className={classNames(className, classes)}
+        className={classnames(className, classNames)}
       >
         {first && (
           <PaginationButton

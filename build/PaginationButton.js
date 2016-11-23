@@ -26,20 +26,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-// TODO: This should be `<Pagination.Item>`.
-
-// TODO: This should use `componentClass` like other components.
-
 var propTypes = {
-  className: _react2["default"].PropTypes.string,
-  eventKey: _react2["default"].PropTypes.any,
-  onSelect: _react2["default"].PropTypes.func,
-  disabled: _react2["default"].PropTypes.bool,
-  active: _react2["default"].PropTypes.bool,
-  onClick: _react2["default"].PropTypes.func
+  className: _react.PropTypes.string,
+  eventKey: _react.PropTypes.any,
+  onSelect: _react.PropTypes.func,
+  disabled: _react.PropTypes.bool,
+  active: _react.PropTypes.bool,
+  onClick: _react.PropTypes.func
 };
 
 var defaultProps = {
+  componentClass: 'a',
   active: false,
   disabled: false
 };
@@ -91,7 +88,7 @@ var PaginationButton = function (_React$Component) {
         className: (0, _classnames2["default"])(className, { active: active, disabled: disabled }),
         style: style
       },
-      _react2["default"].createElement('a', _extends({ href: '#'
+      _react2["default"].createElement(Component, _extends({ href: '#'
       }, props, {
         disabled: disabled,
         onClick: this.handleClick

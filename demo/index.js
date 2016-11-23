@@ -17,7 +17,17 @@ class Demo1 extends React.Component {
 	render() {
 	    return (
 	      <div>
-	        <Pagination
+		    <Pagination
+		    	size="lg"
+		        items={20}
+		        activePage={this.state.activePage}
+		        onSelect={this.handleSelect.bind(this)} />
+		    <Pagination
+		        items={20}
+		        activePage={this.state.activePage}
+		        onSelect={this.handleSelect.bind(this)} />
+		    <Pagination
+		    	size="sm"
 		        items={20}
 		        activePage={this.state.activePage}
 		        onSelect={this.handleSelect.bind(this)} />
@@ -25,7 +35,6 @@ class Demo1 extends React.Component {
 	    );
 	}
 }
-
 class Demo2 extends React.Component {
 	constructor(props) {
 		super(props);
@@ -41,9 +50,14 @@ class Demo2 extends React.Component {
 	render() {
 	    return (
 	      <div>
-	        <Pagination
+		    <Pagination
+		    	noBorder
 		        items={20}
-		        maxButtons={5}
+		        activePage={this.state.activePage}
+		        onSelect={this.handleSelect.bind(this)} />
+		    <Pagination
+		    	gap
+		        items={20}
 		        activePage={this.state.activePage}
 		        onSelect={this.handleSelect.bind(this)} />
 	      </div>
@@ -67,7 +81,6 @@ class Demo3 extends React.Component {
 	    return (
 	      <div>
 	        <Pagination
-	        	boundaryLinks
 		        items={20}
 		        maxButtons={5}
 		        activePage={this.state.activePage}
@@ -76,6 +89,7 @@ class Demo3 extends React.Component {
 	    );
 	}
 }
+
 class Demo4 extends React.Component {
 	constructor(props) {
 		super(props);
@@ -92,8 +106,6 @@ class Demo4 extends React.Component {
 	    return (
 	      <div>
 	        <Pagination
-	        	prev
-	        	next
 	        	boundaryLinks
 		        items={20}
 		        maxButtons={5}
@@ -119,10 +131,38 @@ class Demo5 extends React.Component {
 	    return (
 	      <div>
 	        <Pagination
+	        	prev
+	        	next
+	        	boundaryLinks
+		        items={20}
+		        maxButtons={5}
+		        activePage={this.state.activePage}
+		        onSelect={this.handleSelect.bind(this)} />
+	      </div>
+	    );
+	}
+}
+class Demo6 extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			activePage:1
+		}
+	}
+	handleSelect(eventKey) {
+	    this.setState({
+	      activePage: eventKey
+	    });
+	}
+	render() {
+	    return (
+	      <div>
+	        <Pagination
 	        	first
 	        	last
 	        	prev
 	        	next
+	        	boundaryLinks
 		        items={20}
 		        maxButtons={5}
 		        activePage={this.state.activePage}
@@ -137,3 +177,4 @@ ReactDOM.render(<Demo2/>, document.getElementById('ReactPaginationDemo2'));
 ReactDOM.render(<Demo3/>, document.getElementById('ReactPaginationDemo3'));
 ReactDOM.render(<Demo4/>, document.getElementById('ReactPaginationDemo4'));
 ReactDOM.render(<Demo5/>, document.getElementById('ReactPaginationDemo5'));
+ReactDOM.render(<Demo6/>, document.getElementById('ReactPaginationDemo6'));

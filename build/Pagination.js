@@ -34,56 +34,56 @@ var propTypes = {
   /**
    * 当前激活状态页
    */
-  activePage: _react2["default"].PropTypes.number,
+  activePage: _react.PropTypes.number,
   /**
    * 总页数
    */
-  items: _react2["default"].PropTypes.number,
+  items: _react.PropTypes.number,
   /**
    * 显示按钮从1到maxButton的按钮数
    */
-  maxButtons: _react2["default"].PropTypes.number,
+  maxButtons: _react.PropTypes.number,
 
   /**
    * 当为true,不管切换到多少页都显示第一页和最后一页的按钮
    */
-  boundaryLinks: _react2["default"].PropTypes.bool,
+  boundaryLinks: _react.PropTypes.bool,
 
   /**
    * 当为true,显示省略号，否则
    * 
    */
-  ellipsis: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.bool, _react2["default"].PropTypes.node]),
+  ellipsis: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
 
   /**
    *  当为true,显示点击到第一页的按钮
    */
-  first: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.bool, _react2["default"].PropTypes.node]),
+  first: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
 
   /**
    *  当为true,显示点击到最后一页的按钮
    */
-  last: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.bool, _react2["default"].PropTypes.node]),
+  last: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
 
   /**
    * 当为true,显示前一页按钮
    */
-  prev: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.bool, _react2["default"].PropTypes.node]),
+  prev: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
 
   /**
    * 当为true,显示下一页按钮
    */
-  next: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.bool, _react2["default"].PropTypes.node]),
+  next: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
 
   /**
    * 暴露给用户的切换页的方法
    */
-  onSelect: _react2["default"].PropTypes.func,
+  onSelect: _react.PropTypes.func,
 
   /**
    * You can use a custom element for the buttons
    */
-  buttonComponentClass: _react2["default"].PropTypes.oneOfType([_react2["default"].PropTypes.element, _react2["default"].PropTypes.string])
+  buttonComponentClass: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.string])
 };
 
 var defaultProps = {
@@ -95,7 +95,10 @@ var defaultProps = {
   prev: false,
   next: false,
   ellipsis: true,
-  boundaryLinks: false
+  boundaryLinks: false,
+  clsPrefix: 'u-pagination',
+  gap: false,
+  noBorder: false
 };
 
 var Pagination = function (_React$Component) {
@@ -217,13 +220,25 @@ var Pagination = function (_React$Component) {
     var next = _props.next;
     var onSelect = _props.onSelect;
     var buttonComponentClass = _props.buttonComponentClass;
+    var noBorder = _props.noBorder;
     var className = _props.className;
+    var clsPrefix = _props.clsPrefix;
+    var size = _props.size;
+    var gap = _props.gap;
 
-    var others = _objectWithoutProperties(_props, ['activePage', 'items', 'maxButtons', 'boundaryLinks', 'ellipsis', 'first', 'last', 'prev', 'next', 'onSelect', 'buttonComponentClass', 'className']);
+    var others = _objectWithoutProperties(_props, ['activePage', 'items', 'maxButtons', 'boundaryLinks', 'ellipsis', 'first', 'last', 'prev', 'next', 'onSelect', 'buttonComponentClass', 'noBorder', 'className', 'clsPrefix', 'size', 'gap']);
 
-    var classes = {
-      "u-pagination": true
-    };
+    var classes = {};
+    if (noBorder) {
+      classes[clsPrefix + '-no-border'] = true;
+    }
+    if (size) {
+      classes[clsPrefix + '-' + size] = true;
+    }
+    if (gap) {
+      classes[clsPrefix + '-gap'] = true;
+    }
+    var classNames = (0, _classnames2["default"])(clsPrefix, classes);
 
     /**
      *  页按钮属性
@@ -238,7 +253,7 @@ var Pagination = function (_React$Component) {
     return _react2["default"].createElement(
       'ul',
       _extends({}, others, {
-        className: (0, _classnames2["default"])(className, classes)
+        className: (0, _classnames2["default"])(className, classNames)
       }),
       first && _react2["default"].createElement(
         _PaginationButton2["default"],
