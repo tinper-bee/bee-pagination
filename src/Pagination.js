@@ -96,7 +96,7 @@ class Pagination extends React.Component {
   renderPageButtons(
     activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps
   ) {
-    const pageButtons = [];
+    let pageButtons = [];
 
     let startPage;
     let endPage;
