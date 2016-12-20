@@ -208,25 +208,24 @@ var Pagination = function (_React$Component) {
   };
 
   Pagination.prototype.render = function render() {
-    var _props = this.props;
-    var activePage = _props.activePage;
-    var items = _props.items;
-    var maxButtons = _props.maxButtons;
-    var boundaryLinks = _props.boundaryLinks;
-    var ellipsis = _props.ellipsis;
-    var first = _props.first;
-    var last = _props.last;
-    var prev = _props.prev;
-    var next = _props.next;
-    var onSelect = _props.onSelect;
-    var buttonComponentClass = _props.buttonComponentClass;
-    var noBorder = _props.noBorder;
-    var className = _props.className;
-    var clsPrefix = _props.clsPrefix;
-    var size = _props.size;
-    var gap = _props.gap;
-
-    var others = _objectWithoutProperties(_props, ['activePage', 'items', 'maxButtons', 'boundaryLinks', 'ellipsis', 'first', 'last', 'prev', 'next', 'onSelect', 'buttonComponentClass', 'noBorder', 'className', 'clsPrefix', 'size', 'gap']);
+    var _props = this.props,
+        activePage = _props.activePage,
+        items = _props.items,
+        maxButtons = _props.maxButtons,
+        boundaryLinks = _props.boundaryLinks,
+        ellipsis = _props.ellipsis,
+        first = _props.first,
+        last = _props.last,
+        prev = _props.prev,
+        next = _props.next,
+        onSelect = _props.onSelect,
+        buttonComponentClass = _props.buttonComponentClass,
+        noBorder = _props.noBorder,
+        className = _props.className,
+        clsPrefix = _props.clsPrefix,
+        size = _props.size,
+        gap = _props.gap,
+        others = _objectWithoutProperties(_props, ['activePage', 'items', 'maxButtons', 'boundaryLinks', 'ellipsis', 'first', 'last', 'prev', 'next', 'onSelect', 'buttonComponentClass', 'noBorder', 'className', 'clsPrefix', 'size', 'gap']);
 
     var classes = {};
     if (noBorder) {
