@@ -42,6 +42,7 @@ class PaginationButton extends React.Component {
       active,
       disabled,
       onClick,
+      eventKey,
       className,
       style,
       ...props
