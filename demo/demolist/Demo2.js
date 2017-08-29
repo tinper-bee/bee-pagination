@@ -3,7 +3,11 @@
  * @description 可根据参数设置功能按钮的显示，部分页数隐藏。
  */
 
-class Demo2 extends React.Component {
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Pagination from '../../src';
+
+export default class Demo2 extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {

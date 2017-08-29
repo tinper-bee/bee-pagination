@@ -3,7 +3,11 @@
  * @description 所有页数均显示。
  */
 
-class Demo1 extends React.Component {
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Pagination from '../../src';
+
+export default class Demo1 extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {

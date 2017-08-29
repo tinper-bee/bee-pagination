@@ -55,7 +55,7 @@ class PaginationButton extends React.Component {
         className={classNames(className, { active, disabled })}
         style={style}
       >
-        <Component href="#"
+        <Component
           {...props}
           disabled={disabled}
           onClick={ this.handleClick }

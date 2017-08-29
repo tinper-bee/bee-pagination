@@ -87,8 +87,7 @@ var PaginationButton = function (_React$Component) {
         className: (0, _classnames2["default"])(className, { active: active, disabled: disabled }),
         style: style
       },
-      _react2["default"].createElement(Component, _extends({ href: '#'
-      }, props, {
+      _react2["default"].createElement(Component, _extends({}, props, {
         disabled: disabled,
         onClick: this.handleClick
       }))
