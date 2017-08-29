@@ -75,9 +75,10 @@ var PaginationButton = function (_React$Component) {
         active = _props2.active,
         disabled = _props2.disabled,
         onClick = _props2.onClick,
+        eventKey = _props2.eventKey,
         className = _props2.className,
         style = _props2.style,
-        props = _objectWithoutProperties(_props2, ['componentClass', 'active', 'disabled', 'onClick', 'className', 'style']);
+        props = _objectWithoutProperties(_props2, ['componentClass', 'active', 'disabled', 'onClick', 'eventKey', 'className', 'style']);
 
     delete props.onSelect;
 
