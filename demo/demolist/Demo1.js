@@ -4,10 +4,9 @@
  */
 
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Pagination from '../../src';
 
-export default class Demo1 extends React.Component {
+class Demo1 extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -31,3 +30,5 @@ export default class Demo1 extends React.Component {
 	    );
 	}
 }
+
+export default Demo1;
