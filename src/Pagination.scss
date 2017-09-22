@@ -40,8 +40,8 @@
         list-style-type: none;
         > a:hover, > span:hover, > a:focus, > span:focus{
             color: $pag-hover-color;
-            background-color: pag-hover-bg-color;
-            border-color: pag-hover-border-color;
+            background-color: $pag-hover-bg-color;
+            border-color: $pag-hover-border-color;
             cursor: pointer;
         }
         > a > i {
