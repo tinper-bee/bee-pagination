@@ -18,6 +18,10 @@ var _PaginationButton = require('./PaginationButton');
 
 var _PaginationButton2 = _interopRequireDefault(_PaginationButton);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -34,56 +38,56 @@ var propTypes = {
   /**
    * 当前激活状态页
    */
-  activePage: _react.PropTypes.number,
+  activePage: _propTypes2["default"].number,
   /**
    * 总页数
    */
-  items: _react.PropTypes.number,
+  items: _propTypes2["default"].number,
   /**
    * 显示按钮从1到maxButton的按钮数
    */
-  maxButtons: _react.PropTypes.number,
+  maxButtons: _propTypes2["default"].number,
 
   /**
    * 当为true,不管切换到多少页都显示第一页和最后一页的按钮
    */
-  boundaryLinks: _react.PropTypes.bool,
+  boundaryLinks: _propTypes2["default"].bool,
 
   /**
    * 当为true,显示省略号，否则
    * 
    */
-  ellipsis: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
+  ellipsis: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 
   /**
    *  当为true,显示点击到第一页的按钮
    */
-  first: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
+  first: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 
   /**
    *  当为true,显示点击到最后一页的按钮
    */
-  last: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
+  last: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 
   /**
    * 当为true,显示前一页按钮
    */
-  prev: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
+  prev: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 
   /**
    * 当为true,显示下一页按钮
    */
-  next: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.node]),
+  next: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 
   /**
    * 暴露给用户的切换页的方法
    */
-  onSelect: _react.PropTypes.func,
+  onSelect: _propTypes2["default"].func,
 
   /**
    * You can use a custom element for the buttons
    */
-  buttonComponentClass: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.string])
+  buttonComponentClass: _propTypes2["default"].oneOfType([_propTypes2["default"].element, _propTypes2["default"].string])
 };
 
 var defaultProps = {
