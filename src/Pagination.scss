@@ -140,6 +140,15 @@
     }
 }
 
+// Size Modifier
+.u-pagination-lg {
+    @include pagination-size($pagination-lg-padding-vertical, $pagination-lg-padding-horizontal, $pagination-lg-font-size, $line-height-large, $border-radius-large);
+}
+
+.u-pagination-sm {
+    @include pagination-size($pagination-small-padding-vertical, $pagination-small-padding-horizontal, $pagination-small-font-size, $line-height-small, $border-radius-small);
+}
+
 
 //无边框
 .u-pagination-no-border{
@@ -176,17 +185,10 @@
     }
     >li[role="gap"]{
       > a {
-        border : 0px solid #d7d7d7;
+        border : 0 solid #d7d7d7;
       }
     }
 }
 
 
-// Size Modifier
-.u-pagination-lg {
-    @include pagination-size($pagination-lg-padding-vertical, $pagination-lg-padding-horizontal, $pagination-lg-font-size, $line-height-large, $border-radius-large);
-}
 
-.u-pagination-sm {
-    @include pagination-size($pagination-small-padding-vertical, $pagination-small-padding-horizontal, $pagination-small-font-size, $line-height-small, $border-radius-small);
-}
