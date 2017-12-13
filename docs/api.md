@@ -12,7 +12,7 @@
 |activePage|哪一页是激活状态|number|''|
 |onSelect|切换页的方法|func |''|
 |maxButton|显示最多页数按钮|number|''|
-|pre|显示上一页按钮|bool|false|
+|prev|显示上一页按钮|bool|false|
 |next|显示下一页按钮|bool|''|
 |first|显示第一页按钮|bool|false|
 |last|显示最后一页按钮|bool|last|
