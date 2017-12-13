@@ -1,7 +1,7 @@
-import classnames from 'classnames';
-import React from 'react';
-import PaginationButton from './PaginationButton';
-import PropTypes from 'prop-types';
+import classnames from "classnames";
+import React from "react";
+import PaginationButton from "./PaginationButton";
+import PropTypes from "prop-types";
 
 const propTypes = {
   /**
@@ -24,44 +24,29 @@ const propTypes = {
 
   /**
    * 当为true,显示省略号，否则
-   * 
+   *
    */
-  ellipsis: PropTypes.oneOfType([
-    PropTypes.bool, 
-    PropTypes.node,
-  ]),
+  ellipsis: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 
   /**
    *  当为true,显示点击到第一页的按钮
    */
-  first: PropTypes.oneOfType([
-    PropTypes.bool, 
-    PropTypes.node,
-  ]),
+  first: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 
   /**
    *  当为true,显示点击到最后一页的按钮
    */
-  last: PropTypes.oneOfType([
-    PropTypes.bool, 
-    PropTypes.node,
-  ]),
+  last: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 
   /**
    * 当为true,显示前一页按钮
    */
-  prev: PropTypes.oneOfType([
-    PropTypes.bool, 
-    PropTypes.node,
-  ]),
+  prev: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 
   /**
    * 当为true,显示下一页按钮
    */
-  next: PropTypes.oneOfType([
-    PropTypes.bool, 
-    PropTypes.node,
-  ]),
+  next: PropTypes.oneOfType([PropTypes.bool, PropTypes.node]),
 
   /**
    * 暴露给用户的切换页的方法
@@ -87,14 +72,19 @@ const defaultProps = {
   next: false,
   ellipsis: true,
   boundaryLinks: false,
-  clsPrefix: 'u-pagination',
-  gap:false,
-  noBorder:false
+  clsPrefix: "u-pagination",
+  gap: false,
+  noBorder: false
 };
 
 class Pagination extends React.Component {
   renderPageButtons(
-    activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps
+    activePage,
+    items,
+    maxButtons,
+    boundaryLinks,
+    ellipsis,
+    buttonProps
   ) {
     let pageButtons = [];
 
@@ -107,7 +97,7 @@ class Pagination extends React.Component {
       let hiddenPagesBefore = activePage - parseInt(maxButtons / 2, 10);
       startPage = hiddenPagesBefore > 2 ? hiddenPagesBefore : 1;
       //计算出是否存在隐藏activeButton之后的页数
-      hasHiddenPagesAfter = startPage + maxButtons < items+1;
+      hasHiddenPagesAfter = startPage + maxButtons < items + 1;
 
       if (!hasHiddenPagesAfter) {
         endPage = items;
@@ -144,18 +134,13 @@ class Pagination extends React.Component {
           componentClass={buttonProps.componentClass}
         >
           <span aria-label="More">
-            {ellipsis === true ? '\u2026' : ellipsis}
+            {ellipsis === true ? "\u2026" : ellipsis}
           </span>
         </PaginationButton>
       );
       //加上最小边界 Button
       pageButtons.unshift(
-        <PaginationButton
-          {...buttonProps}
-          key={1}
-          eventKey={1}
-          active={false}
-        >
+        <PaginationButton {...buttonProps} key={1} eventKey={1} active={false}>
           1
         </PaginationButton>
       );
@@ -169,11 +154,11 @@ class Pagination extends React.Component {
           componentClass={buttonProps.componentClass}
         >
           <span aria-label="More">
-            {ellipsis === true ? '\u2026' : ellipsis}
+            {ellipsis === true ? "\u2026" : ellipsis}
           </span>
         </PaginationButton>
       );
-       //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
+      //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
       if (boundaryLinks && endPage !== items) {
         pageButtons.push(
           <PaginationButton
@@ -212,18 +197,17 @@ class Pagination extends React.Component {
       ...others
     } = this.props;
 
-
     const classes = {};
-    if(noBorder){
-        classes[`${clsPrefix}-no-border`] = true;
+    if (noBorder) {
+      classes[`${clsPrefix}-no-border`] = true;
     }
-    if(size){
-        classes[`${clsPrefix}-${size}`] = true;
+    if (size) {
+      classes[`${clsPrefix}-${size}`] = true;
     }
-    if(gap){
-        classes[`${clsPrefix}-gap`] = true;
+    if (gap) {
+      classes[`${clsPrefix}-gap`] = true;
     }
-    let classNames = classnames(clsPrefix,classes);
+    let classNames = classnames(clsPrefix, classes);
 
     /**
      *  页按钮属性
@@ -232,23 +216,18 @@ class Pagination extends React.Component {
      */
     const buttonProps = {
       onSelect,
-      componentClass: buttonComponentClass,
+      componentClass: buttonComponentClass
     };
 
     return (
-      <ul
-        {...others}
-        className={classnames(className, classNames)}
-      >
+      <ul {...others} className={classnames(className, classNames)}>
         {first && (
           <PaginationButton
             {...buttonProps}
             eventKey={1}
             disabled={activePage === 1}
           >
-            <span aria-label="First">
-              {first === true ? '\u00ab' : first}
-            </span>
+            <span aria-label="First">{first === true ? "\u00ab" : first}</span>
           </PaginationButton>
         )}
         {prev && (
@@ -257,14 +236,17 @@ class Pagination extends React.Component {
             eventKey={activePage - 1}
             disabled={activePage === 1}
           >
-            <span aria-label="Previous">
-              {prev === true ? '\u2039' : prev}
-            </span>
+            <span aria-label="Previous">{prev === true ? "\u2039" : prev}</span>
           </PaginationButton>
         )}
 
         {this.renderPageButtons(
-          activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps
+          activePage,
+          items,
+          maxButtons,
+          boundaryLinks,
+          ellipsis,
+          buttonProps
         )}
 
         {next && (
@@ -273,9 +255,7 @@ class Pagination extends React.Component {
             eventKey={activePage + 1}
             disabled={activePage >= items}
           >
-            <span aria-label="Next">
-              {next === true ? '\u203a' : next}
-            </span>
+            <span aria-label="Next">{next === true ? "\u203a" : next}</span>
           </PaginationButton>
         )}
         {last && (
@@ -284,9 +264,7 @@ class Pagination extends React.Component {
             eventKey={items}
             disabled={activePage >= items}
           >
-            <span aria-label="Last">
-              {last === true ? '\u00bb' : last}
-            </span>
+            <span aria-label="Last">{last === true ? "\u00bb" : last}</span>
           </PaginationButton>
         )}
       </ul>
