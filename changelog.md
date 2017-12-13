@@ -1,5 +1,11 @@
+<a name="1.0.2"></a>
+## 1.0.2 (2017-12-13)
 
-|时间|说明|版本|
-|---|----|---|
-|2017-8-29|去掉a标签上的eventKey props|0.1.6|
-|2017-9-4|修改版本|0.1.7|
+
+### Bug Fixes
+
+* scss样式bug ([24094db](https://github.com/tinper-bee/pagination/commit/24094db))
+* 修改当总共页数和最大按钮数只差一个时显示出错的bug ([d84efbe](https://github.com/tinper-bee/pagination/commit/d84efbe))
+
+
+
