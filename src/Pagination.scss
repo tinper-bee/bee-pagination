@@ -2,192 +2,248 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 
 .u-pagination {
+  &-list {
     font-size: 14px;
     margin: 5px;
-    &:after{
-        clear:both;
-        display: table;
-        content: '';
+    &:after {
+      clear: both;
+      display: table;
+      content: '';
     }
     & > li > a, & > li > span {
-        display: inline-block;
-        text-decoration: none;
-        border-top: 1px solid $pag-border-color;
-        border-bottom: 1px solid $pag-border-color;
-        border-left: 1px solid $pag-border-color;
-        background-color: white;
-        text-align: center;
-        color:$pag-color;
-        padding: 6px 11px;
-        line-height: 1.57142857;
+      display: inline-block;
+      text-decoration: none;
+      border-top: 1px solid $pag-border-color;
+      border-bottom: 1px solid $pag-border-color;
+      border-left: 1px solid $pag-border-color;
+      background-color: white;
+      text-align: center;
+      color: $pag-color;
+      padding: 6px 11px;
+      line-height: 1.57142857;
     }
-    & > li:first-child > a,& > li:first-child > span {
-        margin-left: 0;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
-    & > li:last-child > a,&  > li:last-child > span{
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-    & > li[role="next"]> a{
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-right: 1px solid #d7d7d7;
-    }
-    & > li {
-        float: left;
-        list-style-type: none;
-        > a:hover, > span:hover, > a:focus, > span:focus{
-            color: $pag-hover-color;
-            background-color: $pag-hover-bg-color;
-            border-color: $pag-hover-border-color;
-            cursor: pointer;
-        }
-        > a > i {
-            color: #999999;
-        }
-    }
-    & > .active{
-        > a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
-            z-index: 2;
-            color: $pag-active-color;
-            cursor: default;
-            background-color: $pag-active-bg-color;
-            border-color: $pag-active-border-color;
-        }
-    } 
-    & > .disabled {
-        > a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
-            color: $pag-disabled-color;
-            cursor: not-allowed;
-            background-color: $pag-disabled-bg-color;
-            border-color: $pag-disabled-border-color;
-        }
-        > a > i {
-            color: #cccccc;
-        }
-    }
-    & > li[role="gap"]> a {
-        background-color: transparent;
-        border-bottom: 0px solid #d7d7d7;
-        border-top: 0px solid #d7d7d7;
-        padding: 7px 11px;
-        line-height: 1.57142857;
-    }
-    & > li[role="gap"]{
-        > a:hover,> a:focus {
-            background-color: transparent;
-        }
-    } 
-    input{
-        box-sizing:border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-    }
-    li,a{
-        box-sizing:content-box;
-    }
-    i.uf,i.fa{
-        padding: 0px;
-        font-size: 12px;
+    & > li:first-child > a, & > li:first-child > span {
+      margin-left: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
     }
     & > li:last-child > a, & > li:last-child > span {
-        border-right: 1px solid #d7d7d7;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
     }
+    & > li[role="next"] > a {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-right: 1px solid #d7d7d7;
+    }
+    & > li {
+      float: left;
+      list-style-type: none;
+      > a:hover, > span:hover, > a:focus, > span:focus {
+        color: $pag-hover-color;
+        background-color: $pag-hover-bg-color;
+        border-color: $pag-hover-border-color;
+        cursor: pointer;
+      }
+      > a > i {
+        color: #999999;
+      }
+    }
+    & > .active {
+      > a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
+        z-index: 2;
+        color: $pag-active-color;
+        cursor: default;
+        background-color: $pag-active-bg-color;
+        border-color: $pag-active-border-color;
+      }
+    }
+    & > .disabled {
+      > a, > span, > a:hover, > span:hover, > a:focus, > span:focus {
+        color: $pag-disabled-color;
+        cursor: not-allowed;
+        background-color: $pag-disabled-bg-color;
+        border-color: $pag-disabled-border-color;
+      }
+      > a > i {
+        color: #cccccc;
+      }
+    }
+    & > li[role="gap"] > a {
+      background-color: transparent;
+      border-bottom: 0px solid #d7d7d7;
+      border-top: 0px solid #d7d7d7;
+      padding: 7px 11px;
+      line-height: 1.57142857;
+    }
+    & > li[role="gap"] {
+      > a:hover, > a:focus {
+        background-color: transparent;
+      }
+    }
+    input {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+    li, a {
+      box-sizing: content-box;
+    }
+    i.uf, i.fa {
+      padding: 0px;
+      font-size: 12px;
+    }
+    & > li:last-child > a, & > li:last-child > span {
+      border-right: 1px solid #d7d7d7;
+    }
+  }
+
+  .temp-main {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+  }
+  .enhanced_pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: 700px;
+    overflow: auto;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
+  .enhanced_pagination .u_float_pagination {
+    float: left;
+  }
+  .data_per_select {
+    margin: 5px;
+    float: left;
+  }
+  .data_select {
+    outline: none;
+    -webkit-appearance: none;
+    height: 28px;
+    background: rgba(9, 30, 66, .04);
+    border-color: #e9e7e7;
+    border-radius: 4px;
+    line-height: 28px;
+    padding: 0 15px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 6px;
+
+  }
+  .page_jump {
+    font-size: 14px;
+    float: left;
+    margin: 5px;
+  }
+  input.page_jump_value {
+    outline: none;
+    -webkit-appearance: none;
+    background: rgba(9, 30, 66, .04);
+    border-radius: 4px;
+    line-height: 28px;
+    width: 80px;
+    margin: 0 6px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #e9e7e7;
+  }
 }
 
 .pagination-state {
-    float: left;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    font-size: 12px;
-    color: $pag-hover-color;
-    margin-left: 10px;
-    & > .page_j{
-        margin: 0 4px;
-        width: 40px;
-        border: 1px solid #ddd;
-        padding-left: 2px;
-        height: 35px;
-        line-height: 35px;
-        color:#333333;
-    }
-    & > .page_z {
-        margin: 0 4px;
-        width: 50px;
-        border: 1px solid #ddd;
-        padding-left: 2px;
-        height: 35px;
-        line-height: 35px;
-        color:#333333;
-    }
-    & > .pagination-jump {
-        margin: 0 10px;
-        width: 50px;
-        line-height: 30px;
-        border: 1px solid #ddd;
-        background-color: white;
-        font-size: 14px;
-        font-family: '微软雅黑';
-        cursor: pointer;
-        color: #333333;
-        height: 35px;
-    }
-    & > .pagination-jump:hover {
-        background-color: #eee;
-    }
+  float: left;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  font-size: 12px;
+  color: $pag-hover-color;
+  margin-left: 10px;
+  & > .page_j {
+    margin: 0 4px;
+    width: 40px;
+    border: 1px solid #ddd;
+    padding-left: 2px;
+    height: 35px;
+    line-height: 35px;
+    color: #333333;
+  }
+  & > .page_z {
+    margin: 0 4px;
+    width: 50px;
+    border: 1px solid #ddd;
+    padding-left: 2px;
+    height: 35px;
+    line-height: 35px;
+    color: #333333;
+  }
+  & > .pagination-jump {
+    margin: 0 10px;
+    width: 50px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    cursor: pointer;
+    color: #333333;
+    height: 35px;
+  }
+  & > .pagination-jump:hover {
+    background-color: #eee;
+  }
 }
 
 // Size Modifier
 .u-pagination-lg {
-    @include pagination-size($pagination-lg-padding-vertical, $pagination-lg-padding-horizontal, $pagination-lg-font-size, $line-height-large, $border-radius-large);
+  @include pagination-size($pagination-lg-padding-vertical, $pagination-lg-padding-horizontal, $pagination-lg-font-size, $line-height-large, $border-radius-large);
 }
 
 .u-pagination-sm {
-    @include pagination-size($pagination-small-padding-vertical, $pagination-small-padding-horizontal, $pagination-small-font-size, $line-height-small, $border-radius-small);
+  @include pagination-size($pagination-small-padding-vertical, $pagination-small-padding-horizontal, $pagination-small-font-size, $line-height-small, $border-radius-small);
 }
 
-
 //无边框
-.u-pagination-no-border{
-    >li>a, > li[role="next"] > a {
-        border: none;
-    }
-    > li:last-child > a,> li:last-child > span{
-        border: none;
-    }
+.u-pagination-no-border {
+  > li > a, > li[role="next"] > a {
+    border: none;
+  }
+  > li:last-child > a, > li:last-child > span {
+    border: none;
+  }
 }
 
 // 有间距的分页
-.u-pagination-gap>li:first-child>a,
-.u-pagination-gap>li:last-child>a {
-    border-radius: 5px;
+.u-pagination-gap > li:first-child > a,
+.u-pagination-gap > li:last-child > a {
+  border-radius: 5px;
 }
+
 .u-pagination-gap {
-    > li {
-        > a {
-            margin: 0 5px;
-            border-radius: 5px;
-            border: 1px solid #d7d7d7;
-            &:hover {
-                background-color: transparent;
-                border-color: $pagination-gap-hover-border;
-            }
-        }
-        &:first-child,
-        &:last-child {
-            > a {
-                border-radius: 5px;
-            }
-        }
-    }
-    >li[role="gap"]{
-      > a {
-        border : 0 solid #d7d7d7;
+  > li {
+    > a {
+      margin: 0 5px;
+      border-radius: 5px;
+      border: 1px solid #d7d7d7;
+      &:hover {
+        background-color: transparent;
+        border-color: $pagination-gap-hover-border;
       }
     }
+    &:first-child,
+    &:last-child {
+      > a {
+        border-radius: 5px;
+      }
+    }
+  }
+  > li[role="gap"] {
+    > a {
+      border: 0 solid #d7d7d7;
+    }
+  }
 }
 
 

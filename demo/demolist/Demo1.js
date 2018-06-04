@@ -23,7 +23,7 @@ class Demo1 extends React.Component {
 	      <div>
 	        <Pagination
 	        	boundaryLinks
-		        items={10}
+		        items={11}
 		        activePage={this.state.activePage}
 		        onSelect={this.handleSelect.bind(this)} />
 	      </div>

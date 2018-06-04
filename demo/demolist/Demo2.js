@@ -27,7 +27,7 @@ class Demo2 extends React.Component {
 	        	prev
 	        	next
 	        	boundaryLinks
-		        items={20}
+		        items={11}
 		        maxButtons={5}
 		        activePage={this.state.activePage}
 		        onSelect={this.handleSelect.bind(this)} />

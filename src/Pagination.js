@@ -223,7 +223,7 @@ class Pagination extends React.Component {
     if(gap){
         classes[`${clsPrefix}-gap`] = true;
     }
-    let classNames = classnames(clsPrefix,classes);
+    let classNames = classnames(`${clsPrefix}-list`,classes);
 
     /**
      *  页按钮属性
@@ -236,60 +236,73 @@ class Pagination extends React.Component {
     };
 
     return (
-      <ul
-        {...others}
-        className={classnames(className, classNames)}
-      >
-        {first && (
-          <PaginationButton
-            {...buttonProps}
-            eventKey={1}
-            disabled={activePage === 1}
+        <div className={clsPrefix}>
+          <ul
+              {...others}
+              className={classnames(className, classNames)}
           >
+              {first && (
+                  <PaginationButton
+                      {...buttonProps}
+                      eventKey={1}
+                      disabled={activePage === 1}
+                  >
             <span aria-label="First">
               {first === true ? '\u00ab' : first}
             </span>
-          </PaginationButton>
-        )}
-        {prev && (
-          <PaginationButton
-            {...buttonProps}
-            eventKey={activePage - 1}
-            disabled={activePage === 1}
-          >
+                  </PaginationButton>
+              )}
+              {prev && (
+                  <PaginationButton
+                      {...buttonProps}
+                      eventKey={activePage - 1}
+                      disabled={activePage === 1}
+                  >
             <span aria-label="Previous">
               {prev === true ? '\u2039' : prev}
             </span>
-          </PaginationButton>
-        )}
+                  </PaginationButton>
+              )}
 
-        {this.renderPageButtons(
-          activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps
-        )}
+              {this.renderPageButtons(
+                  activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps
+              )}
 
-        {next && (
-          <PaginationButton
-            {...buttonProps}
-            eventKey={activePage + 1}
-            disabled={activePage >= items}
-          >
+              {next && (
+                  <PaginationButton
+                      {...buttonProps}
+                      eventKey={activePage + 1}
+                      disabled={activePage >= items}
+                  >
             <span aria-label="Next">
               {next === true ? '\u203a' : next}
             </span>
-          </PaginationButton>
-        )}
-        {last && (
-          <PaginationButton
-            {...buttonProps}
-            eventKey={items}
-            disabled={activePage >= items}
-          >
+                  </PaginationButton>
+              )}
+              {last && (
+                  <PaginationButton
+                      {...buttonProps}
+                      eventKey={items}
+                      disabled={activePage >= items}
+                  >
             <span aria-label="Last">
               {last === true ? '\u00bb' : last}
             </span>
-          </PaginationButton>
-        )}
-      </ul>
+                  </PaginationButton>
+              )}
+          </ul>
+          <div className={"data_per_select"}>
+            <select  name="data-select" id="" className={"data_select"}  value={dataNum} onChange={e=>this.dataNumSelect(e)}>
+                {dataNumSelect.length > 0 && dataNumSelect.map((item, i) => {
+                    return <option key={i} value={item.id}>{item.name}</option>
+                })}
+            </select>
+          </div>
+          <div className={"page_jump"}>
+            跳至<input className={"page_jump_value"} type='number' value={this.state.activePage} onKeyDown={e=>this.onKeyup(e)} onChange={e=>this.setPageJump(e) }/>页
+          </div>
+        </div>
+
     );
   }
 }
