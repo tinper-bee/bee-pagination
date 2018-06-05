@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6,19 +6,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _classnames = require('classnames');
+var _classnames = require("classnames");
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PaginationButton = require('./PaginationButton');
+var _PaginationButton = require("./PaginationButton");
 
 var _PaginationButton2 = _interopRequireDefault(_PaginationButton);
 
-var _propTypes = require('prop-types');
+var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -55,7 +55,7 @@ var propTypes = {
 
   /**
    * 当为true,显示省略号，否则
-   * 
+   *
    */
   ellipsis: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 
@@ -100,7 +100,7 @@ var defaultProps = {
   next: false,
   ellipsis: true,
   boundaryLinks: false,
-  clsPrefix: 'u-pagination',
+  clsPrefix: "u-pagination",
   gap: false,
   noBorder: false
 };
@@ -126,7 +126,7 @@ var Pagination = function (_React$Component) {
       var hiddenPagesBefore = activePage - parseInt(maxButtons / 2, 10);
       startPage = hiddenPagesBefore > 2 ? hiddenPagesBefore : 1;
       //计算出是否存在隐藏activeButton之后的页数
-      hasHiddenPagesAfter = startPage + maxButtons < items;
+      hasHiddenPagesAfter = startPage + maxButtons < items + 1;
 
       if (!hasHiddenPagesAfter) {
         endPage = items;
@@ -158,25 +158,21 @@ var Pagination = function (_React$Component) {
       pageButtons.unshift(_react2["default"].createElement(
         _PaginationButton2["default"],
         {
-          key: 'ellipsisFirst',
+          key: "ellipsisFirst",
           disabled: true,
           componentClass: buttonProps.componentClass
         },
         _react2["default"].createElement(
-          'span',
-          { 'aria-label': 'More' },
-          ellipsis === true ? '\u2026' : ellipsis
+          "span",
+          { "aria-label": "More" },
+          ellipsis === true ? "\u2026" : ellipsis
         )
       ));
       //加上最小边界 Button
       pageButtons.unshift(_react2["default"].createElement(
         _PaginationButton2["default"],
-        _extends({}, buttonProps, {
-          key: 1,
-          eventKey: 1,
-          active: false
-        }),
-        '1'
+        _extends({}, buttonProps, { key: 1, eventKey: 1, active: false }),
+        "1"
       ));
     }
     //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
@@ -184,14 +180,14 @@ var Pagination = function (_React$Component) {
       pageButtons.push(_react2["default"].createElement(
         _PaginationButton2["default"],
         {
-          key: 'ellipsis',
+          key: "ellipsis",
           disabled: true,
           componentClass: buttonProps.componentClass
         },
         _react2["default"].createElement(
-          'span',
-          { 'aria-label': 'More' },
-          ellipsis === true ? '\u2026' : ellipsis
+          "span",
+          { "aria-label": "More" },
+          ellipsis === true ? "\u2026" : ellipsis
         )
       ));
       //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
@@ -229,17 +225,17 @@ var Pagination = function (_React$Component) {
         clsPrefix = _props.clsPrefix,
         size = _props.size,
         gap = _props.gap,
-        others = _objectWithoutProperties(_props, ['activePage', 'items', 'maxButtons', 'boundaryLinks', 'ellipsis', 'first', 'last', 'prev', 'next', 'onSelect', 'buttonComponentClass', 'noBorder', 'className', 'clsPrefix', 'size', 'gap']);
+        others = _objectWithoutProperties(_props, ["activePage", "items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap"]);
 
     var classes = {};
     if (noBorder) {
-      classes[clsPrefix + '-no-border'] = true;
+      classes[clsPrefix + "-no-border"] = true;
     }
     if (size) {
-      classes[clsPrefix + '-' + size] = true;
+      classes[clsPrefix + "-" + size] = true;
     }
     if (gap) {
-      classes[clsPrefix + '-gap'] = true;
+      classes[clsPrefix + "-gap"] = true;
     }
     var classNames = (0, _classnames2["default"])(clsPrefix, classes);
 
@@ -254,10 +250,8 @@ var Pagination = function (_React$Component) {
     };
 
     return _react2["default"].createElement(
-      'ul',
-      _extends({}, others, {
-        className: (0, _classnames2["default"])(className, classNames)
-      }),
+      "ul",
+      _extends({}, others, { className: (0, _classnames2["default"])(className, classNames) }),
       first && _react2["default"].createElement(
         _PaginationButton2["default"],
         _extends({}, buttonProps, {
@@ -265,9 +259,9 @@ var Pagination = function (_React$Component) {
           disabled: activePage === 1
         }),
         _react2["default"].createElement(
-          'span',
-          { 'aria-label': 'First' },
-          first === true ? '\xAB' : first
+          "span",
+          { "aria-label": "First" },
+          first === true ? "\xAB" : first
         )
       ),
       prev && _react2["default"].createElement(
@@ -277,9 +271,9 @@ var Pagination = function (_React$Component) {
           disabled: activePage === 1
         }),
         _react2["default"].createElement(
-          'span',
-          { 'aria-label': 'Previous' },
-          prev === true ? '\u2039' : prev
+          "span",
+          { "aria-label": "Previous" },
+          prev === true ? "\u2039" : prev
         )
       ),
       this.renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps),
@@ -290,9 +284,9 @@ var Pagination = function (_React$Component) {
           disabled: activePage >= items
         }),
         _react2["default"].createElement(
-          'span',
-          { 'aria-label': 'Next' },
-          next === true ? '\u203A' : next
+          "span",
+          { "aria-label": "Next" },
+          next === true ? "\u203A" : next
         )
       ),
       last && _react2["default"].createElement(
@@ -302,9 +296,9 @@ var Pagination = function (_React$Component) {
           disabled: activePage >= items
         }),
         _react2["default"].createElement(
-          'span',
-          { 'aria-label': 'Last' },
-          last === true ? '\xBB' : last
+          "span",
+          { "aria-label": "Last" },
+          last === true ? "\xBB" : last
         )
       )
     );
@@ -317,4 +311,4 @@ Pagination.propTypes = propTypes;
 Pagination.defaultProps = defaultProps;
 
 exports["default"] = Pagination;
-module.exports = exports['default'];
+module.exports = exports["default"];

@@ -62,10 +62,6 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _src = __webpack_require__(105);
-	
-	var _src2 = _interopRequireDefault(_src);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -80,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(108);var Demo2 = __webpack_require__(109);var Demo3 = __webpack_require__(110);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\n * @title 少页数Pagination\n * @description 所有页数均显示。\n */\n\nimport React, { Component } from 'react';\nimport Pagination from 'bee-pagination';\n\nclass Demo1 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t        \tboundaryLinks\n\t\t        items={11}\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)} />\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\n * @title 多页数Pagination\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\n */\n\nimport React, { Component } from 'react';\nimport Pagination from 'bee-pagination';\n\nclass Demo2 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t        \tfirst\n\t        \tlast\n\t        \tprev\n\t        \tnext\n\t        \tboundaryLinks\n\t\t        items={11}\n\t\t        maxButtons={5}\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)} />\n\t      </div>\n\t    );\n\t}\n}\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\n * @title 有间隔Pagination\n * @description 有间隔Pagination\n */\n\nimport React, { Component } from \"react\";\nimport Pagination from \"../../src\";\n\nclass Demo3 extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      activePage: 1\n    };\n  }\n  handleSelect(eventKey) {\n    this.setState({\n      activePage: eventKey\n    });\n  }\n  render() {\n    return (\n      <Pagination\n        prev\n        next\n        size=\"sm\"\n        gap={true}\n        items={5}\n        maxButtons={5}\n        activePage={this.state.activePage}\n        onSelect={this.handleSelect.bind(this)}\n      />\n    );\n  }\n}\n\n", "desc": " 有间隔Pagination" }];
+	var Demo1 = __webpack_require__(105);var Demo2 = __webpack_require__(109);var Demo3 = __webpack_require__(110);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\n * @title 少页数Pagination\n * @description 所有页数均显示。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo1 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t        \tboundaryLinks\n\t\t        items={11}\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)} />\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\n * @title 多页数Pagination\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo2 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t        \tfirst\n\t        \tlast\n\t        \tprev\n\t        \tnext\n\t        \tboundaryLinks\n\t\t        items={11}\n\t\t        maxButtons={5}\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)} />\n\t      </div>\n\t    );\n\t}\n}\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\n * @title 有间隔Pagination\n * @description 有间隔Pagination\n */\n\nimport React, { Component } from \"react\";\nimport { Pagination } from 'tinper-bee';\n\nclass Demo3 extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      activePage: 1\n    };\n  }\n  handleSelect(eventKey) {\n    this.setState({\n      activePage: eventKey\n    });\n  }\n  render() {\n    return (\n      <Pagination\n        prev\n        next\n        size=\"sm\"\n        gap={true}\n        items={5}\n        maxButtons={5}\n        activePage={this.state.activePage}\n        onSelect={this.handleSelect.bind(this)}\n      />\n    );\n  }\n}\n\n", "desc": " 有间隔Pagination" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -106,16 +102,22 @@
 	            title = _props.title,
 	            example = _props.example,
 	            code = _props.code,
-	            desc = _props.desc;
+	            desc = _props.desc,
+	            scss_code = _props.scss_code;
 	
 	        var caret = this.state.open ? CARETUP : CARET;
 	        var text = this.state.open ? "隐藏代码" : "查看代码";
 	
-	        var footer = _react2['default'].createElement(
-	            _beeButton2['default'],
-	            { shape: 'block', onClick: this.handleClick },
-	            caret,
-	            text
+	        var header = _react2['default'].createElement(
+	            'div',
+	            null,
+	            example,
+	            _react2['default'].createElement(
+	                _beeButton2['default'],
+	                { style: { "marginTop": "10px" }, shape: 'block', onClick: this.handleClick },
+	                caret,
+	                text
+	            )
 	        );
 	        return _react2['default'].createElement(
 	            _beeLayout.Col,
@@ -132,7 +134,8 @@
 	            ),
 	            _react2['default'].createElement(
 	                _beePanel.Panel,
-	                { collapsible: true, expanded: this.state.open, colors: 'bordered', header: example, footer: footer, footerStyle: { padding: 0, borderColor: "transparent" } },
+	                { collapsible: true, headerContent: true, expanded: this.state.open, colors: 'bordered', header: header,
+	                    footerStyle: { padding: 0 } },
 	                _react2['default'].createElement(
 	                    'pre',
 	                    null,
@@ -141,7 +144,16 @@
 	                        { className: 'hljs javascript' },
 	                        code
 	                    )
-	                )
+	                ),
+	                !!scss_code ? _react2['default'].createElement(
+	                    'pre',
+	                    null,
+	                    _react2['default'].createElement(
+	                        'code',
+	                        { className: 'hljs css' },
+	                        scss_code
+	                    )
+	                ) : null
 	            )
 	        );
 	    };
@@ -164,7 +176,8 @@
 	            null,
 	            DemoArray.map(function (child, index) {
 	
-	                return _react2['default'].createElement(Demo, { example: child.example, title: child.title, code: child.code, desc: child.desc, key: index });
+	                return _react2['default'].createElement(Demo, { example: child.example, title: child.title, code: child.code, scss_code: child.scss_code,
+	                    desc: child.desc, key: index });
 	            })
 	        );
 	    };
@@ -7795,16 +7808,66 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
-	var _Pagination = __webpack_require__(106);
+	var _react = __webpack_require__(4);
 	
-	var _Pagination2 = _interopRequireDefault(_Pagination);
-
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _src = __webpack_require__(106);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	exports['default'] = _Pagination2['default'];
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 少页数Pagination
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 所有页数均显示。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var Demo1 = function (_React$Component) {
+		_inherits(Demo1, _React$Component);
+	
+		function Demo1(props) {
+			_classCallCheck(this, Demo1);
+	
+			var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+	
+			_this.state = {
+				activePage: 1
+			};
+			return _this;
+		}
+	
+		Demo1.prototype.handleSelect = function handleSelect(eventKey) {
+			this.setState({
+				activePage: eventKey
+			});
+		};
+	
+		Demo1.prototype.render = function render() {
+			return _react2['default'].createElement(
+				'div',
+				null,
+				_react2['default'].createElement(_src2['default'], {
+					boundaryLinks: true,
+					items: 11,
+					activePage: this.state.activePage,
+					onSelect: this.handleSelect.bind(this) })
+			);
+		};
+	
+		return Demo1;
+	}(_react2['default'].Component);
+	
+	exports['default'] = Demo1;
 	module.exports = exports['default'];
 
 /***/ }),
@@ -7817,6 +7880,25 @@
 	  value: true
 	});
 	
+	var _Pagination = __webpack_require__(107);
+	
+	var _Pagination2 = _interopRequireDefault(_Pagination);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	exports['default'] = _Pagination2['default'];
+	module.exports = exports['default'];
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
 	var _classnames = __webpack_require__(3);
@@ -7827,7 +7909,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _PaginationButton = __webpack_require__(107);
+	var _PaginationButton = __webpack_require__(108);
 	
 	var _PaginationButton2 = _interopRequireDefault(_PaginationButton);
 	
@@ -7835,7 +7917,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 	
@@ -7848,292 +7930,370 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
 	var propTypes = {
-	  /**
-	   * 当前激活状态页
-	   */
-	  activePage: _propTypes2['default'].number,
-	  /**
-	   * 总页数
-	   */
-	  items: _propTypes2['default'].number,
-	  /**
-	   * 显示按钮从1到maxButton的按钮数
-	   */
-	  maxButtons: _propTypes2['default'].number,
+	    /**
+	     * 当前激活状态页
+	     */
+	    activePage: _propTypes2["default"].number,
+	    /**
+	     * 总页数
+	     */
+	    items: _propTypes2["default"].number,
+	    /**
+	     * 显示按钮从1到maxButton的按钮数
+	     */
+	    maxButtons: _propTypes2["default"].number,
 	
-	  /**
-	   * 当为true,不管切换到多少页都显示第一页和最后一页的按钮
-	   */
-	  boundaryLinks: _propTypes2['default'].bool,
+	    /**
+	     * 当为true,不管切换到多少页都显示第一页和最后一页的按钮
+	     */
+	    boundaryLinks: _propTypes2["default"].bool,
 	
-	  /**
-	   * 当为true,显示省略号，否则
-	   * 
-	   */
-	  ellipsis: _propTypes2['default'].oneOfType([_propTypes2['default'].bool, _propTypes2['default'].node]),
+	    /**
+	     * 当为true,显示省略号，否则
+	     *
+	     */
+	    ellipsis: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 	
-	  /**
-	   *  当为true,显示点击到第一页的按钮
-	   */
-	  first: _propTypes2['default'].oneOfType([_propTypes2['default'].bool, _propTypes2['default'].node]),
+	    /**
+	     *  当为true,显示点击到第一页的按钮
+	     */
+	    first: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 	
-	  /**
-	   *  当为true,显示点击到最后一页的按钮
-	   */
-	  last: _propTypes2['default'].oneOfType([_propTypes2['default'].bool, _propTypes2['default'].node]),
+	    /**
+	     *  当为true,显示点击到最后一页的按钮
+	     */
+	    last: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 	
-	  /**
-	   * 当为true,显示前一页按钮
-	   */
-	  prev: _propTypes2['default'].oneOfType([_propTypes2['default'].bool, _propTypes2['default'].node]),
+	    /**
+	     * 当为true,显示前一页按钮
+	     */
+	    prev: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 	
-	  /**
-	   * 当为true,显示下一页按钮
-	   */
-	  next: _propTypes2['default'].oneOfType([_propTypes2['default'].bool, _propTypes2['default'].node]),
+	    /**
+	     * 当为true,显示下一页按钮
+	     */
+	    next: _propTypes2["default"].oneOfType([_propTypes2["default"].bool, _propTypes2["default"].node]),
 	
-	  /**
-	   * 暴露给用户的切换页的方法
-	   */
-	  onSelect: _propTypes2['default'].func,
+	    /**
+	     * 暴露给用户的切换页的方法
+	     */
+	    onSelect: _propTypes2["default"].func,
 	
-	  /**
-	   * You can use a custom element for the buttons
-	   */
-	  buttonComponentClass: _propTypes2['default'].oneOfType([_propTypes2['default'].element, _propTypes2['default'].string])
+	    /**
+	     * You can use a custom element for the buttons
+	     */
+	    buttonComponentClass: _propTypes2["default"].oneOfType([_propTypes2["default"].element, _propTypes2["default"].string])
 	};
 	
 	var defaultProps = {
-	  activePage: 1,
-	  items: 1,
-	  maxButtons: 0,
-	  first: false,
-	  last: false,
-	  prev: false,
-	  next: false,
-	  ellipsis: true,
-	  boundaryLinks: false,
-	  clsPrefix: 'u-pagination',
-	  gap: false,
-	  noBorder: false
+	    activePage: 1,
+	    items: 1,
+	    maxButtons: 0,
+	    first: false,
+	    last: false,
+	    prev: false,
+	    next: false,
+	    ellipsis: true,
+	    boundaryLinks: false,
+	    clsPrefix: "u-pagination",
+	    gap: false,
+	    noBorder: false,
+	    dataNumSelect: [{ id: 0, name: '5条/页' }, { id: 1, name: '10条/页' }, { id: 2, name: '15条/页' }, { id: 3, name: '20条/页' }],
+	    dataNum: 1
 	};
 	
 	var Pagination = function (_React$Component) {
-	  _inherits(Pagination, _React$Component);
+	    _inherits(Pagination, _React$Component);
 	
-	  function Pagination() {
-	    _classCallCheck(this, Pagination);
+	    function Pagination(props, context) {
+	        _classCallCheck(this, Pagination);
 	
-	    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-	  }
+	        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props, context));
 	
-	  Pagination.prototype.renderPageButtons = function renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps) {
-	    var pageButtons = [];
+	        _this.onKeyup = function (e) {
+	            e.keyCode === 13 && _this.setPageJump(e);
+	        };
 	
-	    var startPage = void 0;
-	    var endPage = void 0;
-	    var hasHiddenPagesAfter = void 0;
+	        _this.setPageJump = function (e) {
+	            var value = e.target.value;
+	            if (value < 1 && value !== '' || value > _this.props.items || value == 0 && value !== '') {
+	                return false;
+	            } else {
+	                //注意这里要将下拉的数据还原
+	                _this.setState({ activePage: value }, function () {
+	                    if (value !== '') this.props.onSelect(value * 1);
+	                });
+	            }
+	        };
 	
-	    if (maxButtons) {
-	      //根据max很当前activepage计算出应隐藏activeButton之前的页数
-	      var hiddenPagesBefore = activePage - parseInt(maxButtons / 2, 10);
-	      startPage = hiddenPagesBefore > 2 ? hiddenPagesBefore : 1;
-	      //计算出是否存在隐藏activeButton之后的页数
-	      hasHiddenPagesAfter = startPage + maxButtons < items;
+	        _this.dataNumSelect = function (e) {
+	            var value = e.target.value * 1;
+	            var dataNumValue = _this.props.dataNumSelect[value].name;
+	            _this.setState({
+	                dataNum: value
+	            });
+	            if (_this.props.onDataNumSelect) {
+	                _this.props.onDataNumSelect(value, dataNumValue);
+	            }
+	        };
 	
-	      if (!hasHiddenPagesAfter) {
-	        endPage = items;
-	        startPage = items - maxButtons + 1;
-	        if (startPage < 1) {
-	          startPage = 1;
+	        _this.state = {
+	            activePage: _this.props.activePage //当前的页码
+	        };
+	        return _this;
+	    }
+	
+	    Pagination.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        if (this.state.activePage !== nextProps.activePage) {
+	            this.setState({
+	                activePage: nextProps.activePage
+	            });
 	        }
-	      } else {
-	        endPage = startPage + maxButtons - 1;
-	      }
-	    } else {
-	      startPage = 1;
-	      endPage = items;
-	    }
-	    //将所有的button循环渲染出来
-	    for (var pagenumber = startPage; pagenumber <= endPage; pagenumber++) {
-	      pageButtons.push(_react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        _extends({}, buttonProps, {
-	          key: pagenumber,
-	          eventKey: pagenumber,
-	          active: pagenumber === activePage
-	        }),
-	        pagenumber
-	      ));
-	    }
-	    //如果boundaryLinks和eclipsis且startPage!=1 需要加上before More Button
-	    if (boundaryLinks && ellipsis && startPage !== 1) {
-	      pageButtons.unshift(_react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        {
-	          key: 'ellipsisFirst',
-	          disabled: true,
-	          componentClass: buttonProps.componentClass
-	        },
-	        _react2['default'].createElement(
-	          'span',
-	          { 'aria-label': 'More' },
-	          ellipsis === true ? '\u2026' : ellipsis
-	        )
-	      ));
-	      //加上最小边界 Button
-	      pageButtons.unshift(_react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        _extends({}, buttonProps, {
-	          key: 1,
-	          eventKey: 1,
-	          active: false
-	        }),
-	        '1'
-	      ));
-	    }
-	    //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
-	    if (maxButtons && hasHiddenPagesAfter && ellipsis) {
-	      pageButtons.push(_react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        {
-	          key: 'ellipsis',
-	          disabled: true,
-	          componentClass: buttonProps.componentClass
-	        },
-	        _react2['default'].createElement(
-	          'span',
-	          { 'aria-label': 'More' },
-	          ellipsis === true ? '\u2026' : ellipsis
-	        )
-	      ));
-	      //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
-	      if (boundaryLinks && endPage !== items) {
-	        pageButtons.push(_react2['default'].createElement(
-	          _PaginationButton2['default'],
-	          _extends({}, buttonProps, {
-	            key: items,
-	            eventKey: items,
-	            active: false
-	          }),
-	          items
-	        ));
-	      }
-	    }
-	
-	    return pageButtons;
-	  };
-	
-	  Pagination.prototype.render = function render() {
-	    var _props = this.props,
-	        activePage = _props.activePage,
-	        items = _props.items,
-	        maxButtons = _props.maxButtons,
-	        boundaryLinks = _props.boundaryLinks,
-	        ellipsis = _props.ellipsis,
-	        first = _props.first,
-	        last = _props.last,
-	        prev = _props.prev,
-	        next = _props.next,
-	        onSelect = _props.onSelect,
-	        buttonComponentClass = _props.buttonComponentClass,
-	        noBorder = _props.noBorder,
-	        className = _props.className,
-	        clsPrefix = _props.clsPrefix,
-	        size = _props.size,
-	        gap = _props.gap,
-	        others = _objectWithoutProperties(_props, ['activePage', 'items', 'maxButtons', 'boundaryLinks', 'ellipsis', 'first', 'last', 'prev', 'next', 'onSelect', 'buttonComponentClass', 'noBorder', 'className', 'clsPrefix', 'size', 'gap']);
-	
-	    var classes = {};
-	    if (noBorder) {
-	      classes[clsPrefix + '-no-border'] = true;
-	    }
-	    if (size) {
-	      classes[clsPrefix + '-' + size] = true;
-	    }
-	    if (gap) {
-	      classes[clsPrefix + '-gap'] = true;
-	    }
-	    var classNames = (0, _classnames2['default'])(clsPrefix, classes);
-	
-	    /**
-	     *  页按钮属性
-	     *  onSelect:暴露在外层交互动作，也是与父组件Pagination的交流接口
-	     *  componentClass: 用户定义的按钮dom元素类型
-	     */
-	    var buttonProps = {
-	      onSelect: onSelect,
-	      componentClass: buttonComponentClass
 	    };
 	
-	    return _react2['default'].createElement(
-	      'ul',
-	      _extends({}, others, {
-	        className: (0, _classnames2['default'])(className, classNames)
-	      }),
-	      first && _react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        _extends({}, buttonProps, {
-	          eventKey: 1,
-	          disabled: activePage === 1
-	        }),
-	        _react2['default'].createElement(
-	          'span',
-	          { 'aria-label': 'First' },
-	          first === true ? '\xAB' : first
-	        )
-	      ),
-	      prev && _react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        _extends({}, buttonProps, {
-	          eventKey: activePage - 1,
-	          disabled: activePage === 1
-	        }),
-	        _react2['default'].createElement(
-	          'span',
-	          { 'aria-label': 'Previous' },
-	          prev === true ? '\u2039' : prev
-	        )
-	      ),
-	      this.renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps),
-	      next && _react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        _extends({}, buttonProps, {
-	          eventKey: activePage + 1,
-	          disabled: activePage >= items
-	        }),
-	        _react2['default'].createElement(
-	          'span',
-	          { 'aria-label': 'Next' },
-	          next === true ? '\u203A' : next
-	        )
-	      ),
-	      last && _react2['default'].createElement(
-	        _PaginationButton2['default'],
-	        _extends({}, buttonProps, {
-	          eventKey: items,
-	          disabled: activePage >= items
-	        }),
-	        _react2['default'].createElement(
-	          'span',
-	          { 'aria-label': 'Last' },
-	          last === true ? '\xBB' : last
-	        )
-	      )
-	    );
-	  };
+	    Pagination.prototype.renderPageButtons = function renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps) {
+	        var pageButtons = [];
 	
-	  return Pagination;
-	}(_react2['default'].Component);
+	        var startPage = void 0;
+	        var endPage = void 0;
+	        var hasHiddenPagesAfter = void 0;
+	
+	        if (maxButtons) {
+	            //根据max很当前activepage计算出应隐藏activeButton之前的页数
+	            var hiddenPagesBefore = activePage - parseInt(maxButtons / 2, 10);
+	            startPage = hiddenPagesBefore > 2 ? hiddenPagesBefore : 1;
+	            //计算出是否存在隐藏activeButton之后的页数
+	            hasHiddenPagesAfter = startPage + maxButtons < items + 1;
+	
+	            if (!hasHiddenPagesAfter) {
+	                endPage = items;
+	                startPage = items - maxButtons + 1;
+	                if (startPage < 1) {
+	                    startPage = 1;
+	                }
+	            } else {
+	                endPage = startPage + maxButtons - 1;
+	            }
+	        } else {
+	            startPage = 1;
+	            endPage = items;
+	        }
+	        //将所有的button循环渲染出来
+	        for (var pagenumber = startPage; pagenumber <= endPage; pagenumber++) {
+	            pageButtons.push(_react2["default"].createElement(
+	                _PaginationButton2["default"],
+	                _extends({}, buttonProps, {
+	                    key: pagenumber,
+	                    eventKey: pagenumber,
+	                    active: pagenumber === activePage
+	                }),
+	                pagenumber
+	            ));
+	        }
+	        //如果boundaryLinks和eclipsis且startPage!=1 需要加上before More Button
+	        if (boundaryLinks && ellipsis && startPage !== 1) {
+	            pageButtons.unshift(_react2["default"].createElement(
+	                _PaginationButton2["default"],
+	                {
+	                    key: "ellipsisFirst",
+	                    disabled: true,
+	                    componentClass: buttonProps.componentClass
+	                },
+	                _react2["default"].createElement(
+	                    "span",
+	                    { "aria-label": "More" },
+	                    ellipsis === true ? "\u2026" : ellipsis
+	                )
+	            ));
+	            //加上最小边界 Button
+	            pageButtons.unshift(_react2["default"].createElement(
+	                _PaginationButton2["default"],
+	                _extends({}, buttonProps, { key: 1, eventKey: 1, active: false }),
+	                "1"
+	            ));
+	        }
+	        //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
+	        if (maxButtons && hasHiddenPagesAfter && ellipsis) {
+	            pageButtons.push(_react2["default"].createElement(
+	                _PaginationButton2["default"],
+	                {
+	                    key: "ellipsis",
+	                    disabled: true,
+	                    componentClass: buttonProps.componentClass
+	                },
+	                _react2["default"].createElement(
+	                    "span",
+	                    { "aria-label": "More" },
+	                    ellipsis === true ? "\u2026" : ellipsis
+	                )
+	            ));
+	            //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
+	            if (boundaryLinks && endPage !== items) {
+	                pageButtons.push(_react2["default"].createElement(
+	                    _PaginationButton2["default"],
+	                    _extends({}, buttonProps, {
+	                        key: items,
+	                        eventKey: items,
+	                        active: false
+	                    }),
+	                    items
+	                ));
+	            }
+	        }
+	
+	        return pageButtons;
+	    };
+	
+	    Pagination.prototype.render = function render() {
+	        var _this2 = this;
+	
+	        var _props = this.props,
+	            items = _props.items,
+	            maxButtons = _props.maxButtons,
+	            boundaryLinks = _props.boundaryLinks,
+	            ellipsis = _props.ellipsis,
+	            first = _props.first,
+	            last = _props.last,
+	            prev = _props.prev,
+	            next = _props.next,
+	            onSelect = _props.onSelect,
+	            buttonComponentClass = _props.buttonComponentClass,
+	            noBorder = _props.noBorder,
+	            className = _props.className,
+	            clsPrefix = _props.clsPrefix,
+	            size = _props.size,
+	            gap = _props.gap,
+	            onDataNumSelect = _props.onDataNumSelect,
+	            dataNumSelect = _props.dataNumSelect,
+	            dataNum = _props.dataNum,
+	            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum"]);
+	
+	        var activePage = this.state.activePage;
+	
+	
+	        var classes = {};
+	        if (noBorder) {
+	            classes[clsPrefix + "-no-border"] = true;
+	        }
+	        if (size) {
+	            classes[clsPrefix + "-" + size] = true;
+	        }
+	        if (gap) {
+	            classes[clsPrefix + "-gap"] = true;
+	        }
+	
+	        var classNames = (0, _classnames2["default"])(clsPrefix + "-list", classes);
+	
+	        /**
+	         *  页按钮属性
+	         *  onSelect:暴露在外层交互动作，也是与父组件Pagination的交流接口
+	         *  componentClass: 用户定义的按钮dom元素类型
+	         */
+	        var buttonProps = {
+	            onSelect: onSelect,
+	            componentClass: buttonComponentClass
+	        };
+	
+	        return _react2["default"].createElement(
+	            "div",
+	            { className: clsPrefix },
+	            _react2["default"].createElement(
+	                "ul",
+	                _extends({}, others, { className: (0, _classnames2["default"])(className, classNames) }),
+	                first && _react2["default"].createElement(
+	                    _PaginationButton2["default"],
+	                    _extends({}, buttonProps, {
+	                        eventKey: 1,
+	                        disabled: activePage === 1
+	                    }),
+	                    _react2["default"].createElement(
+	                        "span",
+	                        { "aria-label": "First" },
+	                        first === true ? "\xAB" : first
+	                    )
+	                ),
+	                prev && _react2["default"].createElement(
+	                    _PaginationButton2["default"],
+	                    _extends({}, buttonProps, {
+	                        eventKey: activePage - 1,
+	                        disabled: activePage === 1
+	                    }),
+	                    _react2["default"].createElement(
+	                        "span",
+	                        { "aria-label": "Previous" },
+	                        prev === true ? "\u2039" : prev
+	                    )
+	                ),
+	                this.renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps),
+	                next && _react2["default"].createElement(
+	                    _PaginationButton2["default"],
+	                    _extends({}, buttonProps, {
+	                        eventKey: activePage + 1,
+	                        disabled: activePage >= items
+	                    }),
+	                    _react2["default"].createElement(
+	                        "span",
+	                        { "aria-label": "Next" },
+	                        next === true ? "\u203A" : next
+	                    )
+	                ),
+	                last && _react2["default"].createElement(
+	                    _PaginationButton2["default"],
+	                    _extends({}, buttonProps, {
+	                        eventKey: items,
+	                        disabled: activePage >= items
+	                    }),
+	                    _react2["default"].createElement(
+	                        "span",
+	                        { "aria-label": "Last" },
+	                        last === true ? "\xBB" : last
+	                    )
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "data_per_select" },
+	                _react2["default"].createElement(
+	                    "select",
+	                    { name: "data-select", id: "", className: "data_select", value: dataNum,
+	                        onChange: function onChange(e) {
+	                            return _this2.dataNumSelect(e);
+	                        } },
+	                    dataNumSelect.length > 0 && dataNumSelect.map(function (item, i) {
+	                        return _react2["default"].createElement(
+	                            "option",
+	                            { key: i, value: item.id },
+	                            item.name
+	                        );
+	                    })
+	                )
+	            ),
+	            _react2["default"].createElement(
+	                "div",
+	                { className: "page_jump" },
+	                "\u8DF3\u81F3",
+	                _react2["default"].createElement("input", { className: "page_jump_value", type: "number", value: this.state.activePage,
+	                    onKeyDown: function onKeyDown(e) {
+	                        return _this2.onKeyup(e);
+	                    }, onChange: function onChange(e) {
+	                        return _this2.setPageJump(e);
+	                    } }),
+	                "\u9875"
+	            )
+	        );
+	    };
+	
+	    return Pagination;
+	}(_react2["default"].Component);
 	
 	Pagination.propTypes = propTypes;
 	Pagination.defaultProps = defaultProps;
 	
-	exports['default'] = Pagination;
-	module.exports = exports['default'];
+	exports["default"] = Pagination;
+	module.exports = exports["default"];
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8247,75 +8407,6 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 108 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(4);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _src = __webpack_require__(105);
-	
-	var _src2 = _interopRequireDefault(_src);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 少页数Pagination
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 所有页数均显示。
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Demo1 = function (_React$Component) {
-		_inherits(Demo1, _React$Component);
-	
-		function Demo1(props) {
-			_classCallCheck(this, Demo1);
-	
-			var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
-	
-			_this.state = {
-				activePage: 1
-			};
-			return _this;
-		}
-	
-		Demo1.prototype.handleSelect = function handleSelect(eventKey) {
-			this.setState({
-				activePage: eventKey
-			});
-		};
-	
-		Demo1.prototype.render = function render() {
-			return _react2['default'].createElement(
-				'div',
-				null,
-				_react2['default'].createElement(_src2['default'], {
-					boundaryLinks: true,
-					items: 11,
-					activePage: this.state.activePage,
-					onSelect: this.handleSelect.bind(this) })
-			);
-		};
-	
-		return Demo1;
-	}(_react2['default'].Component);
-	
-	exports['default'] = Demo1;
-	module.exports = exports['default'];
-
-/***/ }),
 /* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8329,7 +8420,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _src = __webpack_require__(105);
+	var _src = __webpack_require__(106);
 	
 	var _src2 = _interopRequireDefault(_src);
 	
@@ -8403,7 +8494,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _src = __webpack_require__(105);
+	var _src = __webpack_require__(106);
 	
 	var _src2 = _interopRequireDefault(_src);
 	
