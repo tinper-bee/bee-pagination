@@ -59,7 +59,10 @@ const propTypes = {
     buttonComponentClass: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.string
-    ])
+    ]),
+    dataNumSelect: PropTypes.array,
+    dataNum: PropTypes.number,
+    showJump: PropTypes.bool
 };
 
 const defaultProps = {
@@ -76,26 +79,33 @@ const defaultProps = {
     gap: false,
     noBorder: false,
     dataNumSelect: [
-        { id: 0, name: '5条/页' },
-        { id: 1, name: '10条/页' },
-        { id: 2, name: '15条/页' },
-        { id: 3, name: '20条/页' }
+         '5条/页',
+        '10条/页',
+        '15条/页',
+        '20条/页'
     ],
-    dataNum:1,
+    dataNum: 1,
+    showJump: false
 };
 
 class Pagination extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state={
-            activePage:this.props.activePage,//当前的页码
+        this.state = {
+            activePage: this.props.activePage,//当前的页码
+            dataNum: 1
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        if (this.state.activePage !== nextProps.activePage){
+    componentWillReceiveProps(nextProps) {
+        if (this.state.activePage !== nextProps.activePage) {
             this.setState({
-                activePage:nextProps.activePage,
+                activePage: nextProps.activePage,
+            })
+        }
+        if (nextProps.dataNum && this.state.dataNum !== nextProps.dataNum) {
+            this.setState({
+                dataNum: nextProps.dataNum,
             })
         }
     }
@@ -118,7 +128,7 @@ class Pagination extends React.Component {
 
     dataNumSelect = (e) => {
         let value = e.target.value * 1;
-        let dataNumValue = this.props.dataNumSelect[value].name
+        let dataNumValue = this.props.dataNumSelect[value];
         this.setState({
             dataNum: value
         })
@@ -243,9 +253,12 @@ class Pagination extends React.Component {
             onDataNumSelect,
             dataNumSelect,
             dataNum,
+            activePage,
+            showJump,
             ...others
         } = this.props;
-        const { activePage } = this.state;
+
+        const activePageState = this.state.activePage;
 
         const classes = {};
         if (noBorder) {
@@ -278,7 +291,7 @@ class Pagination extends React.Component {
                         <PaginationButton
                             {...buttonProps}
                             eventKey={1}
-                            disabled={activePage === 1}
+                            disabled={activePageState === 1}
                         >
                             <span aria-label="First">{first === true ? "\u00ab" : first}</span>
                         </PaginationButton>
@@ -286,15 +299,15 @@ class Pagination extends React.Component {
                     {prev && (
                         <PaginationButton
                             {...buttonProps}
-                            eventKey={activePage - 1}
-                            disabled={activePage === 1}
+                            eventKey={activePageState - 1}
+                            disabled={activePageState === 1}
                         >
                             <span aria-label="Previous">{prev === true ? "\u2039" : prev}</span>
                         </PaginationButton>
                     )}
 
                     {this.renderPageButtons(
-                        activePage,
+                        activePageState,
                         items,
                         maxButtons,
                         boundaryLinks,
@@ -305,9 +318,8 @@ class Pagination extends React.Component {
                     {next && (
                         <PaginationButton
                             {...buttonProps}
-                            eventKey={activePage + 1}
-                            disabled={activePage >= items}
-                        >
+                            eventKey={activePageState + 1}
+                            disabled={activePageState >= items}>
                             <span aria-label="Next">{next === true ? "\u203a" : next}</span>
                         </PaginationButton>
                     )}
@@ -315,24 +327,44 @@ class Pagination extends React.Component {
                         <PaginationButton
                             {...buttonProps}
                             eventKey={items}
-                            disabled={activePage >= items}
-                        >
+                            disabled={activePageState >= items}>
                             <span aria-label="Last">{last === true ? "\u00bb" : last}</span>
                         </PaginationButton>
                     )}
                 </ul>
-                <div className={"data_per_select"}>
-                    <select name="data-select" id="" className={"data_select"} value={dataNum}
-                            onChange={e => this.dataNumSelect(e)}>
-                        {dataNumSelect.length > 0 && dataNumSelect.map((item, i) => {
-                            return <option key={i} value={item.id}>{item.name}</option>
-                        })}
-                    </select>
-                </div>
-                <div className={"page_jump"}>
-                    跳至<input className={"page_jump_value"} type='number' value={this.state.activePage}
-                             onKeyDown={e => this.onKeyup(e)} onChange={e => this.setPageJump(e) }/>页
-                </div>
+                {
+                    showJump ? (
+                        <div className="data_per_select">
+                            <select
+                                name="data-select"
+                                className="data_select"
+                                value={this.state.dataNum}
+                                onChange={this.dataNumSelect}>
+                                {dataNumSelect.length > 0 &&
+                                dataNumSelect.map((item, i) => {
+                                    return <option key={i} value={i}>{item}</option>
+                                })}
+                            </select>
+                        </div>
+                    ) : null
+                }
+                {
+                    showJump ? (
+                        <div className="page_jump">
+                            跳至
+                            <input
+                                className="page_jump_value"
+                                type='number'
+                                value={activePageState}
+                                onKeyDown={this.onKeyup}
+                                onChange={this.setPageJump}
+                            />
+                            页
+                        </div>
+                    ) : null
+                }
+
+
             </div>
 
         );

@@ -18,6 +18,10 @@ class Demo1 extends React.Component {
 	      activePage: eventKey
 	    });
 	}
+
+    dataNumSelect = (index,value) =>{
+        console.log(index,value);
+    }
 	render() {
 	    return (
 	      <div>
@@ -25,7 +29,10 @@ class Demo1 extends React.Component {
 	        	boundaryLinks
 		        items={11}
 		        activePage={this.state.activePage}
-		        onSelect={this.handleSelect.bind(this)} />
+		        onSelect={this.handleSelect.bind(this)}
+				onDataNumSelect={this.dataNumSelect}
+				showJump={true}
+			/>
 	      </div>
 	    );
 	}

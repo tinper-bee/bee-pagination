@@ -6160,6 +6160,7 @@ input.u-button[type="submit"] {
 /* FormGroup */
 /*  Navlayout  */
 .u-pagination-list {
+  float: left;
   font-size: 14px;
   margin: 5px; }
   .u-pagination-list:after {
@@ -6213,8 +6214,8 @@ input.u-button[type="submit"] {
     color: #cccccc; }
   .u-pagination-list > li[role="gap"] > a {
     background-color: transparent;
-    border-bottom: 0px solid #d7d7d7;
-    border-top: 0px solid #d7d7d7;
+    border-bottom: 0 solid #d7d7d7;
+    border-top: 0 solid #d7d7d7;
     padding: 7px 11px;
     line-height: 1.57142857; }
   .u-pagination-list > li[role="gap"] > a:hover, .u-pagination-list > li[role="gap"] > a:focus {
@@ -6260,8 +6261,8 @@ input.u-button[type="submit"] {
 .u-pagination .data_select {
   outline: none;
   -webkit-appearance: none;
-  height: 28px;
-  background: rgba(9, 30, 66, 0.04);
+  height: 36px;
+  background: #fff;
   border-color: #e9e7e7;
   border-radius: 4px;
   line-height: 28px;
@@ -6275,13 +6276,13 @@ input.u-button[type="submit"] {
   float: left;
   margin: 5px; }
 
-.u-pagination input.page_jump_value {
+.u-pagination .page_jump_value {
   outline: none;
   -webkit-appearance: none;
-  background: rgba(9, 30, 66, 0.04);
+  background: #fff;
   border-radius: 4px;
-  line-height: 28px;
-  width: 80px;
+  line-height: 32px;
+  width: 50px;
   margin: 0 6px;
   text-align: center;
   font-size: 14px;
@@ -6318,7 +6319,6 @@ input.u-button[type="submit"] {
     border: 1px solid #ddd;
     background-color: white;
     font-size: 14px;
-    font-family: '微软雅黑';
     cursor: pointer;
     color: #333333;
     height: 35px; }
