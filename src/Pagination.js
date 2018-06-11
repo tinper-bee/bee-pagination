@@ -1,6 +1,7 @@
 import classnames from "classnames";
 import React from "react";
 import PaginationButton from "./PaginationButton";
+import Button from 'bee-button';
 import PropTypes from "prop-types";
 
 const propTypes = {
@@ -60,14 +61,26 @@ const propTypes = {
         PropTypes.element,
         PropTypes.string
     ]),
+    /**
+     * 每页多少条的选择
+     */
     dataNumSelect: PropTypes.array,
+    /**
+     * 每页多少条选择哪一个
+     */
     dataNum: PropTypes.number,
-    showJump: PropTypes.bool
+    /**
+     * 显示跳页
+     */
+    showJump: PropTypes.bool,
+    /**
+     * 显示总共条数
+     */
+    total: PropTypes.number
 };
 
 const defaultProps = {
     activePage: 1,
-    items: 1,
     maxButtons: 0,
     first: false,
     last: false,
@@ -79,21 +92,25 @@ const defaultProps = {
     gap: false,
     noBorder: false,
     dataNumSelect: [
-         '5条/页',
-        '10条/页',
-        '15条/页',
-        '20条/页'
+         '5',
+        '10',
+        '15',
+        '20'
     ],
     dataNum: 1,
     showJump: false
 };
 
+
 class Pagination extends React.Component {
     constructor(props, context) {
         super(props, context);
+        console.log()
         this.state = {
             activePage: this.props.activePage,//当前的页码
-            dataNum: 1
+            dataNum: 1,
+            items: props.items ? props.items : props.total ? Math.ceil(props.total / props.dataNumSelect[props.dataNum]) : 1,
+            jumpPageState: ''
         }
     }
 
@@ -108,41 +125,77 @@ class Pagination extends React.Component {
                 dataNum: nextProps.dataNum,
             })
         }
-    }
-
-    onKeyup = (e) => {
-        e.keyCode === 13 && this.setPageJump(e)
-    }
-
-    setPageJump = (e) => {
-        let value = e.target.value;
-        if ((value < 1 && value !== '') || value > this.props.items || (value == 0 && value !== '')) {
-            return false;
-        } else {
-            //注意这里要将下拉的数据还原
-            this.setState({activePage: value}, function () {
-                if (value !== '') this.props.onSelect(value * 1)
+        if (nextProps.items && this.state.items !== nextProps.items) {
+            this.setState({
+                items: nextProps.items,
             })
         }
     }
 
-    dataNumSelect = (e) => {
-        let value = e.target.value * 1;
-        let dataNumValue = this.props.dataNumSelect[value];
+    onKeyup = (e) => {
+        e.keyCode === 13 && this.handleEnsurePageJump()
+    }
+
+    setPageJump = (e) => {
+        let value = e.target.value;
+        if( isNaN(Number(value)) || value > this.state.items || value <= 0){
+            return false;
+        }
         this.setState({
-            dataNum: value
+            jumpPageState: value
         })
-        if (this.props.onDataNumSelect) {
-            this.props.onDataNumSelect(value, dataNumValue)
+    }
+
+    /**
+     * 确认跳页
+     */
+    handleEnsurePageJump = () => {
+        const {jumpPageState} = this.state;
+        const { onSelect } = this.props;
+        if(jumpPageState === ''){
+            return;
+        }
+        this.setState({
+            activePage: jumpPageState * 1,
+            jumpPageState: ''
+        });
+        if(typeof onSelect === 'function'){
+            onSelect(jumpPageState * 1)
         }
     }
 
-    renderPageButtons(activePage,
-                      items,
-                      maxButtons,
-                      boundaryLinks,
-                      ellipsis,
-                      buttonProps) {
+    /**
+     * 每页多少条的选择
+     * @param e
+     */
+    dataNumSelect = (e) => {
+        const { onDataNumSelect, total } = this.props;
+        let value = e.target.value * 1;
+        let dataNumValue = this.props.dataNumSelect[value];
+        if(total){
+            this.setState({
+                items: Math.ceil(total/dataNumValue)
+            })
+        }
+        this.setState({
+            dataNum: value
+        })
+        if (typeof onDataNumSelect === 'function') {
+            onDataNumSelect(value, dataNumValue)
+        }
+    }
+
+    /**
+     * 渲染page的按钮
+     * @param activePage
+     * @param items
+     * @param maxButtons
+     * @param boundaryLinks
+     * @param ellipsis
+     * @param buttonProps
+     * @returns {Array}
+     */
+    renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps) {
         let pageButtons = [];
 
         let startPage;
@@ -255,11 +308,12 @@ class Pagination extends React.Component {
             dataNum,
             activePage,
             showJump,
+            total,
             ...others
         } = this.props;
 
         const activePageState = this.state.activePage;
-
+        const jumpPageState = this.state.jumpPageState;
         const classes = {};
         if (noBorder) {
             classes[`${clsPrefix}-no-border`] = true;
@@ -308,7 +362,7 @@ class Pagination extends React.Component {
 
                     {this.renderPageButtons(
                         activePageState,
-                        items,
+                        this.state.items,
                         maxButtons,
                         boundaryLinks,
                         ellipsis,
@@ -319,22 +373,33 @@ class Pagination extends React.Component {
                         <PaginationButton
                             {...buttonProps}
                             eventKey={activePageState + 1}
-                            disabled={activePageState >= items}>
+                            disabled={activePageState >= this.state.items}>
                             <span aria-label="Next">{next === true ? "\u203a" : next}</span>
                         </PaginationButton>
                     )}
                     {last && (
                         <PaginationButton
                             {...buttonProps}
-                            eventKey={items}
-                            disabled={activePageState >= items}>
+                            eventKey={this.state.items}
+                            disabled={activePageState >= this.state.items}>
                             <span aria-label="Last">{last === true ? "\u00bb" : last}</span>
                         </PaginationButton>
                     )}
                 </ul>
                 {
+                    total != null ? (
+                        <div className={`${clsPrefix}-total`}>
+                            共
+                            <span>{total}</span>
+                            条
+                        </div>
+                    ) : null
+                }
+
+                {
                     showJump ? (
                         <div className="data_per_select">
+                            显示
                             <select
                                 name="data-select"
                                 className="data_select"
@@ -345,6 +410,7 @@ class Pagination extends React.Component {
                                     return <option key={i} value={i}>{item}</option>
                                 })}
                             </select>
+                            条
                         </div>
                     ) : null
                 }
@@ -354,12 +420,17 @@ class Pagination extends React.Component {
                             跳至
                             <input
                                 className="page_jump_value"
-                                type='number'
-                                value={activePageState}
+                                value={jumpPageState}
                                 onKeyDown={this.onKeyup}
                                 onChange={this.setPageJump}
                             />
                             页
+                            <Button
+                                className="page_jump_btn"
+                                onClick={this.handleEnsurePageJump}
+                                shape="border">
+                                确认
+                            </Button>
                         </div>
                     ) : null
                 }

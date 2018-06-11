@@ -26,12 +26,17 @@ class Demo1 extends React.Component {
 	    return (
 	      <div>
 	        <Pagination
+				first
+				last
+				prev
+				next
+				maxButtons={5}
 	        	boundaryLinks
-		        items={11}
 		        activePage={this.state.activePage}
 		        onSelect={this.handleSelect.bind(this)}
 				onDataNumSelect={this.dataNumSelect}
 				showJump={true}
+				total={100}
 			/>
 	      </div>
 	    );

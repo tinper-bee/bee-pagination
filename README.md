@@ -63,8 +63,9 @@ import "./node_modules/build/bee-pagination.css"
 |size|按钮大小oneOf:lg,sm,''|string|''|
 |showJump|是否显示跳页选择|bool|false(为了兼容老版本)|
 |onDataNumSelect|选择每页多少条的回调函数|func|() => {}|
-|dataNumSelect|每页多少条的下拉选择Option内容|array|['5条/页','10条/页','15条/页','20条/页']|
+|dataNumSelect|每页多少条的下拉选择Option内容|array|['5','10','15','20']|
 |dataNum|下拉选择的设定值的index|num|1|
+|total|一共多少条|num|1|
 
 #### 开发调试
 

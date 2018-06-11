@@ -30,7 +30,8 @@ class Demo2 extends React.Component {
 		        items={11}
 		        maxButtons={5}
 		        activePage={this.state.activePage}
-		        onSelect={this.handleSelect.bind(this)} />
+		        onSelect={this.handleSelect.bind(this)}
+			/>
 	      </div>
 	    );
 	}

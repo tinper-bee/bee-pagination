@@ -18,6 +18,10 @@ var _PaginationButton = require("./PaginationButton");
 
 var _PaginationButton2 = _interopRequireDefault(_PaginationButton);
 
+var _beeButton = require("bee-button");
+
+var _beeButton2 = _interopRequireDefault(_beeButton);
+
 var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -88,14 +92,26 @@ var propTypes = {
      * You can use a custom element for the buttons
      */
     buttonComponentClass: _propTypes2["default"].oneOfType([_propTypes2["default"].element, _propTypes2["default"].string]),
+    /**
+     * 每页多少条的选择
+     */
     dataNumSelect: _propTypes2["default"].array,
+    /**
+     * 每页多少条选择哪一个
+     */
     dataNum: _propTypes2["default"].number,
-    showJump: _propTypes2["default"].bool
+    /**
+     * 显示跳页
+     */
+    showJump: _propTypes2["default"].bool,
+    /**
+     * 显示总共条数
+     */
+    total: _propTypes2["default"].number
 };
 
 var defaultProps = {
     activePage: 1,
-    items: 1,
     maxButtons: 0,
     first: false,
     last: false,
@@ -106,7 +122,7 @@ var defaultProps = {
     clsPrefix: "u-pagination",
     gap: false,
     noBorder: false,
-    dataNumSelect: ['5条/页', '10条/页', '15条/页', '20条/页'],
+    dataNumSelect: ['5', '10', '15', '20'],
     dataNum: 1,
     showJump: false
 };
@@ -120,35 +136,61 @@ var Pagination = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, _React$Component.call(this, props, context));
 
         _this.onKeyup = function (e) {
-            e.keyCode === 13 && _this.setPageJump(e);
+            e.keyCode === 13 && _this.handleEnsurePageJump();
         };
 
         _this.setPageJump = function (e) {
             var value = e.target.value;
-            if (value < 1 && value !== '' || value > _this.props.items || value == 0 && value !== '') {
+            if (isNaN(Number(value)) || value > _this.state.items || value <= 0) {
                 return false;
-            } else {
-                //注意这里要将下拉的数据还原
-                _this.setState({ activePage: value }, function () {
-                    if (value !== '') this.props.onSelect(value * 1);
-                });
+            }
+            _this.setState({
+                jumpPageState: value
+            });
+        };
+
+        _this.handleEnsurePageJump = function () {
+            var jumpPageState = _this.state.jumpPageState;
+            var onSelect = _this.props.onSelect;
+
+            if (jumpPageState === '') {
+                return;
+            }
+            _this.setState({
+                activePage: jumpPageState * 1,
+                jumpPageState: ''
+            });
+            if (typeof onSelect === 'function') {
+                onSelect(jumpPageState * 1);
             }
         };
 
         _this.dataNumSelect = function (e) {
+            var _this$props = _this.props,
+                onDataNumSelect = _this$props.onDataNumSelect,
+                total = _this$props.total;
+
             var value = e.target.value * 1;
             var dataNumValue = _this.props.dataNumSelect[value];
+            if (total) {
+                _this.setState({
+                    items: Math.ceil(total / dataNumValue)
+                });
+            }
             _this.setState({
                 dataNum: value
             });
-            if (_this.props.onDataNumSelect) {
-                _this.props.onDataNumSelect(value, dataNumValue);
+            if (typeof onDataNumSelect === 'function') {
+                onDataNumSelect(value, dataNumValue);
             }
         };
 
+        console.log();
         _this.state = {
             activePage: _this.props.activePage, //当前的页码
-            dataNum: 1
+            dataNum: 1,
+            items: props.items ? props.items : props.total ? Math.ceil(props.total / props.dataNumSelect[props.dataNum]) : 1,
+            jumpPageState: ''
         };
         return _this;
     }
@@ -164,8 +206,34 @@ var Pagination = function (_React$Component) {
                 dataNum: nextProps.dataNum
             });
         }
+        if (nextProps.items && this.state.items !== nextProps.items) {
+            this.setState({
+                items: nextProps.items
+            });
+        }
     };
 
+    /**
+     * 确认跳页
+     */
+
+
+    /**
+     * 每页多少条的选择
+     * @param e
+     */
+
+
+    /**
+     * 渲染page的按钮
+     * @param activePage
+     * @param items
+     * @param maxButtons
+     * @param boundaryLinks
+     * @param ellipsis
+     * @param buttonProps
+     * @returns {Array}
+     */
     Pagination.prototype.renderPageButtons = function renderPageButtons(activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps) {
         var pageButtons = [];
 
@@ -281,10 +349,11 @@ var Pagination = function (_React$Component) {
             dataNum = _props.dataNum,
             activePage = _props.activePage,
             showJump = _props.showJump,
-            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump"]);
+            total = _props.total,
+            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total"]);
 
         var activePageState = this.state.activePage;
-
+        var jumpPageState = this.state.jumpPageState;
         var classes = {};
         if (noBorder) {
             classes[clsPrefix + "-no-border"] = true;
@@ -338,12 +407,12 @@ var Pagination = function (_React$Component) {
                         prev === true ? "\u2039" : prev
                     )
                 ),
-                this.renderPageButtons(activePageState, items, maxButtons, boundaryLinks, ellipsis, buttonProps),
+                this.renderPageButtons(activePageState, this.state.items, maxButtons, boundaryLinks, ellipsis, buttonProps),
                 next && _react2["default"].createElement(
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
                         eventKey: activePageState + 1,
-                        disabled: activePageState >= items }),
+                        disabled: activePageState >= this.state.items }),
                     _react2["default"].createElement(
                         "span",
                         { "aria-label": "Next" },
@@ -353,8 +422,8 @@ var Pagination = function (_React$Component) {
                 last && _react2["default"].createElement(
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
-                        eventKey: items,
-                        disabled: activePageState >= items }),
+                        eventKey: this.state.items,
+                        disabled: activePageState >= this.state.items }),
                     _react2["default"].createElement(
                         "span",
                         { "aria-label": "Last" },
@@ -362,9 +431,21 @@ var Pagination = function (_React$Component) {
                     )
                 )
             ),
+            total != null ? _react2["default"].createElement(
+                "div",
+                { className: clsPrefix + "-total" },
+                "\u5171",
+                _react2["default"].createElement(
+                    "span",
+                    null,
+                    total
+                ),
+                "\u6761"
+            ) : null,
             showJump ? _react2["default"].createElement(
                 "div",
                 { className: "data_per_select" },
+                "\u663E\u793A",
                 _react2["default"].createElement(
                     "select",
                     {
@@ -379,7 +460,8 @@ var Pagination = function (_React$Component) {
                             item
                         );
                     })
-                )
+                ),
+                "\u6761"
             ) : null,
             showJump ? _react2["default"].createElement(
                 "div",
@@ -387,12 +469,19 @@ var Pagination = function (_React$Component) {
                 "\u8DF3\u81F3",
                 _react2["default"].createElement("input", {
                     className: "page_jump_value",
-                    type: "number",
-                    value: activePageState,
+                    value: jumpPageState,
                     onKeyDown: this.onKeyup,
                     onChange: this.setPageJump
                 }),
-                "\u9875"
+                "\u9875",
+                _react2["default"].createElement(
+                    _beeButton2["default"],
+                    {
+                        className: "page_jump_btn",
+                        onClick: this.handleEnsurePageJump,
+                        shape: "border" },
+                    "\u786E\u8BA4"
+                )
             ) : null
         );
     };

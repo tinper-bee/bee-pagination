@@ -1,5 +1,10 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/tinper-bee/pagination/compare/v1.1.0...v1.1.1) (2018-06-11)
+
+
+
 <a name="1.1.0"></a>
-# 1.1.0 (2018-06-08)
+# [1.1.0](https://github.com/tinper-bee/pagination/compare/24094db...v1.1.0) (2018-06-08)
 
 
 ### Bug Fixes

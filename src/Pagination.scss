@@ -1,10 +1,11 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-variables";
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
+@import "../node_modules/bee-button/src/Button";
 
 .u-pagination {
+  font-size: 14px;
   &-list {
     float: left;
-    font-size: 14px;
     margin: 5px;
     &:after {
       clear: both;
@@ -126,7 +127,7 @@
     -webkit-appearance: none;
     height: 36px;
     background: #fff;;
-    border-color: #e9e7e7;
+    border-color: #d7d7d7;
     border-radius: 4px;
     line-height: 28px;
     padding: 0 15px;
@@ -136,7 +137,6 @@
 
   }
   .page_jump {
-    font-size: 14px;
     float: left;
     margin: 5px;
   }
@@ -149,8 +149,19 @@
     width: 50px;
     margin: 0 6px;
     text-align: center;
-    font-size: 14px;
-    border: 1px solid #e9e7e7;
+    border: 1px solid #d7d7d7;
+
+  }
+  .page_jump_btn{
+    margin-top: -3px;
+    margin-left: 10px;
+    border-color: #d7d7d7;
+  }
+  &-total{
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    margin: 5px;
   }
 }
 
