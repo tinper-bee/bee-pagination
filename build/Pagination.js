@@ -185,7 +185,6 @@ var Pagination = function (_React$Component) {
             }
         };
 
-        console.log();
         _this.state = {
             activePage: _this.props.activePage, //当前的页码
             dataNum: 1,
@@ -201,12 +200,13 @@ var Pagination = function (_React$Component) {
                 activePage: nextProps.activePage
             });
         }
-        if (nextProps.dataNum && this.state.dataNum !== nextProps.dataNum) {
+        if (nextProps.dataNum && this.props.dataNum !== nextProps.dataNum) {
             this.setState({
-                dataNum: nextProps.dataNum
+                dataNum: nextProps.dataNum,
+                items: Math.ceil(nextProps.total / nextProps.dataNumSelect[nextProps.dataNum])
             });
         }
-        if (nextProps.items && this.state.items !== nextProps.items) {
+        if (nextProps.items && this.props.items !== nextProps.items) {
             this.setState({
                 items: nextProps.items
             });

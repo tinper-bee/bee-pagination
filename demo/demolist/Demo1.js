@@ -21,6 +21,7 @@ class Demo1 extends React.Component {
 
     dataNumSelect = (index,value) =>{
         console.log(index,value);
+
     }
 	render() {
 	    return (
