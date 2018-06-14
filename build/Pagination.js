@@ -187,7 +187,7 @@ var Pagination = function (_React$Component) {
 
         _this.state = {
             activePage: _this.props.activePage, //当前的页码
-            dataNum: 1,
+            dataNum: props.dataNum,
             items: props.items ? props.items : props.total ? Math.ceil(props.total / props.dataNumSelect[props.dataNum]) : 1,
             jumpPageState: ''
         };

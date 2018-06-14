@@ -107,7 +107,7 @@ class Pagination extends React.Component {
         super(props, context);
         this.state = {
             activePage: this.props.activePage,//当前的页码
-            dataNum: 1,
+            dataNum: props.dataNum,
             items: props.items ? props.items : props.total ? Math.ceil(props.total / props.dataNumSelect[props.dataNum]) : 1,
             jumpPageState: ''
         }

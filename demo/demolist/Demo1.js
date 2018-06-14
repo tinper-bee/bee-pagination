@@ -38,6 +38,7 @@ class Demo1 extends React.Component {
 				onDataNumSelect={this.dataNumSelect}
 				showJump={true}
 				total={100}
+				dataNum={2}
 			/>
 	      </div>
 	    );
