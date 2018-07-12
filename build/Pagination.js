@@ -275,19 +275,21 @@ var Pagination = function (_React$Component) {
         }
         //如果boundaryLinks和eclipsis且startPage!=1 需要加上before More Button
         if (boundaryLinks && ellipsis && startPage !== 1) {
-            pageButtons.unshift(_react2["default"].createElement(
-                _PaginationButton2["default"],
-                {
-                    key: "ellipsisFirst",
-                    disabled: true,
-                    componentClass: buttonProps.componentClass
-                },
-                _react2["default"].createElement(
-                    "span",
-                    { "aria-label": "More" },
-                    ellipsis === true ? "\u2026" : ellipsis
-                )
-            ));
+            if (startPage > 2) {
+                pageButtons.unshift(_react2["default"].createElement(
+                    _PaginationButton2["default"],
+                    {
+                        key: "ellipsisFirst",
+                        disabled: true,
+                        componentClass: buttonProps.componentClass
+                    },
+                    _react2["default"].createElement(
+                        "span",
+                        { "aria-label": "More" },
+                        ellipsis === true ? "\u2026" : ellipsis
+                    )
+                ));
+            }
             //加上最小边界 Button
             pageButtons.unshift(_react2["default"].createElement(
                 _PaginationButton2["default"],
@@ -297,19 +299,21 @@ var Pagination = function (_React$Component) {
         }
         //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
         if (maxButtons && hasHiddenPagesAfter && ellipsis) {
-            pageButtons.push(_react2["default"].createElement(
-                _PaginationButton2["default"],
-                {
-                    key: "ellipsis",
-                    disabled: true,
-                    componentClass: buttonProps.componentClass
-                },
-                _react2["default"].createElement(
-                    "span",
-                    { "aria-label": "More" },
-                    ellipsis === true ? "\u2026" : ellipsis
-                )
-            ));
+            if (!boundaryLinks || boundaryLinks && items > 1 + endPage) {
+                pageButtons.push(_react2["default"].createElement(
+                    _PaginationButton2["default"],
+                    {
+                        key: "ellipsis",
+                        disabled: true,
+                        componentClass: buttonProps.componentClass
+                    },
+                    _react2["default"].createElement(
+                        "span",
+                        { "aria-label": "More" },
+                        ellipsis === true ? "\u2026" : ellipsis
+                    )
+                ));
+            }
             //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
             if (boundaryLinks && endPage !== items) {
                 pageButtons.push(_react2["default"].createElement(

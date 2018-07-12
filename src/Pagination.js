@@ -237,17 +237,19 @@ class Pagination extends React.Component {
         }
         //如果boundaryLinks和eclipsis且startPage!=1 需要加上before More Button
         if (boundaryLinks && ellipsis && startPage !== 1) {
-            pageButtons.unshift(
-                <PaginationButton
-                    key="ellipsisFirst"
-                    disabled
-                    componentClass={buttonProps.componentClass}
-                >
-          <span aria-label="More">
-            {ellipsis === true ? "\u2026" : ellipsis}
-          </span>
-                </PaginationButton>
-            );
+            if (startPage > 2) {
+                pageButtons.unshift(
+                    <PaginationButton
+                        key="ellipsisFirst"
+                        disabled
+                        componentClass={buttonProps.componentClass}
+                    >
+                    <span aria-label="More">
+                      {ellipsis === true ? "\u2026" : ellipsis}
+                    </span>
+                    </PaginationButton>
+                );
+            }
             //加上最小边界 Button
             pageButtons.unshift(
                 <PaginationButton {...buttonProps} key={1} eventKey={1} active={false}>
@@ -257,17 +259,19 @@ class Pagination extends React.Component {
         }
         //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
         if (maxButtons && hasHiddenPagesAfter && ellipsis) {
-            pageButtons.push(
-                <PaginationButton
-                    key="ellipsis"
-                    disabled
-                    componentClass={buttonProps.componentClass}
-                >
-          <span aria-label="More">
-            {ellipsis === true ? "\u2026" : ellipsis}
-          </span>
-                </PaginationButton>
-            );
+            if ( !boundaryLinks || ( boundaryLinks && (items > 1 + endPage) ) ) {
+                pageButtons.push(
+                    <PaginationButton
+                        key="ellipsis"
+                        disabled
+                        componentClass={buttonProps.componentClass}
+                    >
+                    <span aria-label="More">
+                        {ellipsis === true ? "\u2026" : ellipsis}
+                    </span>
+                    </PaginationButton>
+                );
+            }
             //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
             if (boundaryLinks && endPage !== items) {
                 pageButtons.push(

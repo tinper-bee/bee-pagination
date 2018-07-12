@@ -10,6 +10,7 @@
   position: relative;
   min-width: 7.2rem;
   padding: 0.5rem 1.3rem;
+  padding: 5px 13px \9;
   display: inline-block;
   font-family: "Open Sans", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-size: 1.4rem;
@@ -48,9 +49,11 @@ input.u-button[type="submit"] {
   border-radius: 50%;
   font-size: 1.4rem;
   height: 3.8rem;
+  height: 38px \9;
   margin: auto;
   min-width: 3.8rem;
   width: 3.8rem;
+  width: 38px \9;
   padding: 0;
   line-height: normal;
   border: 1px solid rgb(224,224,224); }

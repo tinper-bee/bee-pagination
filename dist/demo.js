@@ -578,7 +578,7 @@
 	  /**
 	   * You can use a custom element for this component
 	   */
-	  componentClass: _propTypes2["default"].oneOfType([_propTypes2["default"].element, _propTypes2["default"].string])
+	  componentClass: _propTypes2["default"].oneOf([_propTypes2["default"].element, _propTypes2["default"].string])
 	};
 	
 	var defaultProps = {
@@ -7674,6 +7674,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 	
+	console.log(_propTypes2["default"]);
 	var propTypes = {
 	    /**
 	     * @title 尺寸
@@ -7708,16 +7709,15 @@
 	     * @title <button> 的 type
 	     * @veIgnore
 	     */
-	    htmlType: _propTypes2["default"].oneOf(['submit', 'button', 'reset']),
-	    isSubmit: _propTypes2["default"].bool //是否作为form的提交按钮
+	    htmlType: _propTypes2["default"].oneOf(['submit', 'button', 'reset'])
 	};
 	
 	var defaultProps = {
 	    disabled: false,
 	    htmlType: 'button',
 	    clsPrefix: 'u-button',
-	    bordered: false,
-	    isSubmit: false
+	    bordered: false
+	
 	};
 	
 	var sizeMap = {
@@ -7764,8 +7764,7 @@
 	            children = _props.children,
 	            htmlType = _props.htmlType,
 	            clsPrefix = _props.clsPrefix,
-	            isSubmit = _props.isSubmit,
-	            others = _objectWithoutProperties(_props, ['colors', 'shape', 'disabled', 'className', 'size', 'bordered', 'children', 'htmlType', 'clsPrefix', 'isSubmit']);
+	            others = _objectWithoutProperties(_props, ['colors', 'shape', 'disabled', 'className', 'size', 'bordered', 'children', 'htmlType', 'clsPrefix']);
 	
 	        var clsObj = {};
 	        if (className) {
@@ -8185,19 +8184,21 @@
 	        }
 	        //如果boundaryLinks和eclipsis且startPage!=1 需要加上before More Button
 	        if (boundaryLinks && ellipsis && startPage !== 1) {
-	            pageButtons.unshift(_react2["default"].createElement(
-	                _PaginationButton2["default"],
-	                {
-	                    key: "ellipsisFirst",
-	                    disabled: true,
-	                    componentClass: buttonProps.componentClass
-	                },
-	                _react2["default"].createElement(
-	                    "span",
-	                    { "aria-label": "More" },
-	                    ellipsis === true ? "\u2026" : ellipsis
-	                )
-	            ));
+	            if (startPage > 2) {
+	                pageButtons.unshift(_react2["default"].createElement(
+	                    _PaginationButton2["default"],
+	                    {
+	                        key: "ellipsisFirst",
+	                        disabled: true,
+	                        componentClass: buttonProps.componentClass
+	                    },
+	                    _react2["default"].createElement(
+	                        "span",
+	                        { "aria-label": "More" },
+	                        ellipsis === true ? "\u2026" : ellipsis
+	                    )
+	                ));
+	            }
 	            //加上最小边界 Button
 	            pageButtons.unshift(_react2["default"].createElement(
 	                _PaginationButton2["default"],
@@ -8207,19 +8208,21 @@
 	        }
 	        //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
 	        if (maxButtons && hasHiddenPagesAfter && ellipsis) {
-	            pageButtons.push(_react2["default"].createElement(
-	                _PaginationButton2["default"],
-	                {
-	                    key: "ellipsis",
-	                    disabled: true,
-	                    componentClass: buttonProps.componentClass
-	                },
-	                _react2["default"].createElement(
-	                    "span",
-	                    { "aria-label": "More" },
-	                    ellipsis === true ? "\u2026" : ellipsis
-	                )
-	            ));
+	            if (!boundaryLinks || boundaryLinks && items > 1 + endPage) {
+	                pageButtons.push(_react2["default"].createElement(
+	                    _PaginationButton2["default"],
+	                    {
+	                        key: "ellipsis",
+	                        disabled: true,
+	                        componentClass: buttonProps.componentClass
+	                    },
+	                    _react2["default"].createElement(
+	                        "span",
+	                        { "aria-label": "More" },
+	                        ellipsis === true ? "\u2026" : ellipsis
+	                    )
+	                ));
+	            }
 	            //如果最后一个页数按钮不等于总页数 且 边界为true 需加上最大边界按钮
 	            if (boundaryLinks && endPage !== items) {
 	                pageButtons.push(_react2["default"].createElement(
