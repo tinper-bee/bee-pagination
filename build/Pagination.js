@@ -26,6 +26,12 @@ var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _i18n = require("./i18n");
+
+var _i18n2 = _interopRequireDefault(_i18n);
+
+var _tool = require("bee-locale/build/tool");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -124,7 +130,8 @@ var defaultProps = {
     noBorder: false,
     dataNumSelect: ['5', '10', '15', '20'],
     dataNum: 1,
-    showJump: false
+    showJump: false,
+    locale: {}
 };
 
 var Pagination = function (_React$Component) {
@@ -332,6 +339,10 @@ var Pagination = function (_React$Component) {
     };
 
     Pagination.prototype.render = function render() {
+        var local = (0, _tool.getComponentLocale)(this.props, this.context, 'Pagination', function () {
+            return _i18n2["default"];
+        });
+
         var _props = this.props,
             items = _props.items,
             maxButtons = _props.maxButtons,
@@ -438,18 +449,18 @@ var Pagination = function (_React$Component) {
             total != null ? _react2["default"].createElement(
                 "div",
                 { className: clsPrefix + "-total" },
-                "\u5171",
+                local['total'],
                 _react2["default"].createElement(
                     "span",
                     null,
                     total
                 ),
-                "\u6761"
+                local['items']
             ) : null,
             showJump ? _react2["default"].createElement(
                 "div",
                 { className: "data_per_select" },
-                "\u663E\u793A",
+                local['show'],
                 _react2["default"].createElement(
                     "select",
                     {
@@ -465,26 +476,26 @@ var Pagination = function (_React$Component) {
                         );
                     })
                 ),
-                "\u6761"
+                local['items']
             ) : null,
             showJump ? _react2["default"].createElement(
                 "div",
                 { className: "page_jump" },
-                "\u8DF3\u81F3",
+                local['goto'],
                 _react2["default"].createElement("input", {
                     className: "page_jump_value",
                     value: jumpPageState,
                     onKeyDown: this.onKeyup,
                     onChange: this.setPageJump
                 }),
-                "\u9875",
+                local['page'],
                 _react2["default"].createElement(
                     _beeButton2["default"],
                     {
                         className: "page_jump_btn",
                         onClick: this.handleEnsurePageJump,
                         shape: "border" },
-                    "\u786E\u8BA4"
+                    local['ok']
                 )
             ) : null
         );
@@ -495,6 +506,8 @@ var Pagination = function (_React$Component) {
 
 Pagination.propTypes = propTypes;
 Pagination.defaultProps = defaultProps;
-
+Pagination.contextTypes = {
+    beeLocale: _propTypes2["default"].object
+};
 exports["default"] = Pagination;
 module.exports = exports["default"];

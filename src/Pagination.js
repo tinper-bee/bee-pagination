@@ -3,6 +3,8 @@ import React from "react";
 import PaginationButton from "./PaginationButton";
 import Button from 'bee-button';
 import PropTypes from "prop-types";
+import i18n from './i18n';
+import {getComponentLocale} from 'bee-locale/build/tool';
 
 const propTypes = {
     /**
@@ -98,7 +100,8 @@ const defaultProps = {
         '20'
     ],
     dataNum: 1,
-    showJump: false
+    showJump: false,
+    locale: {}
 };
 
 
@@ -291,6 +294,8 @@ class Pagination extends React.Component {
     }
 
     render() {
+        const local = getComponentLocale(this.props, this.context, 'Pagination', () => i18n);
+
         const {
             items,
             maxButtons,
@@ -393,9 +398,9 @@ class Pagination extends React.Component {
                 {
                     total != null ? (
                         <div className={`${clsPrefix}-total`}>
-                            共
+                            {local['total']}
                             <span>{total}</span>
-                            条
+                            {local['items']}
                         </div>
                     ) : null
                 }
@@ -403,7 +408,7 @@ class Pagination extends React.Component {
                 {
                     showJump ? (
                         <div className="data_per_select">
-                            显示
+                            {local['show']}
                             <select
                                 name="data-select"
                                 className="data_select"
@@ -414,26 +419,26 @@ class Pagination extends React.Component {
                                     return <option key={i} value={i}>{item}</option>
                                 })}
                             </select>
-                            条
+                            {local['items']}
                         </div>
                     ) : null
                 }
                 {
                     showJump ? (
                         <div className="page_jump">
-                            跳至
+                            {local['goto']}
                             <input
                                 className="page_jump_value"
                                 value={jumpPageState}
                                 onKeyDown={this.onKeyup}
                                 onChange={this.setPageJump}
                             />
-                            页
+                            {local['page']}
                             <Button
                                 className="page_jump_btn"
                                 onClick={this.handleEnsurePageJump}
                                 shape="border">
-                                确认
+                                {local['ok']}
                             </Button>
                         </div>
                     ) : null
@@ -448,5 +453,7 @@ class Pagination extends React.Component {
 
 Pagination.propTypes = propTypes;
 Pagination.defaultProps = defaultProps;
-
+Pagination.contextTypes = {
+    beeLocale: PropTypes.object
+};
 export default Pagination;
