@@ -35,13 +35,13 @@ React.render(<div>
 #### 样式引入
 - 可以使用link引入dist目录下bee-pagination.css
 ```
-<link rel="stylesheet" href="./node_modules/build/bee-pagination.css">
+<link rel="stylesheet" href="./node_modules/build/Pagination.css">
 ```
 - 可以在js中import样式
 ```js
 import "./node_modules/src/Pagination.scss"
 //或是
-import "./node_modules/build/bee-pagination.css"
+import "./node_modules/build/Pagination.css"
 ```
 
 ### API

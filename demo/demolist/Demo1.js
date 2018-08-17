@@ -14,6 +14,7 @@ class Demo1 extends React.Component {
 		}
 	}
 	handleSelect(eventKey) {
+		console.log(eventKey);
 	    this.setState({
 	      activePage: eventKey
 	    });
