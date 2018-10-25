@@ -22,6 +22,10 @@ var _beeButton = require("bee-button");
 
 var _beeButton2 = _interopRequireDefault(_beeButton);
 
+var _beeSelect = require("bee-select");
+
+var _beeSelect2 = _interopRequireDefault(_beeSelect);
+
 var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -43,6 +47,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+
+var Option = _beeSelect2["default"].Option;
 
 var propTypes = {
     /**
@@ -172,13 +178,14 @@ var Pagination = function (_React$Component) {
             }
         };
 
-        _this.dataNumSelect = function (e) {
+        _this.dataNumSelect = function (value) {
+            console.log(value);
             var _this$props = _this.props,
                 onDataNumSelect = _this$props.onDataNumSelect,
                 total = _this$props.total;
 
-            var value = e.target.value * 1;
             var dataNumValue = _this.props.dataNumSelect[value];
+            console.log("dataNumValue", dataNumValue);
             if (total) {
                 _this.setState({
                     items: Math.ceil(total / dataNumValue)
@@ -462,15 +469,14 @@ var Pagination = function (_React$Component) {
                 { className: "data_per_select" },
                 local['show'],
                 _react2["default"].createElement(
-                    "select",
-                    {
-                        name: "data-select",
-                        className: "data_select",
-                        value: this.state.dataNum,
+                    _beeSelect2["default"]
+                    // className="data_select"
+                    ,
+                    { value: this.state.dataNum,
                         onChange: this.dataNumSelect },
                     dataNumSelect.length > 0 && dataNumSelect.map(function (item, i) {
                         return _react2["default"].createElement(
-                            "option",
+                            Option,
                             { key: i, value: i },
                             item
                         );

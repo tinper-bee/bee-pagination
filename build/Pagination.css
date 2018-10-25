@@ -337,7 +337,15 @@ input.u-button[type="submit"] {
     float: left; }
   .u-pagination .data_per_select {
     margin: 5px;
-    float: left; }
+    float: left;
+    min-width: 120px; }
+    .u-pagination .data_per_select .u-select {
+      width: 50px;
+      margin: 0 6px; }
+      .u-pagination .data_per_select .u-select .u-select-selection {
+        height: 36px; }
+        .u-pagination .data_per_select .u-select .u-select-selection .u-select-selection-rendered {
+          line-height: 36px; }
   .u-pagination .data_select {
     outline: none;
     -webkit-appearance: none;
