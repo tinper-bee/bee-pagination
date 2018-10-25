@@ -35,6 +35,7 @@
  "dependencies": {
   "bee-button": "^1.0.6",
   "bee-locale": "^0.0.3",
+  "bee-select": "^1.0.21",
   "classnames": "^2.2.5",
   "tinper-bee-core": "latest"
  },
@@ -53,6 +54,7 @@
   "console-polyfill": "~0.2.1",
   "es5-shim": "~4.1.10",
   "bee-panel": "latest",
-  "bee-layout": "latest"
+  "bee-layout": "latest",
+  "bee-tools": "latest"
  }
 }
