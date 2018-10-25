@@ -2,9 +2,14 @@ import classnames from "classnames";
 import React from "react";
 import PaginationButton from "./PaginationButton";
 import Button from 'bee-button';
+import Select from 'bee-select';
+
 import PropTypes from "prop-types";
 import i18n from './i18n';
 import {getComponentLocale} from 'bee-locale/build/tool';
+
+
+const Option = Select.Option;
 
 const propTypes = {
     /**
@@ -171,10 +176,11 @@ class Pagination extends React.Component {
      * 每页多少条的选择
      * @param e
      */
-    dataNumSelect = (e) => {
+    dataNumSelect = (value) => {
+        console.log(value);
         const { onDataNumSelect, total } = this.props;
-        let value = e.target.value * 1;
         let dataNumValue = this.props.dataNumSelect[value];
+        console.log("dataNumValue", dataNumValue);
         if(total){
             this.setState({
                 items: Math.ceil(total/dataNumValue)
@@ -409,7 +415,7 @@ class Pagination extends React.Component {
                     showJump ? (
                         <div className="data_per_select">
                             {local['show']}
-                            <select
+                            {/* <select
                                 name="data-select"
                                 className="data_select"
                                 value={this.state.dataNum}
@@ -418,7 +424,16 @@ class Pagination extends React.Component {
                                 dataNumSelect.map((item, i) => {
                                     return <option key={i} value={i}>{item}</option>
                                 })}
-                            </select>
+                            </select> */}
+                            <Select
+                                // className="data_select"
+                                value={this.state.dataNum}
+                                onChange={this.dataNumSelect}>
+                                {dataNumSelect.length > 0 &&
+                                dataNumSelect.map((item, i) => {
+                                    return <Option key={i} value={i}>{item}</Option>
+                                })}
+                            </Select>
                             {local['items']}
                         </div>
                     ) : null
@@ -443,8 +458,7 @@ class Pagination extends React.Component {
                         </div>
                     ) : null
                 }
-
-
+                
             </div>
 
         );

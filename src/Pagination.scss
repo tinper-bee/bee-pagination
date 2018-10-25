@@ -121,6 +121,17 @@
   .data_per_select {
     margin: 5px;
     float: left;
+    min-width: 120px;
+    .u-select {
+      width: 50px;
+      margin: 0 6px;
+      .u-select-selection {
+        height: 36px;
+        .u-select-selection-rendered {
+          line-height: 36px;
+        }
+      }
+    }
   }
   .data_select {
     outline: none;
@@ -134,7 +145,6 @@
     text-align: center;
     font-size: 14px;
     margin: 0 6px;
-
   }
   .page_jump {
     float: left;
