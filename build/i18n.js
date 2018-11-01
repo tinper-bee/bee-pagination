@@ -14,5 +14,12 @@ module.exports = {
         'show': 'page',
         'goto': 'goto',
         'ok': 'ok'
+    },
+    'zh-tw': {
+        'total': '共',
+        'items': '條',
+        'show': '顯示',
+        'goto': '跳至',
+        'ok': '確認'
     }
 };
