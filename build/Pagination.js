@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _classnames = require("classnames");
+var _classnames2 = require("classnames");
 
-var _classnames2 = _interopRequireDefault(_classnames);
+var _classnames3 = _interopRequireDefault(_classnames2);
 
 var _react = require("react");
 
@@ -39,6 +39,8 @@ var _tool = require("bee-locale/build/tool");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -119,7 +121,11 @@ var propTypes = {
     /**
      * 显示总共条数
      */
-    total: _propTypes2["default"].number
+    total: _propTypes2["default"].number,
+    /** 
+     *  pagiantion不可点
+     */
+    disabled: _propTypes2["default"].bool
 };
 
 var defaultProps = {
@@ -137,7 +143,8 @@ var defaultProps = {
     dataNumSelect: ['5', '10', '15', '20'],
     dataNum: 1,
     showJump: false,
-    locale: {}
+    locale: {},
+    disabled: false
 };
 
 var Pagination = function (_React$Component) {
@@ -372,7 +379,8 @@ var Pagination = function (_React$Component) {
             activePage = _props.activePage,
             showJump = _props.showJump,
             total = _props.total,
-            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total"]);
+            disabled = _props.disabled,
+            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled"]);
 
         var activePageState = this.state.activePage;
         var jumpPageState = this.state.jumpPageState;
@@ -387,8 +395,8 @@ var Pagination = function (_React$Component) {
             classes[clsPrefix + "-gap"] = true;
         }
 
-        var classNames = (0, _classnames2["default"])(clsPrefix + "-list", classes);
-
+        var classNames = (0, _classnames3["default"])(clsPrefix + "-list", classes);
+        var wrapperClass = (0, _classnames3["default"])(clsPrefix, _defineProperty({}, clsPrefix + "-disabled", disabled));
         /**
          *  页按钮属性
          *  onSelect:暴露在外层交互动作，也是与父组件Pagination的交流接口
@@ -401,10 +409,11 @@ var Pagination = function (_React$Component) {
 
         return _react2["default"].createElement(
             "div",
-            { className: clsPrefix },
+            { className: wrapperClass },
+            disabled && _react2["default"].createElement("div", { className: clsPrefix + "-disabled-mask" }),
             _react2["default"].createElement(
                 "ul",
-                _extends({}, others, { className: (0, _classnames2["default"])(className, classNames) }),
+                _extends({}, others, { className: (0, _classnames3["default"])(className, classNames) }),
                 first && _react2["default"].createElement(
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
