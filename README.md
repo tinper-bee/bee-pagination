@@ -66,6 +66,7 @@ import "./node_modules/build/Pagination.css"
 |dataNumSelect|每页多少条的下拉选择Option内容|array|['5','10','15','20']|
 |dataNum|下拉选择的设定值的index|num|1|
 |total|一共多少条|num|1|
+|disabled|pagination不可用，不可点击|bool|false|
 
 #### 开发调试
 

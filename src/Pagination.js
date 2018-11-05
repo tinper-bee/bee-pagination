@@ -6,7 +6,7 @@ import Select from 'bee-select';
 
 import PropTypes from "prop-types";
 import i18n from './i18n';
-import {getComponentLocale} from 'bee-locale/build/tool';
+import { getComponentLocale } from 'bee-locale/build/tool';
 
 
 const Option = Select.Option;
@@ -83,7 +83,11 @@ const propTypes = {
     /**
      * 显示总共条数
      */
-    total: PropTypes.number
+    total: PropTypes.number,
+    /** 
+     *  pagiantion不可点
+     */
+    disabled: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -99,14 +103,15 @@ const defaultProps = {
     gap: false,
     noBorder: false,
     dataNumSelect: [
-         '5',
+        '5',
         '10',
         '15',
         '20'
     ],
     dataNum: 1,
     showJump: false,
-    locale: {}
+    locale: {},
+    disabled: false,
 };
 
 
@@ -130,7 +135,7 @@ class Pagination extends React.Component {
         if (nextProps.dataNum && this.props.dataNum !== nextProps.dataNum) {
             this.setState({
                 dataNum: nextProps.dataNum,
-                items: Math.ceil(nextProps.total/nextProps.dataNumSelect[nextProps.dataNum])
+                items: Math.ceil(nextProps.total / nextProps.dataNumSelect[nextProps.dataNum])
             })
         }
         if (nextProps.items && this.props.items !== nextProps.items) {
@@ -146,7 +151,7 @@ class Pagination extends React.Component {
 
     setPageJump = (e) => {
         let value = e.target.value;
-        if( isNaN(Number(value)) || value > this.state.items || value <= 0){
+        if (isNaN(Number(value)) || value > this.state.items || value <= 0) {
             return false;
         }
         this.setState({
@@ -158,16 +163,16 @@ class Pagination extends React.Component {
      * 确认跳页
      */
     handleEnsurePageJump = () => {
-        const {jumpPageState} = this.state;
+        const { jumpPageState } = this.state;
         const { onSelect } = this.props;
-        if(jumpPageState === ''){
+        if (jumpPageState === '') {
             return;
         }
         this.setState({
             activePage: jumpPageState * 1,
             jumpPageState: ''
         });
-        if(typeof onSelect === 'function'){
+        if (typeof onSelect === 'function') {
             onSelect(jumpPageState * 1)
         }
     }
@@ -181,9 +186,9 @@ class Pagination extends React.Component {
         const { onDataNumSelect, total } = this.props;
         let dataNumValue = this.props.dataNumSelect[value];
         console.log("dataNumValue", dataNumValue);
-        if(total){
+        if (total) {
             this.setState({
-                items: Math.ceil(total/dataNumValue)
+                items: Math.ceil(total / dataNumValue)
             })
         }
         this.setState({
@@ -253,9 +258,9 @@ class Pagination extends React.Component {
                         disabled
                         componentClass={buttonProps.componentClass}
                     >
-                    <span aria-label="More">
-                      {ellipsis === true ? "\u2026" : ellipsis}
-                    </span>
+                        <span aria-label="More">
+                            {ellipsis === true ? "\u2026" : ellipsis}
+                        </span>
                     </PaginationButton>
                 );
             }
@@ -268,16 +273,16 @@ class Pagination extends React.Component {
         }
         //如果maxButtons和eclipsis且hasHiddenPagesAfter 需加上after More Button
         if (maxButtons && hasHiddenPagesAfter && ellipsis) {
-            if ( !boundaryLinks || ( boundaryLinks && (items > 1 + endPage) ) ) {
+            if (!boundaryLinks || (boundaryLinks && (items > 1 + endPage))) {
                 pageButtons.push(
                     <PaginationButton
                         key="ellipsis"
                         disabled
                         componentClass={buttonProps.componentClass}
                     >
-                    <span aria-label="More">
-                        {ellipsis === true ? "\u2026" : ellipsis}
-                    </span>
+                        <span aria-label="More">
+                            {ellipsis === true ? "\u2026" : ellipsis}
+                        </span>
                     </PaginationButton>
                 );
             }
@@ -324,6 +329,7 @@ class Pagination extends React.Component {
             activePage,
             showJump,
             total,
+            disabled,
             ...others
         } = this.props;
 
@@ -339,9 +345,12 @@ class Pagination extends React.Component {
         if (gap) {
             classes[`${clsPrefix}-gap`] = true;
         }
+        
 
         let classNames = classnames(`${clsPrefix}-list`, classes);
-
+        const wrapperClass = classnames(clsPrefix,{
+            [`${clsPrefix}-disabled`] : disabled,
+        })
         /**
          *  页按钮属性
          *  onSelect:暴露在外层交互动作，也是与父组件Pagination的交流接口
@@ -354,7 +363,11 @@ class Pagination extends React.Component {
 
         return (
 
-            <div className={clsPrefix}>
+            <div className={wrapperClass}>
+                {
+                    disabled && <div className={`${clsPrefix}-disabled-mask`}>
+                    </div>
+                }
                 <ul {...others} className={classnames(className, classNames)}>
                     {first && (
                         <PaginationButton
@@ -416,23 +429,23 @@ class Pagination extends React.Component {
                         <div className="data_per_select">
                             {local['show']}
                             {/* <select
-                                name="data-select"
-                                className="data_select"
-                                value={this.state.dataNum}
-                                onChange={this.dataNumSelect}>
-                                {dataNumSelect.length > 0 &&
-                                dataNumSelect.map((item, i) => {
-                                    return <option key={i} value={i}>{item}</option>
-                                })}
-                            </select> */}
+                                    name="data-select"
+                                    className="data_select"
+                                    value={this.state.dataNum}
+                                    onChange={this.dataNumSelect}>
+                                    {dataNumSelect.length > 0 &&
+                                    dataNumSelect.map((item, i) => {
+                                        return <option key={i} value={i}>{item}</option>
+                                    })}
+                                </select> */}
                             <Select
                                 // className="data_select"
                                 value={this.state.dataNum}
                                 onChange={this.dataNumSelect}>
                                 {dataNumSelect.length > 0 &&
-                                dataNumSelect.map((item, i) => {
-                                    return <Option key={i} value={i}>{item}</Option>
-                                })}
+                                    dataNumSelect.map((item, i) => {
+                                        return <Option key={i} value={i}>{item}</Option>
+                                    })}
                             </Select>
                             {local['items']}
                         </div>
@@ -458,7 +471,7 @@ class Pagination extends React.Component {
                         </div>
                     ) : null
                 }
-                
+
             </div>
 
         );
