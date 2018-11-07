@@ -13,10 +13,10 @@
  "engines": {
   "node": ">=4.0.0"
  },
- "homepage": "https://github.com/tinper-bee/pagination",
+ "homepage": "https://github.com/tinper-bee/bee-pagination",
  "author": "yonyou",
- "repository": "http://github.com/tinper-bee/pagination",
- "bugs": "https://github.com/tinper-bee/pagination/issues",
+ "repository": "http://github.com/tinper-bee/bee-pagination",
+ "bugs": "https://github.com/tinper-bee/bee-pagination/issues",
  "license": "MIT",
  "main": "./build/index",
  "config": {
