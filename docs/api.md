@@ -27,5 +27,5 @@
 |dataNum|下拉选择的设定值的index|num|1|
 |total|一共多少条|num|1|
 |disabled|pagination不可用，不可点击|bool|false|
-
+|btnType|pagination确认按钮的样式属性集合，具体参考组件Button|Object|{shape:'border'}|
  
