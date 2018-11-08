@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(80);var Demo2 = __webpack_require__(119);var Demo3 = __webpack_require__(120);var Demo4 = __webpack_require__(121);var Demo5 = __webpack_require__(122);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\n * @title 少页数Pagination\n * @description 所有页数均显示。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo1 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t\tconsole.log(eventKey);\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\n    dataNumSelect = (index,value) =>{\n        console.log(index,value);\n\n    }\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t\t\t\tfirst\n\t\t\t\tlast\n\t\t\t\tprev\n\t\t\t\tnext\n\t\t\t\tmaxButtons={5}\n\t        \tboundaryLinks\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\n\t\t\t\tshowJump={true}\n\t\t\t\ttotal={100}\n\t\t\t\tdataNum={2}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\n * @title 多页数Pagination\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo2 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t        \tfirst\n\t        \tlast\n\t        \tprev\n\t        \tnext\n\t        \tboundaryLinks\n\t\t        items={11}\n\t\t        maxButtons={5}\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\n * @title 有间隔Pagination\n * @description 有间隔Pagination\n */\n\nimport React, { Component } from \"react\";\nimport { Pagination } from 'tinper-bee';\n\nclass Demo3 extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      activePage: 1\n    };\n  }\n  handleSelect(eventKey) {\n    this.setState({\n      activePage: eventKey\n    });\n  }\n  render() {\n    return (\n      <Pagination\n        prev\n        next\n        size=\"sm\"\n        gap={true}\n        items={5}\n        maxButtons={5}\n        activePage={this.state.activePage}\n        onSelect={this.handleSelect.bind(this)}\n      />\n    );\n  }\n}\n\n", "desc": " 有间隔Pagination" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 多语示例", "code": "/**\n * @title 多语示例\n * @description 所有页数均显示。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo1 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\n    dataNumSelect = (index,value) =>{\n        console.log(index,value);\n\n    }\n\trender() {\n\t\tvar local={\n\t\t\t'lang':'en',\n\t\t\t'total': 'Total',\n\t\t\t'items': 'Items',\n\t\t\t'show': 'page',\n\t\t\t'goto':'goto',\n\t\t\t'page':'',\n\t\t\t'ok':'ok'\n\t\t}\n\t    return (\n\t      <div>\n\t        <Pagination\n\t\t\t\tfirst\n\t\t\t\tlast\n\t\t\t\tprev\n\t\t\t\tnext\n\t\t\t\tmaxButtons={5}\n\t        \tboundaryLinks\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\n\t\t\t\tshowJump={true}\n\t\t\t\ttotal={100}\n\t\t\t\tdataNum={2}\n\t\t\t\tlocale={local}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 不可用pagiantion", "code": "/**\n * @title 不可用pagiantion\n * @description pagination不可使用状态\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo5 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t\tconsole.log(eventKey);\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\n    dataNumSelect = (index,value) =>{\n        console.log(index,value);\n\n    }\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t\t\t\tfirst\n\t\t\t\tlast\n\t\t\t\tprev\n\t\t\t\tnext\n\t\t\t\tmaxButtons={5}\n\t        \tboundaryLinks\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\n\t\t\t\tshowJump={true}\n\t\t\t\ttotal={100}\n\t\t\t\tdataNum={2}\n\t\t\t\tdisabled={true}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " pagination不可使用状态" }];
+	var Demo1 = __webpack_require__(80);var Demo2 = __webpack_require__(119);var Demo3 = __webpack_require__(120);var Demo4 = __webpack_require__(121);var Demo5 = __webpack_require__(122);var Demo6 = __webpack_require__(123);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\n * @title 少页数Pagination\n * @description 所有页数均显示。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo1 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t\tconsole.log(eventKey);\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\n    dataNumSelect = (index,value) =>{\n        console.log(index,value);\n\n    }\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t\t\t\tfirst\n\t\t\t\tlast\n\t\t\t\tprev\n\t\t\t\tnext\n\t\t\t\tmaxButtons={5}\n\t        \tboundaryLinks\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\n\t\t\t\tshowJump={true}\n\t\t\t\ttotal={100}\n\t\t\t\tdataNum={2}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\n * @title 多页数Pagination\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo2 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t        \tfirst\n\t        \tlast\n\t        \tprev\n\t        \tnext\n\t        \tboundaryLinks\n\t\t        items={11}\n\t\t        maxButtons={5}\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\n * @title 有间隔Pagination\n * @description 有间隔Pagination\n */\n\nimport React, { Component } from \"react\";\nimport { Pagination } from 'tinper-bee';\n\nclass Demo3 extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      activePage: 1\n    };\n  }\n  handleSelect(eventKey) {\n    this.setState({\n      activePage: eventKey\n    });\n  }\n  render() {\n    return (\n      <Pagination\n        prev\n        next\n        size=\"sm\"\n        gap={true}\n        items={5}\n        maxButtons={5}\n        activePage={this.state.activePage}\n        onSelect={this.handleSelect.bind(this)}\n      />\n    );\n  }\n}\n\n", "desc": " 有间隔Pagination" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 多语示例", "code": "/**\n * @title 多语示例\n * @description 所有页数均显示。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo1 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\n    dataNumSelect = (index,value) =>{\n        console.log(index,value);\n\n    }\n\trender() {\n\t\tvar local={\n\t\t\t'lang':'en',\n\t\t\t'total': 'Total',\n\t\t\t'items': 'Items',\n\t\t\t'show': 'page',\n\t\t\t'goto':'goto',\n\t\t\t'page':'',\n\t\t\t'ok':'ok'\n\t\t}\n\t    return (\n\t      <div>\n\t        <Pagination\n\t\t\t\tfirst\n\t\t\t\tlast\n\t\t\t\tprev\n\t\t\t\tnext\n\t\t\t\tmaxButtons={5}\n\t        \tboundaryLinks\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\n\t\t\t\tshowJump={true}\n\t\t\t\ttotal={100}\n\t\t\t\tdataNum={2}\n\t\t\t\tlocale={local}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 不可用pagiantion", "code": "/**\n * @title 不可用pagiantion\n * @description pagination不可使用状态\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo5 extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {\n\t\t\tactivePage:1\n\t\t}\n\t}\n\thandleSelect(eventKey) {\n\t\tconsole.log(eventKey);\n\t    this.setState({\n\t      activePage: eventKey\n\t    });\n\t}\n\n    dataNumSelect = (index,value) =>{\n        console.log(index,value);\n\n    }\n\trender() {\n\t    return (\n\t      <div>\n\t        <Pagination\n\t\t\t\tfirst\n\t\t\t\tlast\n\t\t\t\tprev\n\t\t\t\tnext\n\t\t\t\tmaxButtons={5}\n\t        \tboundaryLinks\n\t\t        activePage={this.state.activePage}\n\t\t        onSelect={this.handleSelect.bind(this)}\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\n\t\t\t\tshowJump={true}\n\t\t\t\ttotal={100}\n\t\t\t\tdataNum={2}\n\t\t\t\tdisabled={true}\n\t\t\t/>\n\t      </div>\n\t    );\n\t}\n}\n\n", "desc": " pagination不可使用状态" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 少页数Pagination", "code": "/**\n * @title 少页数Pagination\n * @description 所有页数均显示。\n */\n\nimport React, { Component } from 'react';\nimport { Pagination } from 'tinper-bee';\n\nclass Demo6 extends React.Component {\n    constructor(props) {\n        super(props);\n        this.state = {\n            activePage: 1,\n            btnType: {},\n            changeNum: 0,\n        }\n    }\n    handleSelect(eventKey) {\n        console.log(eventKey);\n        this.setState({\n            activePage: eventKey\n        });\n    }\n\n    dataNumSelect = (index, value) => {\n        console.log(index, value);\n\n    }\n    changeBtn = () => {\n        let { changeNum } = this.state;\n        switch (changeNum) {\n            case 0:\n                this.setState({\n                    btnType: { \"colors\": \"success\" },\n                    changeNum: 1\n                });\n                break;\n            case 1:\n                this.setState({\n                    btnType: { \"colors\": \"success\", shape: \"border\" },\n                    changeNum: 2\n                });\n                break;\n            case 2:\n                this.setState({\n                    btnType: { \"colors\": \"warning\"},\n                    changeNum: 3\n                });\n                break;\n            default:\n                this.setState({\n                    btnType: { shape:\"border\" },\n                    changeNum: 0\n                });\n        }\n\n\n    }\n    render() {\n        return (\n            <div>\n                <div onClick={this.changeBtn} className=\"clickBtn\">click按钮颜色</div>\n                <Pagination\n                    first\n                    last\n                    prev\n                    next\n                    maxButtons={5}\n                    boundaryLinks\n                    activePage={this.state.activePage}\n                    onSelect={this.handleSelect.bind(this)}\n                    onDataNumSelect={this.dataNumSelect}\n                    showJump={true}\n                    total={100}\n                    dataNum={2}\n                    btnType={this.state.btnType}\n                />\n\n            </div>\n        );\n    }\n}\n\n", "desc": " 所有页数均显示。" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -8007,7 +8007,11 @@
 	    /** 
 	     *  pagiantion不可点
 	     */
-	    disabled: _propTypes2["default"].bool
+	    disabled: _propTypes2["default"].bool,
+	    /**
+	     *  确认按钮的样式集合
+	     */
+	    btnType: _propTypes2["default"].object
 	};
 	
 	var defaultProps = {
@@ -8026,7 +8030,8 @@
 	    dataNum: 1,
 	    showJump: false,
 	    locale: {},
-	    disabled: false
+	    disabled: false,
+	    btnType: { shape: 'border' }
 	};
 	
 	var Pagination = function (_React$Component) {
@@ -8262,7 +8267,8 @@
 	            showJump = _props.showJump,
 	            total = _props.total,
 	            disabled = _props.disabled,
-	            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled"]);
+	            btnType = _props.btnType,
+	            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled", "btnType"]);
 	
 	        var activePageState = this.state.activePage;
 	        var jumpPageState = this.state.jumpPageState;
@@ -8388,10 +8394,11 @@
 	                local['page'],
 	                _react2["default"].createElement(
 	                    _beeButton2["default"],
-	                    {
+	                    _extends({
 	                        className: "page_jump_btn",
-	                        onClick: this.handleEnsurePageJump,
-	                        shape: "border" },
+	                        onClick: this.handleEnsurePageJump
+	                        // shape="border"
+	                    }, btnType),
 	                    local['ok']
 	                )
 	            ) : null
@@ -15416,6 +15423,127 @@
 	}(_react2['default'].Component);
 	
 	exports['default'] = Demo5;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _src = __webpack_require__(81);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 少页数Pagination
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 所有页数均显示。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var Demo6 = function (_React$Component) {
+	    _inherits(Demo6, _React$Component);
+	
+	    function Demo6(props) {
+	        _classCallCheck(this, Demo6);
+	
+	        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+	
+	        _this.dataNumSelect = function (index, value) {
+	            console.log(index, value);
+	        };
+	
+	        _this.changeBtn = function () {
+	            var changeNum = _this.state.changeNum;
+	
+	            switch (changeNum) {
+	                case 0:
+	                    _this.setState({
+	                        btnType: { "colors": "success" },
+	                        changeNum: 1
+	                    });
+	                    break;
+	                case 1:
+	                    _this.setState({
+	                        btnType: { "colors": "success", shape: "border" },
+	                        changeNum: 2
+	                    });
+	                    break;
+	                case 2:
+	                    _this.setState({
+	                        btnType: { "colors": "warning" },
+	                        changeNum: 3
+	                    });
+	                    break;
+	                default:
+	                    _this.setState({
+	                        btnType: { shape: "border" },
+	                        changeNum: 0
+	                    });
+	            }
+	        };
+	
+	        _this.state = {
+	            activePage: 1,
+	            btnType: {},
+	            changeNum: 0
+	        };
+	        return _this;
+	    }
+	
+	    Demo6.prototype.handleSelect = function handleSelect(eventKey) {
+	        console.log(eventKey);
+	        this.setState({
+	            activePage: eventKey
+	        });
+	    };
+	
+	    Demo6.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'div',
+	                { onClick: this.changeBtn, className: 'clickBtn' },
+	                'click\u6309\u94AE\u989C\u8272'
+	            ),
+	            _react2['default'].createElement(_src2['default'], {
+	                first: true,
+	                last: true,
+	                prev: true,
+	                next: true,
+	                maxButtons: 5,
+	                boundaryLinks: true,
+	                activePage: this.state.activePage,
+	                onSelect: this.handleSelect.bind(this),
+	                onDataNumSelect: this.dataNumSelect,
+	                showJump: true,
+	                total: 100,
+	                dataNum: 2,
+	                btnType: this.state.btnType
+	            })
+	        );
+	    };
+	
+	    return Demo6;
+	}(_react2['default'].Component);
+	
+	exports['default'] = Demo6;
 	module.exports = exports['default'];
 
 /***/ })
