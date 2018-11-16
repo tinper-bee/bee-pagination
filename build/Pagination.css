@@ -374,8 +374,7 @@ input.u-button[type="submit"] {
     border: 1px solid #d7d7d7; }
   .u-pagination .page_jump_btn {
     margin-top: -3px;
-    margin-left: 10px;
-    border-color: #d7d7d7; }
+    margin-left: 10px; }
   .u-pagination-total {
     float: left;
     height: 36px;
