@@ -125,7 +125,11 @@ var propTypes = {
     /** 
      *  pagiantion不可点
      */
-    disabled: _propTypes2["default"].bool
+    disabled: _propTypes2["default"].bool,
+    /**
+     *  确认按钮的样式集合
+     */
+    btnType: _propTypes2["default"].object
 };
 
 var defaultProps = {
@@ -144,7 +148,8 @@ var defaultProps = {
     dataNum: 1,
     showJump: false,
     locale: {},
-    disabled: false
+    disabled: false,
+    btnType: { shape: 'border' }
 };
 
 var Pagination = function (_React$Component) {
@@ -380,7 +385,8 @@ var Pagination = function (_React$Component) {
             showJump = _props.showJump,
             total = _props.total,
             disabled = _props.disabled,
-            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled"]);
+            btnType = _props.btnType,
+            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled", "btnType"]);
 
         var activePageState = this.state.activePage;
         var jumpPageState = this.state.jumpPageState;
@@ -506,10 +512,11 @@ var Pagination = function (_React$Component) {
                 local['page'],
                 _react2["default"].createElement(
                     _beeButton2["default"],
-                    {
+                    _extends({
                         className: "page_jump_btn",
-                        onClick: this.handleEnsurePageJump,
-                        shape: "border" },
+                        onClick: this.handleEnsurePageJump
+                        // shape="border"
+                    }, btnType),
                     local['ok']
                 )
             ) : null

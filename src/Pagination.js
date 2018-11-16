@@ -88,7 +88,12 @@ const propTypes = {
      *  pagiantion不可点
      */
     disabled: PropTypes.bool,
+    /**
+     *  确认按钮的样式集合
+     */
+    btnType: PropTypes.object,
 };
+
 
 const defaultProps = {
     activePage: 1,
@@ -112,6 +117,7 @@ const defaultProps = {
     showJump: false,
     locale: {},
     disabled: false,
+    btnType:{shape:'border'}
 };
 
 
@@ -330,6 +336,7 @@ class Pagination extends React.Component {
             showJump,
             total,
             disabled,
+            btnType,
             ...others
         } = this.props;
 
@@ -465,7 +472,9 @@ class Pagination extends React.Component {
                             <Button
                                 className="page_jump_btn"
                                 onClick={this.handleEnsurePageJump}
-                                shape="border">
+                                // shape="border"
+                                {...btnType}
+                                >
                                 {local['ok']}
                             </Button>
                         </div>
