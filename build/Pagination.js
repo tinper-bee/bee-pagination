@@ -166,12 +166,14 @@ var Pagination = function (_React$Component) {
 
         _this.setPageJump = function (e) {
             var value = e.target.value;
-            if (isNaN(Number(value)) || value > _this.state.items || value <= 0) {
+            // 20181129跳转内容可以清空
+            if (value !== '' && (isNaN(Number(value)) || value > _this.state.items || value <= 0)) {
                 return false;
+            } else {
+                _this.setState({
+                    jumpPageState: value
+                });
             }
-            _this.setState({
-                jumpPageState: value
-            });
         };
 
         _this.handleEnsurePageJump = function () {
@@ -424,7 +426,9 @@ var Pagination = function (_React$Component) {
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
                         eventKey: 1,
-                        disabled: activePageState === 1
+                        disabled: activePageState === 1,
+                        iconBtn: true
+
                     }),
                     _react2["default"].createElement(
                         "span",
@@ -436,7 +440,9 @@ var Pagination = function (_React$Component) {
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
                         eventKey: activePageState - 1,
-                        disabled: activePageState === 1
+                        disabled: activePageState === 1,
+                        iconBtn: true
+
                     }),
                     _react2["default"].createElement(
                         "span",
@@ -449,7 +455,9 @@ var Pagination = function (_React$Component) {
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
                         eventKey: activePageState + 1,
-                        disabled: activePageState >= this.state.items }),
+                        disabled: activePageState >= this.state.items,
+                        iconBtn: true
+                    }),
                     _react2["default"].createElement(
                         "span",
                         { "aria-label": "Next" },
@@ -460,7 +468,9 @@ var Pagination = function (_React$Component) {
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
                         eventKey: this.state.items,
-                        disabled: activePageState >= this.state.items }),
+                        disabled: activePageState >= this.state.items,
+                        iconBtn: true
+                    }),
                     _react2["default"].createElement(
                         "span",
                         { "aria-label": "Last" },

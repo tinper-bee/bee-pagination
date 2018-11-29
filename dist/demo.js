@@ -8048,12 +8048,14 @@
 	
 	        _this.setPageJump = function (e) {
 	            var value = e.target.value;
-	            if (isNaN(Number(value)) || value > _this.state.items || value <= 0) {
+	            // 20181129跳转内容可以清空
+	            if (value !== '' && (isNaN(Number(value)) || value > _this.state.items || value <= 0)) {
 	                return false;
+	            } else {
+	                _this.setState({
+	                    jumpPageState: value
+	                });
 	            }
-	            _this.setState({
-	                jumpPageState: value
-	            });
 	        };
 	
 	        _this.handleEnsurePageJump = function () {
@@ -8306,7 +8308,9 @@
 	                    _PaginationButton2["default"],
 	                    _extends({}, buttonProps, {
 	                        eventKey: 1,
-	                        disabled: activePageState === 1
+	                        disabled: activePageState === 1,
+	                        iconBtn: true
+	
 	                    }),
 	                    _react2["default"].createElement(
 	                        "span",
@@ -8318,7 +8322,9 @@
 	                    _PaginationButton2["default"],
 	                    _extends({}, buttonProps, {
 	                        eventKey: activePageState - 1,
-	                        disabled: activePageState === 1
+	                        disabled: activePageState === 1,
+	                        iconBtn: true
+	
 	                    }),
 	                    _react2["default"].createElement(
 	                        "span",
@@ -8331,7 +8337,9 @@
 	                    _PaginationButton2["default"],
 	                    _extends({}, buttonProps, {
 	                        eventKey: activePageState + 1,
-	                        disabled: activePageState >= this.state.items }),
+	                        disabled: activePageState >= this.state.items,
+	                        iconBtn: true
+	                    }),
 	                    _react2["default"].createElement(
 	                        "span",
 	                        { "aria-label": "Next" },
@@ -8342,7 +8350,9 @@
 	                    _PaginationButton2["default"],
 	                    _extends({}, buttonProps, {
 	                        eventKey: this.state.items,
-	                        disabled: activePageState >= this.state.items }),
+	                        disabled: activePageState >= this.state.items,
+	                        iconBtn: true
+	                    }),
 	                    _react2["default"].createElement(
 	                        "span",
 	                        { "aria-label": "Last" },
@@ -8504,14 +8514,14 @@
 	        eventKey = _props2.eventKey,
 	        className = _props2.className,
 	        style = _props2.style,
-	        props = _objectWithoutProperties(_props2, ['componentClass', 'active', 'disabled', 'onClick', 'eventKey', 'className', 'style']);
+	        iconBtn = _props2.iconBtn,
+	        props = _objectWithoutProperties(_props2, ['componentClass', 'active', 'disabled', 'onClick', 'eventKey', 'className', 'style', 'iconBtn']);
 	
 	    delete props.onSelect;
-	
 	    return _react2['default'].createElement(
 	      'li',
 	      {
-	        className: (0, _classnames2['default'])(className, { active: active, disabled: disabled }),
+	        className: (0, _classnames2['default'])(className, { active: active, disabled: disabled, iconBtn: iconBtn }),
 	        style: style
 	      },
 	      _react2['default'].createElement(Component, _extends({}, props, {

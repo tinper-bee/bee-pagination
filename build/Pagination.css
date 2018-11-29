@@ -257,6 +257,10 @@ input.u-button[type="submit"] {
       clear: both;
       display: table;
       content: ''; }
+    .u-pagination-list > li.iconBtn > a {
+      padding: 0 11px;
+      font-size: 22px;
+      line-height: 1.57142857; }
     .u-pagination-list > li > a, .u-pagination-list > li > span {
       display: inline-block;
       text-decoration: none;

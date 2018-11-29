@@ -82,14 +82,14 @@ var PaginationButton = function (_React$Component) {
         eventKey = _props2.eventKey,
         className = _props2.className,
         style = _props2.style,
-        props = _objectWithoutProperties(_props2, ['componentClass', 'active', 'disabled', 'onClick', 'eventKey', 'className', 'style']);
+        iconBtn = _props2.iconBtn,
+        props = _objectWithoutProperties(_props2, ['componentClass', 'active', 'disabled', 'onClick', 'eventKey', 'className', 'style', 'iconBtn']);
 
     delete props.onSelect;
-
     return _react2["default"].createElement(
       'li',
       {
-        className: (0, _classnames2["default"])(className, { active: active, disabled: disabled }),
+        className: (0, _classnames2["default"])(className, { active: active, disabled: disabled, iconBtn: iconBtn }),
         style: style
       },
       _react2["default"].createElement(Component, _extends({}, props, {

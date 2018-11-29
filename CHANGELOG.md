@@ -1,5 +1,6 @@
-<a name="1.1.10"></a>
-## [1.1.10](https://github.com/tinper-bee/bee-pagination/compare/v1.1.9...v1.1.10) (2018-11-16)
+<a name="1.1.11"></a>
+## [1.1.11](https://github.com/tinper-bee/bee-pagination/compare/v1.1.9...v1.1.11) (2018-11-29)
+
 
 
 <a name="1.1.9"></a>
