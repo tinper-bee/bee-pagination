@@ -45,15 +45,15 @@ class PaginationButton extends React.Component {
       eventKey,
       className,
       style,
-      ...props
+      iconBtn,
+      ...props,
     } = this.props;
 
-
+   
     delete props.onSelect;
-
     return (
       <li
-        className={classNames(className, { active, disabled })}
+        className={classNames(className, { active, disabled,iconBtn})}
         style={style}
       >
         <Component

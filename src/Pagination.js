@@ -117,7 +117,7 @@ const defaultProps = {
     showJump: false,
     locale: {},
     disabled: false,
-    btnType:{shape:'border'}
+    btnType: { shape: 'border' }
 };
 
 
@@ -157,12 +157,15 @@ class Pagination extends React.Component {
 
     setPageJump = (e) => {
         let value = e.target.value;
-        if (isNaN(Number(value)) || value > this.state.items || value <= 0) {
+        // 20181129跳转内容可以清空
+        if (value !== '' && (isNaN(Number(value)) || value > this.state.items || value <= 0)) {
             return false;
+        } else {
+            this.setState({
+                jumpPageState: value
+            })
         }
-        this.setState({
-            jumpPageState: value
-        })
+
     }
 
     /**
@@ -352,11 +355,11 @@ class Pagination extends React.Component {
         if (gap) {
             classes[`${clsPrefix}-gap`] = true;
         }
-        
+
 
         let classNames = classnames(`${clsPrefix}-list`, classes);
-        const wrapperClass = classnames(clsPrefix,{
-            [`${clsPrefix}-disabled`] : disabled,
+        const wrapperClass = classnames(clsPrefix, {
+            [`${clsPrefix}-disabled`]: disabled,
         })
         /**
          *  页按钮属性
@@ -381,6 +384,8 @@ class Pagination extends React.Component {
                             {...buttonProps}
                             eventKey={1}
                             disabled={activePageState === 1}
+                            iconBtn={true}
+
                         >
                             <span aria-label="First">{first === true ? "\u00ab" : first}</span>
                         </PaginationButton>
@@ -390,6 +395,8 @@ class Pagination extends React.Component {
                             {...buttonProps}
                             eventKey={activePageState - 1}
                             disabled={activePageState === 1}
+                            iconBtn={true}
+
                         >
                             <span aria-label="Previous">{prev === true ? "\u2039" : prev}</span>
                         </PaginationButton>
@@ -408,7 +415,9 @@ class Pagination extends React.Component {
                         <PaginationButton
                             {...buttonProps}
                             eventKey={activePageState + 1}
-                            disabled={activePageState >= this.state.items}>
+                            disabled={activePageState >= this.state.items}
+                            iconBtn={true}
+                            >
                             <span aria-label="Next">{next === true ? "\u203a" : next}</span>
                         </PaginationButton>
                     )}
@@ -416,7 +425,9 @@ class Pagination extends React.Component {
                         <PaginationButton
                             {...buttonProps}
                             eventKey={this.state.items}
-                            disabled={activePageState >= this.state.items}>
+                            disabled={activePageState >= this.state.items}
+                            iconBtn={true}
+                            >
                             <span aria-label="Last">{last === true ? "\u00bb" : last}</span>
                         </PaginationButton>
                     )}
@@ -474,7 +485,7 @@ class Pagination extends React.Component {
                                 onClick={this.handleEnsurePageJump}
                                 // shape="border"
                                 {...btnType}
-                                >
+                            >
                                 {local['ok']}
                             </Button>
                         </div>
