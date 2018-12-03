@@ -373,12 +373,12 @@ class Pagination extends React.Component {
 
         return (
 
-            <div className={wrapperClass}>
+            <div className={classnames(wrapperClass,className)}>
                 {
                     disabled && <div className={`${clsPrefix}-disabled-mask`}>
                     </div>
                 }
-                <ul {...others} className={classnames(className, classNames)}>
+                <ul {...others} className={classNames}>
                     {first && (
                         <PaginationButton
                             {...buttonProps}
