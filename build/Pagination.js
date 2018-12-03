@@ -417,11 +417,11 @@ var Pagination = function (_React$Component) {
 
         return _react2["default"].createElement(
             "div",
-            { className: wrapperClass },
+            { className: (0, _classnames3["default"])(wrapperClass, className) },
             disabled && _react2["default"].createElement("div", { className: clsPrefix + "-disabled-mask" }),
             _react2["default"].createElement(
                 "ul",
-                _extends({}, others, { className: (0, _classnames3["default"])(className, classNames) }),
+                _extends({}, others, { className: classNames }),
                 first && _react2["default"].createElement(
                     _PaginationButton2["default"],
                     _extends({}, buttonProps, {
