@@ -8299,11 +8299,11 @@
 	
 	        return _react2["default"].createElement(
 	            "div",
-	            { className: wrapperClass },
+	            { className: (0, _classnames3["default"])(wrapperClass, className) },
 	            disabled && _react2["default"].createElement("div", { className: clsPrefix + "-disabled-mask" }),
 	            _react2["default"].createElement(
 	                "ul",
-	                _extends({}, others, { className: (0, _classnames3["default"])(className, classNames) }),
+	                _extends({}, others, { className: classNames }),
 	                first && _react2["default"].createElement(
 	                    _PaginationButton2["default"],
 	                    _extends({}, buttonProps, {
@@ -8374,7 +8374,11 @@
 	            showJump ? _react2["default"].createElement(
 	                "div",
 	                { className: "data_per_select" },
-	                local['show'],
+	                _react2["default"].createElement(
+	                    "span",
+	                    null,
+	                    local['show']
+	                ),
 	                _react2["default"].createElement(
 	                    _beeSelect2["default"]
 	                    // className="data_select"
@@ -8389,19 +8393,31 @@
 	                        );
 	                    })
 	                ),
-	                local['items']
+	                _react2["default"].createElement(
+	                    "span",
+	                    null,
+	                    local['items']
+	                )
 	            ) : null,
 	            showJump ? _react2["default"].createElement(
 	                "div",
 	                { className: "page_jump" },
-	                local['goto'],
+	                _react2["default"].createElement(
+	                    "span",
+	                    null,
+	                    local['goto']
+	                ),
 	                _react2["default"].createElement("input", {
 	                    className: "page_jump_value",
 	                    value: jumpPageState,
 	                    onKeyDown: this.onKeyup,
 	                    onChange: this.setPageJump
 	                }),
-	                local['page'],
+	                _react2["default"].createElement(
+	                    "span",
+	                    null,
+	                    local['page']
+	                ),
 	                _react2["default"].createElement(
 	                    _beeButton2["default"],
 	                    _extends({
@@ -8409,7 +8425,11 @@
 	                        onClick: this.handleEnsurePageJump
 	                        // shape="border"
 	                    }, btnType),
-	                    local['ok']
+	                    _react2["default"].createElement(
+	                        "span",
+	                        null,
+	                        local['ok']
+	                    )
 	                )
 	            ) : null
 	        );

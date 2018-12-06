@@ -445,7 +445,7 @@ class Pagination extends React.Component {
                 {
                     showJump ? (
                         <div className="data_per_select">
-                            {local['show']}
+                            <span>{local['show']}</span>
                             {/* <select
                                     name="data-select"
                                     className="data_select"
@@ -465,28 +465,28 @@ class Pagination extends React.Component {
                                         return <Option key={i} value={i}>{item}</Option>
                                     })}
                             </Select>
-                            {local['items']}
+                            <span>{local['items']}</span>
                         </div>
                     ) : null
                 }
                 {
                     showJump ? (
                         <div className="page_jump">
-                            {local['goto']}
+                            <span>{local['goto']}</span>
                             <input
                                 className="page_jump_value"
                                 value={jumpPageState}
                                 onKeyDown={this.onKeyup}
                                 onChange={this.setPageJump}
                             />
-                            {local['page']}
+                            <span>{local['page']}</span>
                             <Button
                                 className="page_jump_btn"
                                 onClick={this.handleEnsurePageJump}
                                 // shape="border"
                                 {...btnType}
                             >
-                                {local['ok']}
+                            <span>{local['ok']}</span>
                             </Button>
                         </div>
                     ) : null
