@@ -492,7 +492,11 @@ var Pagination = function (_React$Component) {
             showJump ? _react2["default"].createElement(
                 "div",
                 { className: "data_per_select" },
-                local['show'],
+                _react2["default"].createElement(
+                    "span",
+                    null,
+                    local['show']
+                ),
                 _react2["default"].createElement(
                     _beeSelect2["default"]
                     // className="data_select"
@@ -507,19 +511,31 @@ var Pagination = function (_React$Component) {
                         );
                     })
                 ),
-                local['items']
+                _react2["default"].createElement(
+                    "span",
+                    null,
+                    local['items']
+                )
             ) : null,
             showJump ? _react2["default"].createElement(
                 "div",
                 { className: "page_jump" },
-                local['goto'],
+                _react2["default"].createElement(
+                    "span",
+                    null,
+                    local['goto']
+                ),
                 _react2["default"].createElement("input", {
                     className: "page_jump_value",
                     value: jumpPageState,
                     onKeyDown: this.onKeyup,
                     onChange: this.setPageJump
                 }),
-                local['page'],
+                _react2["default"].createElement(
+                    "span",
+                    null,
+                    local['page']
+                ),
                 _react2["default"].createElement(
                     _beeButton2["default"],
                     _extends({
@@ -527,7 +543,11 @@ var Pagination = function (_React$Component) {
                         onClick: this.handleEnsurePageJump
                         // shape="border"
                     }, btnType),
-                    local['ok']
+                    _react2["default"].createElement(
+                        "span",
+                        null,
+                        local['ok']
+                    )
                 )
             ) : null
         );
