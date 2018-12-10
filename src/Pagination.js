@@ -141,7 +141,8 @@ class Pagination extends React.Component {
         if (nextProps.dataNum && this.props.dataNum !== nextProps.dataNum) {
             this.setState({
                 dataNum: nextProps.dataNum,
-                items: Math.ceil(nextProps.total / nextProps.dataNumSelect[nextProps.dataNum])
+                // 20181210因为dataNumSelect的某项不是数字或者数字字符串
+                items: Number.isNaN(parseInt(nextProps.dataNumSelect[nextProps.dataNum])) ? 1:Math.ceil(nextProps.total / nextProps.dataNumSelect[nextProps.dataNum])
             })
         }
         if (nextProps.items && this.props.items !== nextProps.items) {
@@ -191,13 +192,14 @@ class Pagination extends React.Component {
      * @param e
      */
     dataNumSelect = (value) => {
-        console.log(value);
+        // console.log(value);
         const { onDataNumSelect, total } = this.props;
         let dataNumValue = this.props.dataNumSelect[value];
-        console.log("dataNumValue", dataNumValue);
+        // console.log("dataNumValue", dataNumValue);
         if (total) {
             this.setState({
-                items: Math.ceil(total / dataNumValue)
+                // 20181210因为dataNumSelect的某项不是数字或者数字字符串
+                items: Number.isNaN(parseInt(dataNumValue))?1:Math.ceil(total / dataNumValue)
             })
         }
         this.setState({

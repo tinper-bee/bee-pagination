@@ -193,16 +193,17 @@ var Pagination = function (_React$Component) {
         };
 
         _this.dataNumSelect = function (value) {
-            console.log(value);
+            // console.log(value);
             var _this$props = _this.props,
                 onDataNumSelect = _this$props.onDataNumSelect,
                 total = _this$props.total;
 
             var dataNumValue = _this.props.dataNumSelect[value];
-            console.log("dataNumValue", dataNumValue);
+            // console.log("dataNumValue", dataNumValue);
             if (total) {
                 _this.setState({
-                    items: Math.ceil(total / dataNumValue)
+                    // 20181210因为dataNumSelect的某项不是数字或者数字字符串
+                    items: Number.isNaN(parseInt(dataNumValue)) ? 1 : Math.ceil(total / dataNumValue)
                 });
             }
             _this.setState({
@@ -231,7 +232,8 @@ var Pagination = function (_React$Component) {
         if (nextProps.dataNum && this.props.dataNum !== nextProps.dataNum) {
             this.setState({
                 dataNum: nextProps.dataNum,
-                items: Math.ceil(nextProps.total / nextProps.dataNumSelect[nextProps.dataNum])
+                // 20181210因为dataNumSelect的某项不是数字或者数字字符串
+                items: Number.isNaN(parseInt(nextProps.dataNumSelect[nextProps.dataNum])) ? 1 : Math.ceil(nextProps.total / nextProps.dataNumSelect[nextProps.dataNum])
             });
         }
         if (nextProps.items && this.props.items !== nextProps.items) {
