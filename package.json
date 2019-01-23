@@ -37,7 +37,7 @@
   "bee-locale": "0.0.9",
   "bee-select": "^1.1.8",
   "classnames": "^2.2.5",
-  "tinper-bee-core": "^2.0.1"
+  "tinper-bee-core": "latest"
  },
  "peerDependencies": {
   "react": "^15.3.0 || ^16.0",

@@ -33,7 +33,7 @@
     background-color: rgb(189,189,189);
     border-color: rgb(189,189,189); }
   .u-button.colored {
-    color: rgb(229,57,53); }
+    color: rgb(30,136,229); }
     .u-button.colored:focus:not(:active) {
       background-color: rgb(238,238,238);
       border-color: rgb(189,189,189); }
@@ -83,26 +83,26 @@ input.u-button[type="submit"] {
     border-color: #adadad; }
 
 .u-button-border {
-  color: rgb(229,57,53);
+  color: rgb(30,136,229);
   border: 1px solid rgb(189,189,189);
   background: rgb(255,255,255); }
   .u-button-border:hover {
-    color: rgb(229,57,53);
+    color: rgb(30,136,229);
     background-color: rgb(238,238,238);
     border-color: rgb(189,189,189); }
   .u-button-border:active {
-    color: rgb(229,57,53);
+    color: rgb(30,136,229);
     background-color: rgb(189,189,189);
     border-color: rgb(189,189,189); }
   .u-button-border:focus:not(:active) {
-    color: rgb(229,57,53);
+    color: rgb(30,136,229);
     background-color: rgb(238,238,238);
     border-color: rgb(189,189,189); }
 
 .u-button.u-button-primary {
   color: rgb(255,255,255);
-  background-color: rgb(229,57,53);
-  border: 1px rgb(229,57,53) solid; }
+  background-color: rgb(30,136,229);
+  border: 1px rgb(30,136,229) solid; }
   .u-button.u-button-primary.focus, .u-button.u-button-primary:focus, .u-button.u-button-primary:hover {
     background-color: rgb(66,165,245);
     border-color: rgb(66,165,245); }
@@ -240,9 +240,9 @@ input.u-button[type="submit"] {
     border-color: rgb(0,151,167); }
 
 .u-button-border.u-button-primary {
-  color: rgb(229,57,53);
+  color: rgb(30,136,229);
   background-color: #fff;
-  border: 1px rgb(229,57,53) solid; }
+  border: 1px rgb(30,136,229) solid; }
   .u-button-border.u-button-primary.focus, .u-button-border.u-button-primary:focus, .u-button-border.u-button-primary:hover {
     background-color: rgb(66,165,245);
     border-color: rgb(66,165,245);
@@ -381,8 +381,8 @@ input.u-button[type="submit"] {
       z-index: 2;
       color: #fff;
       cursor: default;
-      background-color: rgb(229,57,53);
-      border-color: rgb(229,57,53); }
+      background-color: rgb(30,136,229);
+      border-color: rgb(30,136,229); }
     .u-pagination-list > .disabled > a, .u-pagination-list > .disabled > span, .u-pagination-list > .disabled > a:hover, .u-pagination-list > .disabled > span:hover, .u-pagination-list > .disabled > a:focus, .u-pagination-list > .disabled > span:focus {
       color: #777;
       cursor: not-allowed;
@@ -582,7 +582,7 @@ input.u-button[type="submit"] {
   border: 1px solid #d7d7d7; }
   .u-pagination-gap > li > a:hover {
     background-color: transparent;
-    border-color: rgb(229,57,53); }
+    border-color: rgb(30,136,229); }
 
 .u-pagination-gap > li:first-child > a, .u-pagination-gap > li:last-child > a {
   border-radius: 5px; }
