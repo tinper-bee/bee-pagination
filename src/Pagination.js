@@ -3,6 +3,8 @@ import React from "react";
 import PaginationButton from "./PaginationButton";
 import Button from 'bee-button';
 import Select from 'bee-select';
+import Icon from 'bee-icon';
+import assign from 'object-assign';
 
 import PropTypes from "prop-types";
 import i18n from './i18n';
@@ -92,6 +94,10 @@ const propTypes = {
      *  确认按钮的样式集合
      */
     btnType: PropTypes.object,
+    /**
+     *  渲染确认按钮的dom
+     */
+    confirmBtn: PropTypes.func,
 };
 
 
@@ -106,7 +112,7 @@ const defaultProps = {
     boundaryLinks: false,
     clsPrefix: "u-pagination",
     gap: false,
-    noBorder: false,
+    noBorder: true,
     dataNumSelect: [
         '5',
         '10',
@@ -117,7 +123,8 @@ const defaultProps = {
     showJump: false,
     locale: {},
     disabled: false,
-    btnType: { shape: 'border' }
+    btnType: { shape: 'border' },
+    confirmBtn: () => {}
 };
 
 
@@ -342,11 +349,15 @@ class Pagination extends React.Component {
             total,
             disabled,
             btnType,
+            confirmBtn,
             ...others
         } = this.props;
 
         const activePageState = this.state.activePage;
         const jumpPageState = this.state.jumpPageState;
+
+        const btnDom = confirmBtn(assign({}, this.props));
+ 
         const classes = {};
         if (noBorder) {
             classes[`${clsPrefix}-no-border`] = true;
@@ -356,6 +367,9 @@ class Pagination extends React.Component {
         }
         if (gap) {
             classes[`${clsPrefix}-gap`] = true;
+        }
+        if (!!btnDom) {
+            classes[`${clsPrefix}-with-jumpbtn`] = true;
         }
 
 
@@ -372,7 +386,11 @@ class Pagination extends React.Component {
             onSelect,
             componentClass: buttonComponentClass
         };
-
+        const jumpBtn = btnDom ? (
+            <div className="page_jump_btn" onClick={this.handleEnsurePageJump}>
+              {btnDom}
+            </div>
+        ) : null;
         return (
 
             <div className={classnames(wrapperClass,className)}>
@@ -389,7 +407,8 @@ class Pagination extends React.Component {
                             iconBtn={true}
 
                         >
-                            <span aria-label="First">{first === true ? "\u00ab" : first}</span>
+                            <Icon type="uf-2arrow-left"></Icon>
+                            {/* <span aria-label="First">{first === true ? "\u00ab" : first}</span> */}
                         </PaginationButton>
                     )}
                     {prev && (
@@ -400,7 +419,8 @@ class Pagination extends React.Component {
                             iconBtn={true}
 
                         >
-                            <span aria-label="Previous">{prev === true ? "\u2039" : prev}</span>
+                            <Icon type="uf-arrow-left"></Icon>
+                            {/* <span aria-label="Previous">{prev === true ? "\u2039" : prev}</span> */}
                         </PaginationButton>
                     )}
 
@@ -420,7 +440,8 @@ class Pagination extends React.Component {
                             disabled={activePageState >= this.state.items}
                             iconBtn={true}
                             >
-                            <span aria-label="Next">{next === true ? "\u203a" : next}</span>
+                            <Icon type="uf-arrow-right"></Icon>
+                            {/* <span aria-label="Next">{next === true ? "\u203a" : next}</span> */}
                         </PaginationButton>
                     )}
                     {last && (
@@ -430,7 +451,8 @@ class Pagination extends React.Component {
                             disabled={activePageState >= this.state.items}
                             iconBtn={true}
                             >
-                            <span aria-label="Last">{last === true ? "\u00bb" : last}</span>
+                            <Icon type="uf-2arrow-right"></Icon>
+                            {/* <span aria-label="Last">{last === true ? "\u00bb" : last}</span> */}
                         </PaginationButton>
                     )}
                 </ul>
@@ -482,14 +504,15 @@ class Pagination extends React.Component {
                                 onChange={this.setPageJump}
                             />
                             <span>{local['page']}</span>
-                            <Button
+                            {jumpBtn}
+                            {/* <Button
                                 className="page_jump_btn"
                                 onClick={this.handleEnsurePageJump}
                                 // shape="border"
                                 {...btnType}
                             >
                             <span>{local['ok']}</span>
-                            </Button>
+                            </Button> */}
                         </div>
                     ) : null
                 }

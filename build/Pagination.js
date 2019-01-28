@@ -26,6 +26,14 @@ var _beeSelect = require("bee-select");
 
 var _beeSelect2 = _interopRequireDefault(_beeSelect);
 
+var _beeIcon = require("bee-icon");
+
+var _beeIcon2 = _interopRequireDefault(_beeIcon);
+
+var _objectAssign = require("object-assign");
+
+var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
 var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -129,7 +137,11 @@ var propTypes = {
     /**
      *  确认按钮的样式集合
      */
-    btnType: _propTypes2["default"].object
+    btnType: _propTypes2["default"].object,
+    /**
+     *  渲染确认按钮的dom
+     */
+    confirmBtn: _propTypes2["default"].func
 };
 
 var defaultProps = {
@@ -143,13 +155,14 @@ var defaultProps = {
     boundaryLinks: false,
     clsPrefix: "u-pagination",
     gap: false,
-    noBorder: false,
+    noBorder: true,
     dataNumSelect: ['5', '10', '15', '20'],
     dataNum: 1,
     showJump: false,
     locale: {},
     disabled: false,
-    btnType: { shape: 'border' }
+    btnType: { shape: 'border' },
+    confirmBtn: function confirmBtn() {}
 };
 
 var Pagination = function (_React$Component) {
@@ -390,10 +403,14 @@ var Pagination = function (_React$Component) {
             total = _props.total,
             disabled = _props.disabled,
             btnType = _props.btnType,
-            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled", "btnType"]);
+            confirmBtn = _props.confirmBtn,
+            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled", "btnType", "confirmBtn"]);
 
         var activePageState = this.state.activePage;
         var jumpPageState = this.state.jumpPageState;
+
+        var btnDom = confirmBtn((0, _objectAssign2["default"])({}, this.props));
+
         var classes = {};
         if (noBorder) {
             classes[clsPrefix + "-no-border"] = true;
@@ -403,6 +420,9 @@ var Pagination = function (_React$Component) {
         }
         if (gap) {
             classes[clsPrefix + "-gap"] = true;
+        }
+        if (!!btnDom) {
+            classes[clsPrefix + "-with-jumpbtn"] = true;
         }
 
         var classNames = (0, _classnames3["default"])(clsPrefix + "-list", classes);
@@ -416,7 +436,11 @@ var Pagination = function (_React$Component) {
             onSelect: onSelect,
             componentClass: buttonComponentClass
         };
-
+        var jumpBtn = btnDom ? _react2["default"].createElement(
+            "div",
+            { className: "page_jump_btn", onClick: this.handleEnsurePageJump },
+            btnDom
+        ) : null;
         return _react2["default"].createElement(
             "div",
             { className: (0, _classnames3["default"])(wrapperClass, className) },
@@ -432,11 +456,7 @@ var Pagination = function (_React$Component) {
                         iconBtn: true
 
                     }),
-                    _react2["default"].createElement(
-                        "span",
-                        { "aria-label": "First" },
-                        first === true ? "\xAB" : first
-                    )
+                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-2arrow-left" })
                 ),
                 prev && _react2["default"].createElement(
                     _PaginationButton2["default"],
@@ -446,11 +466,7 @@ var Pagination = function (_React$Component) {
                         iconBtn: true
 
                     }),
-                    _react2["default"].createElement(
-                        "span",
-                        { "aria-label": "Previous" },
-                        prev === true ? "\u2039" : prev
-                    )
+                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-arrow-left" })
                 ),
                 this.renderPageButtons(activePageState, this.state.items, maxButtons, boundaryLinks, ellipsis, buttonProps),
                 next && _react2["default"].createElement(
@@ -460,11 +476,7 @@ var Pagination = function (_React$Component) {
                         disabled: activePageState >= this.state.items,
                         iconBtn: true
                     }),
-                    _react2["default"].createElement(
-                        "span",
-                        { "aria-label": "Next" },
-                        next === true ? "\u203A" : next
-                    )
+                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-arrow-right" })
                 ),
                 last && _react2["default"].createElement(
                     _PaginationButton2["default"],
@@ -473,11 +485,7 @@ var Pagination = function (_React$Component) {
                         disabled: activePageState >= this.state.items,
                         iconBtn: true
                     }),
-                    _react2["default"].createElement(
-                        "span",
-                        { "aria-label": "Last" },
-                        last === true ? "\xBB" : last
-                    )
+                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-2arrow-right" })
                 )
             ),
             total != null ? _react2["default"].createElement(
@@ -538,19 +546,7 @@ var Pagination = function (_React$Component) {
                     null,
                     local['page']
                 ),
-                _react2["default"].createElement(
-                    _beeButton2["default"],
-                    _extends({
-                        className: "page_jump_btn",
-                        onClick: this.handleEnsurePageJump
-                        // shape="border"
-                    }, btnType),
-                    _react2["default"].createElement(
-                        "span",
-                        null,
-                        local['ok']
-                    )
-                )
+                jumpBtn
             ) : null
         );
     };

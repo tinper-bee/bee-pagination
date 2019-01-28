@@ -34,6 +34,7 @@
  },
  "dependencies": {
   "bee-button": "^2.0.0",
+  "bee-icon": "^1.0.9",
   "bee-locale": "0.0.9",
   "bee-select": "^1.1.8",
   "classnames": "^2.2.5",

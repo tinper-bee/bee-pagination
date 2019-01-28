@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(240);var Demo3 = __webpack_require__(241);var Demo4 = __webpack_require__(242);var Demo5 = __webpack_require__(243);var Demo6 = __webpack_require__(244);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\r\n * @title 少页数Pagination\r\n * @description 所有页数均显示。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo1 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\r\n * @title 多页数Pagination\r\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo2 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t        \tfirst\r\n\t        \tlast\r\n\t        \tprev\r\n\t        \tnext\r\n\t        \tboundaryLinks\r\n\t\t        items={11}\r\n\t\t        maxButtons={5}\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\r\n * @title 有间隔Pagination\r\n * @description 有间隔Pagination\r\n */\r\n\r\nimport React, { Component } from \"react\";\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo3 extends React.Component {\r\n  constructor(props) {\r\n    super(props);\r\n    this.state = {\r\n      activePage: 1\r\n    };\r\n  }\r\n  handleSelect(eventKey) {\r\n    this.setState({\r\n      activePage: eventKey\r\n    });\r\n  }\r\n  render() {\r\n    return (\r\n      <Pagination\r\n        prev\r\n        next\r\n        size=\"sm\"\r\n        gap={true}\r\n        items={5}\r\n        maxButtons={5}\r\n        activePage={this.state.activePage}\r\n        onSelect={this.handleSelect.bind(this)}\r\n      />\r\n    );\r\n  }\r\n}\r\n\r\n", "desc": " 有间隔Pagination" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 多语示例", "code": "/**\r\n * @title 多语示例\r\n * @description 所有页数均显示。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo1 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t\tvar local={\r\n\t\t\t'lang':'en',\r\n\t\t\t'total': 'Total',\r\n\t\t\t'items': 'Items',\r\n\t\t\t'show': 'page',\r\n\t\t\t'goto':'goto',\r\n\t\t\t'page':'',\r\n\t\t\t'ok':'ok'\r\n\t\t}\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tlocale={local}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 不可用pagiantion", "code": "/**\r\n * @title 不可用pagiantion\r\n * @description pagination不可使用状态\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo5 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tdisabled={true}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " pagination不可使用状态" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 少页数Pagination", "code": "/**\r\n * @title 少页数Pagination\r\n * @description 所有页数均显示。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo6 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1,\r\n            btnType: {},\r\n            changeNum: 0,\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n    changeBtn = () => {\r\n        let { changeNum } = this.state;\r\n        switch (changeNum) {\r\n            case 0:\r\n                this.setState({\r\n                    btnType: { \"colors\": \"success\" },\r\n                    changeNum: 1\r\n                });\r\n                break;\r\n            case 1:\r\n                this.setState({\r\n                    btnType: { \"colors\": \"success\", shape: \"border\" },\r\n                    changeNum: 2\r\n                });\r\n                break;\r\n            case 2:\r\n                this.setState({\r\n                    btnType: { \"colors\": \"warning\"},\r\n                    changeNum: 3\r\n                });\r\n                break;\r\n            default:\r\n                this.setState({\r\n                    btnType: { shape:\"border\" },\r\n                    changeNum: 0\r\n                });\r\n        }\r\n\r\n\r\n    }\r\n    render() {\r\n        return (\r\n            <div>\r\n                <div onClick={this.changeBtn} className=\"clickBtn\">click按钮颜色</div>\r\n                <Pagination\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                    btnType={this.state.btnType}\r\n                />\r\n\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 所有页数均显示。" }];
+	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(242);var Demo3 = __webpack_require__(243);var Demo4 = __webpack_require__(244);var Demo5 = __webpack_require__(245);var Demo6 = __webpack_require__(246);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\r\n * @title 少页数Pagination\r\n * @description 所有页数均显示。默认无确认按钮。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo6 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Pagination\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                />\r\n\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 所有页数均显示。默认无确认按钮。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\r\n * @title 多页数Pagination\r\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo2 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t        \tfirst\r\n\t        \tlast\r\n\t        \tprev\r\n\t        \tnext\r\n\t        \tboundaryLinks\r\n\t\t        items={11}\r\n\t\t        maxButtons={5}\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\r\n * @title 有间隔Pagination\r\n * @description 有间隔Pagination\r\n */\r\n\r\nimport React, { Component } from \"react\";\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo3 extends React.Component {\r\n  constructor(props) {\r\n    super(props);\r\n    this.state = {\r\n      activePage: 1\r\n    };\r\n  }\r\n  handleSelect(eventKey) {\r\n    this.setState({\r\n      activePage: eventKey\r\n    });\r\n  }\r\n  render() {\r\n    return (\r\n      <Pagination\r\n        prev\r\n        next\r\n        size=\"sm\"\r\n        gap={true}\r\n        items={5}\r\n        maxButtons={5}\r\n        activePage={this.state.activePage}\r\n        onSelect={this.handleSelect.bind(this)}\r\n      />\r\n    );\r\n  }\r\n}\r\n\r\n", "desc": " 有间隔Pagination" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 多语示例", "code": "/**\r\n * @title 多语示例\r\n * @description 所有页数均显示。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo1 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t\tvar local={\r\n\t\t\t'lang':'en',\r\n\t\t\t'total': 'Total',\r\n\t\t\t'items': 'Items',\r\n\t\t\t'show': 'page',\r\n\t\t\t'goto':'goto',\r\n\t\t\t'page':'',\r\n\t\t\t'ok':'ok'\r\n\t\t}\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tlocale={local}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 不可用pagiantion", "code": "/**\r\n * @title 不可用pagiantion\r\n * @description pagination不可使用状态\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo5 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tdisabled={true}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " pagination不可使用状态" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 自定义按钮的Pagination", "code": "/**\r\n * @title 自定义按钮的Pagination\r\n * @description 通过confirmBtn参数自定义确认按钮，默认不显示按钮。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination, Button } from 'tinper-bee';\r\n\n\r\nclass Demo1 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n\t}\r\n\t\r\n\trenderConfirmBtn = () => {\r\n\t\treturn (\r\n\t\t  \t<Button\r\n\t\t\t\tcolors=\"dark\"\r\n\t\t\t\tshape='border'\r\n\t\t\t>\r\n\t\t\t\t确认\r\n\t\t\t</Button>\r\n\t\t);\r\n\t}\r\n\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tconfirmBtn={this.renderConfirmBtn}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 通过confirmBtn参数自定义确认按钮，默认不显示按钮。" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -7936,7 +7936,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	
 	var _react = __webpack_require__(4);
@@ -7957,59 +7957,59 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 少页数Pagination
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 所有页数均显示。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 所有页数均显示。默认无确认按钮。
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
-	var Demo1 = function (_React$Component) {
-		_inherits(Demo1, _React$Component);
+	var Demo6 = function (_React$Component) {
+	    _inherits(Demo6, _React$Component);
 	
-		function Demo1(props) {
-			_classCallCheck(this, Demo1);
+	    function Demo6(props) {
+	        _classCallCheck(this, Demo6);
 	
-			var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+	        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
 	
-			_this.dataNumSelect = function (index, value) {
-				console.log(index, value);
-			};
+	        _this.dataNumSelect = function (index, value) {
+	            console.log(index, value);
+	        };
 	
-			_this.state = {
-				activePage: 1
-			};
-			return _this;
-		}
+	        _this.state = {
+	            activePage: 1
+	        };
+	        return _this;
+	    }
 	
-		Demo1.prototype.handleSelect = function handleSelect(eventKey) {
-			console.log(eventKey);
-			this.setState({
-				activePage: eventKey
-			});
-		};
+	    Demo6.prototype.handleSelect = function handleSelect(eventKey) {
+	        console.log(eventKey);
+	        this.setState({
+	            activePage: eventKey
+	        });
+	    };
 	
-		Demo1.prototype.render = function render() {
-			return _react2['default'].createElement(
-				'div',
-				null,
-				_react2['default'].createElement(_src2['default'], {
-					first: true,
-					last: true,
-					prev: true,
-					next: true,
-					maxButtons: 5,
-					boundaryLinks: true,
-					activePage: this.state.activePage,
-					onSelect: this.handleSelect.bind(this),
-					onDataNumSelect: this.dataNumSelect,
-					showJump: true,
-					total: 100,
-					dataNum: 2
-				})
-			);
-		};
+	    Demo6.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(_src2['default'], {
+	                first: true,
+	                last: true,
+	                prev: true,
+	                next: true,
+	                maxButtons: 5,
+	                boundaryLinks: true,
+	                activePage: this.state.activePage,
+	                onSelect: this.handleSelect.bind(this),
+	                onDataNumSelect: this.dataNumSelect,
+	                showJump: true,
+	                total: 100,
+	                dataNum: 2
+	            })
+	        );
+	    };
 	
-		return Demo1;
+	    return Demo6;
 	}(_react2['default'].Component);
 	
-	exports['default'] = Demo1;
+	exports['default'] = Demo6;
 	module.exports = exports['default'];
 
 /***/ }),
@@ -8063,15 +8063,23 @@
 	
 	var _beeSelect2 = _interopRequireDefault(_beeSelect);
 	
+	var _beeIcon = __webpack_require__(238);
+	
+	var _beeIcon2 = _interopRequireDefault(_beeIcon);
+	
+	var _objectAssign = __webpack_require__(44);
+	
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+	
 	var _propTypes = __webpack_require__(5);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _i18n = __webpack_require__(238);
+	var _i18n = __webpack_require__(240);
 	
 	var _i18n2 = _interopRequireDefault(_i18n);
 	
-	var _tool = __webpack_require__(239);
+	var _tool = __webpack_require__(241);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
@@ -8166,7 +8174,11 @@
 	    /**
 	     *  确认按钮的样式集合
 	     */
-	    btnType: _propTypes2["default"].object
+	    btnType: _propTypes2["default"].object,
+	    /**
+	     *  渲染确认按钮的dom
+	     */
+	    confirmBtn: _propTypes2["default"].func
 	};
 	
 	var defaultProps = {
@@ -8180,13 +8192,14 @@
 	    boundaryLinks: false,
 	    clsPrefix: "u-pagination",
 	    gap: false,
-	    noBorder: false,
+	    noBorder: true,
 	    dataNumSelect: ['5', '10', '15', '20'],
 	    dataNum: 1,
 	    showJump: false,
 	    locale: {},
 	    disabled: false,
-	    btnType: { shape: 'border' }
+	    btnType: { shape: 'border' },
+	    confirmBtn: function confirmBtn() {}
 	};
 	
 	var Pagination = function (_React$Component) {
@@ -8427,10 +8440,14 @@
 	            total = _props.total,
 	            disabled = _props.disabled,
 	            btnType = _props.btnType,
-	            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled", "btnType"]);
+	            confirmBtn = _props.confirmBtn,
+	            others = _objectWithoutProperties(_props, ["items", "maxButtons", "boundaryLinks", "ellipsis", "first", "last", "prev", "next", "onSelect", "buttonComponentClass", "noBorder", "className", "clsPrefix", "size", "gap", "onDataNumSelect", "dataNumSelect", "dataNum", "activePage", "showJump", "total", "disabled", "btnType", "confirmBtn"]);
 	
 	        var activePageState = this.state.activePage;
 	        var jumpPageState = this.state.jumpPageState;
+	
+	        var btnDom = confirmBtn((0, _objectAssign2["default"])({}, this.props));
+	
 	        var classes = {};
 	        if (noBorder) {
 	            classes[clsPrefix + "-no-border"] = true;
@@ -8440,6 +8457,9 @@
 	        }
 	        if (gap) {
 	            classes[clsPrefix + "-gap"] = true;
+	        }
+	        if (!!btnDom) {
+	            classes[clsPrefix + "-with-jumpbtn"] = true;
 	        }
 	
 	        var classNames = (0, _classnames3["default"])(clsPrefix + "-list", classes);
@@ -8453,7 +8473,11 @@
 	            onSelect: onSelect,
 	            componentClass: buttonComponentClass
 	        };
-	
+	        var jumpBtn = btnDom ? _react2["default"].createElement(
+	            "div",
+	            { className: "page_jump_btn", onClick: this.handleEnsurePageJump },
+	            btnDom
+	        ) : null;
 	        return _react2["default"].createElement(
 	            "div",
 	            { className: (0, _classnames3["default"])(wrapperClass, className) },
@@ -8469,11 +8493,7 @@
 	                        iconBtn: true
 	
 	                    }),
-	                    _react2["default"].createElement(
-	                        "span",
-	                        { "aria-label": "First" },
-	                        first === true ? "\xAB" : first
-	                    )
+	                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-2arrow-left" })
 	                ),
 	                prev && _react2["default"].createElement(
 	                    _PaginationButton2["default"],
@@ -8483,11 +8503,7 @@
 	                        iconBtn: true
 	
 	                    }),
-	                    _react2["default"].createElement(
-	                        "span",
-	                        { "aria-label": "Previous" },
-	                        prev === true ? "\u2039" : prev
-	                    )
+	                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-arrow-left" })
 	                ),
 	                this.renderPageButtons(activePageState, this.state.items, maxButtons, boundaryLinks, ellipsis, buttonProps),
 	                next && _react2["default"].createElement(
@@ -8497,11 +8513,7 @@
 	                        disabled: activePageState >= this.state.items,
 	                        iconBtn: true
 	                    }),
-	                    _react2["default"].createElement(
-	                        "span",
-	                        { "aria-label": "Next" },
-	                        next === true ? "\u203A" : next
-	                    )
+	                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-arrow-right" })
 	                ),
 	                last && _react2["default"].createElement(
 	                    _PaginationButton2["default"],
@@ -8510,11 +8522,7 @@
 	                        disabled: activePageState >= this.state.items,
 	                        iconBtn: true
 	                    }),
-	                    _react2["default"].createElement(
-	                        "span",
-	                        { "aria-label": "Last" },
-	                        last === true ? "\xBB" : last
-	                    )
+	                    _react2["default"].createElement(_beeIcon2["default"], { type: "uf-2arrow-right" })
 	                )
 	            ),
 	            total != null ? _react2["default"].createElement(
@@ -8575,19 +8583,7 @@
 	                    null,
 	                    local['page']
 	                ),
-	                _react2["default"].createElement(
-	                    _beeButton2["default"],
-	                    _extends({
-	                        className: "page_jump_btn",
-	                        onClick: this.handleEnsurePageJump
-	                        // shape="border"
-	                    }, btnType),
-	                    _react2["default"].createElement(
-	                        "span",
-	                        null,
-	                        local['ok']
-	                    )
-	                )
+	                jumpBtn
 	            ) : null
 	        );
 	    };
@@ -22331,6 +22327,104 @@
 
 /***/ }),
 /* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Icon = __webpack_require__(239);
+	
+	var _Icon2 = _interopRequireDefault(_Icon);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	exports["default"] = _Icon2["default"];
+	module.exports = exports['default'];
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(3);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _propTypes = __webpack_require__(5);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	
+	var propTypes = {
+		type: _propTypes2["default"].string
+	
+	};
+	/**
+	 *  badge 默认显示内容1
+	 */
+	var defaultProps = {
+		clsPrefix: 'uf'
+	};
+	
+	var Icon = function (_Component) {
+		_inherits(Icon, _Component);
+	
+		function Icon(props) {
+			_classCallCheck(this, Icon);
+	
+			return _possibleConstructorReturn(this, _Component.call(this, props));
+		}
+	
+		Icon.prototype.render = function render() {
+			var _props = this.props,
+			    type = _props.type,
+			    className = _props.className,
+			    clsPrefix = _props.clsPrefix,
+			    others = _objectWithoutProperties(_props, ['type', 'className', 'clsPrefix']);
+	
+			var clsObj = {};
+	
+			var classNames = (0, _classnames2["default"])(clsPrefix, type);
+	
+			return _react2["default"].createElement('i', _extends({}, others, { className: (0, _classnames2["default"])(classNames, className) }));
+		};
+	
+		return Icon;
+	}(_react.Component);
+	
+	Icon.defaultProps = defaultProps;
+	Icon.propTypes = propTypes;
+	
+	exports["default"] = Icon;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 240 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -22360,7 +22454,7 @@
 	};
 
 /***/ }),
-/* 239 */
+/* 241 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -22398,7 +22492,7 @@
 	}
 
 /***/ }),
-/* 240 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22473,7 +22567,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 241 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22543,7 +22637,7 @@
 	module.exports = exports["default"];
 
 /***/ }),
-/* 242 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22635,7 +22729,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 243 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22719,13 +22813,13 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 244 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 	
 	var _react = __webpack_require__(4);
@@ -22736,6 +22830,10 @@
 	
 	var _src2 = _interopRequireDefault(_src);
 	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -22745,98 +22843,72 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 少页数Pagination
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 所有页数均显示。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 自定义按钮的Pagination
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 通过confirmBtn参数自定义确认按钮，默认不显示按钮。
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
-	var Demo6 = function (_React$Component) {
-	    _inherits(Demo6, _React$Component);
+	var Demo1 = function (_React$Component) {
+		_inherits(Demo1, _React$Component);
 	
-	    function Demo6(props) {
-	        _classCallCheck(this, Demo6);
+		function Demo1(props) {
+			_classCallCheck(this, Demo1);
 	
-	        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+			var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
 	
-	        _this.dataNumSelect = function (index, value) {
-	            console.log(index, value);
-	        };
+			_this.dataNumSelect = function (index, value) {
+				console.log(index, value);
+			};
 	
-	        _this.changeBtn = function () {
-	            var changeNum = _this.state.changeNum;
+			_this.renderConfirmBtn = function () {
+				return _react2['default'].createElement(
+					_beeButton2['default'],
+					{
+						colors: 'dark',
+						shape: 'border'
+					},
+					'\u786E\u8BA4'
+				);
+			};
 	
-	            switch (changeNum) {
-	                case 0:
-	                    _this.setState({
-	                        btnType: { "colors": "success" },
-	                        changeNum: 1
-	                    });
-	                    break;
-	                case 1:
-	                    _this.setState({
-	                        btnType: { "colors": "success", shape: "border" },
-	                        changeNum: 2
-	                    });
-	                    break;
-	                case 2:
-	                    _this.setState({
-	                        btnType: { "colors": "warning" },
-	                        changeNum: 3
-	                    });
-	                    break;
-	                default:
-	                    _this.setState({
-	                        btnType: { shape: "border" },
-	                        changeNum: 0
-	                    });
-	            }
-	        };
+			_this.state = {
+				activePage: 1
+			};
+			return _this;
+		}
 	
-	        _this.state = {
-	            activePage: 1,
-	            btnType: {},
-	            changeNum: 0
-	        };
-	        return _this;
-	    }
+		Demo1.prototype.handleSelect = function handleSelect(eventKey) {
+			console.log(eventKey);
+			this.setState({
+				activePage: eventKey
+			});
+		};
 	
-	    Demo6.prototype.handleSelect = function handleSelect(eventKey) {
-	        console.log(eventKey);
-	        this.setState({
-	            activePage: eventKey
-	        });
-	    };
+		Demo1.prototype.render = function render() {
+			return _react2['default'].createElement(
+				'div',
+				null,
+				_react2['default'].createElement(_src2['default'], {
+					first: true,
+					last: true,
+					prev: true,
+					next: true,
+					maxButtons: 5,
+					boundaryLinks: true,
+					activePage: this.state.activePage,
+					onSelect: this.handleSelect.bind(this),
+					onDataNumSelect: this.dataNumSelect,
+					showJump: true,
+					total: 100,
+					dataNum: 2,
+					confirmBtn: this.renderConfirmBtn
+				})
+			);
+		};
 	
-	    Demo6.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            null,
-	            _react2['default'].createElement(
-	                'div',
-	                { onClick: this.changeBtn, className: 'clickBtn' },
-	                'click\u6309\u94AE\u989C\u8272'
-	            ),
-	            _react2['default'].createElement(_src2['default'], {
-	                first: true,
-	                last: true,
-	                prev: true,
-	                next: true,
-	                maxButtons: 5,
-	                boundaryLinks: true,
-	                activePage: this.state.activePage,
-	                onSelect: this.handleSelect.bind(this),
-	                onDataNumSelect: this.dataNumSelect,
-	                showJump: true,
-	                total: 100,
-	                dataNum: 2,
-	                btnType: this.state.btnType
-	            })
-	        );
-	    };
-	
-	    return Demo6;
+		return Demo1;
 	}(_react2['default'].Component);
 	
-	exports['default'] = Demo6;
+	exports['default'] = Demo1;
 	module.exports = exports['default'];
 
 /***/ })
