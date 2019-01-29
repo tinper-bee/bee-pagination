@@ -342,6 +342,7 @@ input.u-button[type="submit"] {
       display: table;
       content: ''; }
     .u-pagination-list > li.iconBtn > a {
+      padding: 5px 9px;
       line-height: 1.57142857; }
     .u-pagination-list > li > a, .u-pagination-list > li > span {
       display: inline-block;
@@ -352,9 +353,10 @@ input.u-button[type="submit"] {
       background-color: transparent;
       text-align: center;
       color: #666666;
-      padding: 6px 11px;
-      border-radius: 4px;
+      padding: 5px 12px;
       line-height: 1.57142857; }
+    .u-pagination-list.u-pagination-no-border > li > a, .u-pagination-list > li > span {
+      border-radius: 4px; }
     .u-pagination-list > li:first-child > a, .u-pagination-list > li:first-child > span {
       margin-left: 0;
       border-top-left-radius: 4px;
@@ -564,6 +566,14 @@ input.u-button[type="submit"] {
   padding: 6px 9px;
   font-size: 14px;
   line-height: 1.5; }
+
+.u-pagination-lg > li.iconBtn > a {
+  padding: 7px 11.5px; }
+  .u-pagination-lg > li.iconBtn > a > i {
+    font-size: 16px; }
+
+.u-pagination-sm > li.iconBtn > a {
+  padding: 4.5px 6px; }
 
 .u-pagination-no-border:not(.u-pagination-gap) > li > a, .u-pagination-no-border:not(.u-pagination-gap) > li[role="next"] > a {
   border: none; }

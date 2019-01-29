@@ -14,8 +14,7 @@
       content: '';
     }
     & > li.iconBtn > a{
-      // padding: 6px 11px;
-      // font-size: 14px;
+      padding: 5px 9px;
       line-height: 1.57142857;
     }
    
@@ -28,9 +27,11 @@
       background-color: transparent;
       text-align: center;
       color: $pag-color;
-      padding: 6px 11px;
-      border-radius: 4px;
+      padding: 5px 12px;
       line-height: 1.57142857;
+    }
+    &.u-pagination-no-border > li > a, & > li > span{
+        border-radius: 4px;
     }
     & > li:first-child > a, & > li:first-child > span {
       margin-left: 0;
@@ -262,7 +263,19 @@
 .u-pagination-sm {
   @include pagination-size($pagination-small-padding-vertical, $pagination-small-padding-horizontal, $pagination-small-font-size, $line-height-small, $border-radius-small);
 }
-
+.u-pagination-lg {
+  &> li.iconBtn > a {
+    padding: 7px 11.5px;
+    &> i{
+      font-size: 16px;
+    }
+  }
+}
+.u-pagination-sm {
+  &> li.iconBtn > a {
+    padding: 4.5px 6px;
+  }
+}
 //无边框
 .u-pagination-no-border:not(.u-pagination-gap){
   > li > a, > li[role="next"] > a {
