@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import Pagination from '../../src';
 import Button from 'bee-button';
 
-class Demo1 extends React.Component {
+class Demo6 extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -60,4 +60,4 @@ class Demo1 extends React.Component {
 	}
 }
 
-export default Demo1;
+export default Demo6;

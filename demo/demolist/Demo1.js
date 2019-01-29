@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import Pagination from '../../src';
 
-class Demo6 extends React.Component {
+class Demo1 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,4 +48,4 @@ class Demo6 extends React.Component {
     }
 }
 
-export default Demo6;
+export default Demo1;
