@@ -1,3 +1,8 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/tinper-bee/bee-pagination/compare/v1.1.18...v2.0.1) (2019-03-01)
+
+
+
 <a name="1.1.18"></a>
 ## [1.1.18](https://github.com/tinper-bee/bee-pagination/compare/v1.1.17...v1.1.18) (2019-01-29)
 
