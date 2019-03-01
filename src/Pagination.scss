@@ -1,7 +1,10 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-variables";
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
-@import "../node_modules/bee-button/src/Button";
+// @import "../node_modules/bee-button/src/Button";
 
+$border-radius-base:3px;
+$pagination-lg-size:40px;
+$pagination-sm-size:26px;
 .u-pagination {
   font-size: 14px;
   position: relative;
@@ -31,7 +34,7 @@
       line-height: 1.57142857;
     }
     &.u-pagination-no-border > li > a, & > li > span{
-        border-radius: 4px;
+        border-radius: $border-radius-base;
     }
     & > li:first-child > a, & > li:first-child > span {
       margin-left: 0;
@@ -77,7 +80,7 @@
         border-color: $pag-disabled-border-color;
       }
       > a > i {
-        color: #cccccc;
+        color: #C1C7D0;
       }
     }
     & > li[role="gap"] > a {
@@ -133,18 +136,18 @@
     min-width: 120px;
     &>span{
       display: inline-block;
-      line-height: 36px;
+      line-height: 32px;
       float: left;
     }
     .u-select {
       width: 50px;
-      margin: 0 6px;
-      height: 36px;
+      margin: 0 8px;
+      height: 32px;
       float: left;
       .u-select-selection {
-        height: 36px;
+        height: 32px;
         .u-select-selection-rendered {
-          line-height: 36px;
+          line-height: 32px;
         }
       }
     }
@@ -167,7 +170,7 @@
     margin: 5px;
     &>span{
       display: inline-block;
-      line-height: 36px;
+      line-height: 32px;
       float: left;
     }
   }
@@ -175,7 +178,7 @@
     outline: none;
     -webkit-appearance: none;
     background: #fff;
-    border-radius: 4px;
+    border-radius: $border-radius-base;
     width: 50px;
     text-align: center;
     border: 1px solid #d7d7d7;
@@ -183,17 +186,17 @@
   }
   .page_jump_btn, 
   .page_jump_value {
-    margin: 0 6px;
+    margin: 0 8px;
     padding: 0;
-    height: 36px;
-    line-height: 34px;
+    height: 32px;
+    line-height: 30px;
     box-sizing: border-box;
     float: left;
   }
   &-total{
     float: left;
-    height: 36px;
-    line-height: 36px;
+    height: 32px;
+    line-height: 32px;
     margin: 5px;
     span {
       padding:0 5px;
@@ -255,25 +258,62 @@
   }
 }
 
-// Size Modifier
+//Size Modifier
 .u-pagination-lg {
-  @include pagination-size($pagination-lg-padding-vertical, $pagination-lg-padding-horizontal, $pagination-lg-font-size, $line-height-large, $border-radius-large);
+  @include pagination-size( $pagination-lg-padding-vertical, 
+                            $pagination-lg-padding-horizontal, 
+                            $pagination-lg-font-size, 
+                            $line-height-large, 
+                            $border-radius-large,
+                            $pagination-lg-size);
 }
 
 .u-pagination-sm {
-  @include pagination-size($pagination-small-padding-vertical, $pagination-small-padding-horizontal, $pagination-small-font-size, $line-height-small, $border-radius-small);
+  @include pagination-size( $pagination-small-padding-vertical, 
+                            $pagination-small-padding-horizontal, 
+                            $pagination-small-font-size, 
+                            $line-height-small, 
+                            $border-radius-small,
+                            $pagination-sm-size);
 }
 .u-pagination-lg {
-  &> li.iconBtn > a {
-    padding: 7px 11.5px;
-    &> i{
-      font-size: 16px;
-    }
+  & > li.iconBtn > a {
+    padding: 7.5px 12px;
   }
+  & + .u-pagination-total + .data_per_select {
+    .u-select{
+      height: $pagination-lg-size;
+      .u-select-selection{
+        height: $pagination-lg-size;
+        .u-select-selection-rendered{
+          line-height: $pagination-lg-size;
+        }
+      }
+    }
+    & + .page_jump > .page_jump_value{
+      height: $pagination-lg-size;
+      line-height: $pagination-lg-size;
+    }
+  } 
 }
 .u-pagination-sm {
-  &> li.iconBtn > a {
-    padding: 4.5px 6px;
+  & > li.iconBtn > a {
+    padding: 4px 7px;
+  }
+  & + .u-pagination-total + .data_per_select{
+    .u-select{
+      height: $pagination-sm-size;
+      .u-select-selection{
+        height: $pagination-sm-size;
+        .u-select-selection-rendered{
+          line-height: $pagination-sm-size;
+        }
+      }
+    }
+    & + .page_jump > .page_jump_value{
+      height: $pagination-sm-size;
+      line-height: $pagination-sm-size;
+    }
   }
 }
 //无边框
