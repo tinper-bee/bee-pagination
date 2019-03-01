@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(242);var Demo3 = __webpack_require__(243);var Demo4 = __webpack_require__(244);var Demo5 = __webpack_require__(245);var Demo6 = __webpack_require__(246);var Demo7 = __webpack_require__(247);var Demo8 = __webpack_require__(248);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\r\n * @title 少页数Pagination\r\n * @description 所有页数均显示。默认无确认按钮。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo1 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Pagination\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                />\r\n\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 所有页数均显示。默认无确认按钮。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\r\n * @title 多页数Pagination\r\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo2 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t        \tfirst\r\n\t        \tlast\r\n\t        \tprev\r\n\t        \tnext\r\n\t        \tboundaryLinks\r\n\t\t        items={11}\r\n\t\t        maxButtons={5}\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\r\n * @title 有间隔Pagination\r\n * @description 有间隔Pagination\r\n */\r\n\r\nimport React, { Component } from \"react\";\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo3 extends React.Component {\r\n  constructor(props) {\r\n    super(props);\r\n    this.state = {\r\n      activePage: 1\r\n    };\r\n  }\r\n  handleSelect(eventKey) {\r\n    this.setState({\r\n      activePage: eventKey\r\n    });\r\n  }\r\n  render() {\r\n    return (\r\n      <Pagination\r\n        prev\r\n        next\r\n        size=\"sm\"\r\n        gap={true}\r\n        items={5}\r\n        maxButtons={5}\r\n        activePage={this.state.activePage}\r\n        onSelect={this.handleSelect.bind(this)}\r\n      />\r\n    );\r\n  }\r\n}\r\n\r\n", "desc": " 有间隔Pagination" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 多语示例", "code": "/**\r\n * @title 多语示例\r\n * @description 所有页数均显示。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo4 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t\tvar local={\r\n\t\t\t'lang':'en',\r\n\t\t\t'total': 'Total',\r\n\t\t\t'items': 'Items',\r\n\t\t\t'show': 'page',\r\n\t\t\t'goto':'goto',\r\n\t\t\t'page':'',\r\n\t\t\t'ok':'ok'\r\n\t\t}\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tlocale={local}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 不可用pagiantion", "code": "/**\r\n * @title 不可用pagiantion\r\n * @description pagination不可使用状态\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo5 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tdisabled={true}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " pagination不可使用状态" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 自定义按钮的Pagination", "code": "/**\r\n * @title 自定义按钮的Pagination\r\n * @description 通过confirmBtn参数自定义确认按钮，默认不显示按钮。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination, Button } from 'tinper-bee';\r\n\n\r\nclass Demo6 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n\t}\r\n\t\r\n\trenderConfirmBtn = () => {\r\n\t\treturn (\r\n\t\t  \t<Button\r\n\t\t\t\tcolors=\"dark\"\r\n\t\t\t\tshape='border'\r\n\t\t\t>\r\n\t\t\t\t确认\r\n\t\t\t</Button>\r\n\t\t);\r\n\t}\r\n\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tconfirmBtn={this.renderConfirmBtn}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 通过confirmBtn参数自定义确认按钮，默认不显示按钮。" }, { "example": _react2['default'].createElement(Demo7, null), "title": " 显示按钮边框的Pagination", "code": "/**\r\n * @title 显示按钮边框的Pagination\r\n * @description 通过noBorder参数设置是否显示按钮边框。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo1 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Pagination\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    noBorder={false}\r\n                    total={100}\r\n                    dataNum={2}\r\n                />\r\n\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 通过noBorder参数设置是否显示按钮边框。" }, { "example": _react2['default'].createElement(Demo8, null), "title": " 不同大小的Pagination", "code": "/**\r\n * @title 不同大小的Pagination\r\n * @description 通过size参数控制分页的大小。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination, Button } from 'tinper-bee';\r\n\n\r\nclass Demo8 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div className=\"demo8\">\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                    size=\"sm\"\r\n                />\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                />\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                    size=\"lg\"\r\n                />\r\n                {/* <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    boundaryLinks\r\n                    items={11}\r\n                    maxButtons={5}\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    size=\"sm\"\r\n                />\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    boundaryLinks\r\n                    items={11}\r\n                    maxButtons={5}\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                />\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    boundaryLinks\r\n                    items={11}\r\n                    maxButtons={5}\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    size=\"lg\"\r\n                /> */}\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 通过size参数控制分页的大小。", "scss_code": ".demo8 {\r\n    padding-bottom: 20px;\r\n    display: block;\r\n    .demo8-pagination{\r\n        height: 50px;\r\n        display: block;\r\n    }\r\n}" }];
+	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(245);var Demo3 = __webpack_require__(246);var Demo4 = __webpack_require__(247);var Demo5 = __webpack_require__(248);var Demo6 = __webpack_require__(249);var Demo7 = __webpack_require__(250);var Demo8 = __webpack_require__(251);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 少页数Pagination", "code": "/**\r\n * @title 少页数Pagination\r\n * @description 所有页数均显示。默认无确认按钮。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo1 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Pagination\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                />\r\n\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 所有页数均显示。默认无确认按钮。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 多页数Pagination", "code": "/**\r\n * @title 多页数Pagination\r\n * @description 可根据参数设置功能按钮的显示，部分页数隐藏。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo2 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t        \tfirst\r\n\t        \tlast\r\n\t        \tprev\r\n\t        \tnext\r\n\t        \tboundaryLinks\r\n\t\t        items={11}\r\n\t\t        maxButtons={5}\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n", "desc": " 可根据参数设置功能按钮的显示，部分页数隐藏。" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 有间隔Pagination", "code": "/**\r\n * @title 有间隔Pagination\r\n * @description 有间隔Pagination\r\n */\r\n\r\nimport React, { Component } from \"react\";\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo3 extends React.Component {\r\n  constructor(props) {\r\n    super(props);\r\n    this.state = {\r\n      activePage: 1\r\n    };\r\n  }\r\n  handleSelect(eventKey) {\r\n    this.setState({\r\n      activePage: eventKey\r\n    });\r\n  }\r\n  render() {\r\n    return (\r\n      <Pagination\r\n        prev\r\n        next\r\n        size=\"sm\"\r\n        gap={true}\r\n        items={5}\r\n        maxButtons={5}\r\n        activePage={this.state.activePage}\r\n        onSelect={this.handleSelect.bind(this)}\r\n      />\r\n    );\r\n  }\r\n}\r\n\r\n", "desc": " 有间隔Pagination" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 多语示例", "code": "/**\r\n * @title 多语示例\r\n * @description 所有页数均显示。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo4 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t\tvar local={\r\n\t\t\t'lang':'en',\r\n\t\t\t'total': 'Total',\r\n\t\t\t'items': 'Items',\r\n\t\t\t'show': 'page',\r\n\t\t\t'goto':'goto',\r\n\t\t\t'page':'',\r\n\t\t\t'ok':'ok'\r\n\t\t}\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tlocale={local}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 所有页数均显示。" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 不可用pagiantion", "code": "/**\r\n * @title 不可用pagiantion\r\n * @description pagination不可使用状态\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo5 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n    }\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tdisabled={true}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " pagination不可使用状态" }, { "example": _react2['default'].createElement(Demo6, null), "title": " 自定义按钮的Pagination", "code": "/**\r\n * @title 自定义按钮的Pagination\r\n * @description 通过confirmBtn参数自定义确认按钮，默认不显示按钮。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination, Button } from 'tinper-bee';\r\n\n\r\nclass Demo6 extends React.Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tactivePage:1\r\n\t\t}\r\n\t}\r\n\thandleSelect(eventKey) {\r\n\t\tconsole.log(eventKey);\r\n\t    this.setState({\r\n\t      activePage: eventKey\r\n\t    });\r\n\t}\r\n\r\n    dataNumSelect = (index,value) =>{\r\n        console.log(index,value);\r\n\r\n\t}\r\n\t\r\n\trenderConfirmBtn = () => {\r\n\t\treturn (\r\n\t\t  \t<Button\r\n\t\t\t\tcolors=\"dark\"\r\n\t\t\t\tshape='border'\r\n\t\t\t>\r\n\t\t\t\t确认\r\n\t\t\t</Button>\r\n\t\t);\r\n\t}\r\n\r\n\trender() {\r\n\t    return (\r\n\t      <div>\r\n\t        <Pagination\r\n\t\t\t\tfirst\r\n\t\t\t\tlast\r\n\t\t\t\tprev\r\n\t\t\t\tnext\r\n\t\t\t\tmaxButtons={5}\r\n\t        \tboundaryLinks\r\n\t\t        activePage={this.state.activePage}\r\n\t\t        onSelect={this.handleSelect.bind(this)}\r\n\t\t\t\tonDataNumSelect={this.dataNumSelect}\r\n\t\t\t\tshowJump={true}\r\n\t\t\t\ttotal={100}\r\n\t\t\t\tdataNum={2}\r\n\t\t\t\tconfirmBtn={this.renderConfirmBtn}\r\n\t\t\t/>\r\n\t      </div>\r\n\t    );\r\n\t}\r\n}\r\n\r\n", "desc": " 通过confirmBtn参数自定义确认按钮，默认不显示按钮。" }, { "example": _react2['default'].createElement(Demo7, null), "title": " 显示按钮边框的Pagination", "code": "/**\r\n * @title 显示按钮边框的Pagination\r\n * @description 通过noBorder参数设置是否显示按钮边框。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination } from 'tinper-bee';\r\n\r\nclass Demo1 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div>\r\n                <Pagination\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    noBorder={false}\r\n                    total={100}\r\n                    dataNum={2}\r\n                />\r\n\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 通过noBorder参数设置是否显示按钮边框。" }, { "example": _react2['default'].createElement(Demo8, null), "title": " 不同大小的Pagination", "code": "/**\r\n * @title 不同大小的Pagination\r\n * @description 通过size参数控制分页的大小。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Pagination, Button } from 'tinper-bee';\r\n\n\r\nclass Demo8 extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            activePage: 1\r\n        }\r\n    }\r\n    handleSelect(eventKey) {\r\n        console.log(eventKey);\r\n        this.setState({\r\n            activePage: eventKey\r\n        });\r\n    }\r\n\r\n    dataNumSelect = (index, value) => {\r\n        console.log(index, value);\r\n\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div className=\"demo8\">\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                    size=\"sm\"\r\n                />\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                />\r\n                <Pagination\r\n                    className=\"demo8-pagination\"\r\n                    first\r\n                    last\r\n                    prev\r\n                    next\r\n                    maxButtons={5}\r\n                    boundaryLinks\r\n                    activePage={this.state.activePage}\r\n                    onSelect={this.handleSelect.bind(this)}\r\n                    onDataNumSelect={this.dataNumSelect}\r\n                    showJump={true}\r\n                    total={100}\r\n                    dataNum={2}\r\n                    size=\"lg\"\r\n                />\r\n            </div>\r\n        );\r\n    }\r\n}\r\n\r\n", "desc": " 通过size参数控制分页的大小。", "scss_code": ".demo8 {\r\n    padding-bottom: 20px;\r\n    display: block;\r\n    .demo8-pagination{\r\n        height: 50px;\r\n        display: block;\r\n    }\r\n}" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -2121,7 +2121,10 @@
 	  }
 	
 	  return (0, _createChainableTypeChecker2.default)(allPropTypes);
-	}
+	} /**
+	   * This source code is quoted from rc-util.
+	   * homepage: https://github.com/react-component/util
+	   */
 
 /***/ }),
 /* 29 */
@@ -2141,6 +2144,10 @@
 	 */
 	
 	// Mostly taken from ReactPropTypes.
+	
+	/* This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	
 	function createChainableTypeChecker(validate) {
 	  function checkType(isRequired, props, propName, componentName, location, propFullName) {
@@ -2176,7 +2183,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _react = __webpack_require__(4);
 	
@@ -2220,8 +2231,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var warned = {};
-	
+	var warned = {}; /**
+	                  * This source code is quoted from rc-util.
+	                  * homepage: https://github.com/react-component/util
+	                  */
 	function deprecated(validator, reason) {
 	  return function validate(props, propName, componentName, location, propFullName) {
 	    var componentNameSafe = componentName || '<<anonymous>>';
@@ -2516,7 +2529,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _react = __webpack_require__(4);
 	
@@ -2553,6 +2570,10 @@
 	
 	exports.__esModule = true;
 	exports.default = isRequiredForA11y;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function isRequiredForA11y(validator) {
 	  return function validate(props, propName, componentName, location, propFullName) {
 	    var componentNameSafe = componentName || '<<anonymous>>';
@@ -2578,6 +2599,10 @@
 	
 	exports.__esModule = true;
 	exports.default = splitComponentProps;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function _objectEntries(obj) {
 	  var entries = [];
 	  var keys = Object.keys(obj);
@@ -2620,6 +2645,10 @@
 	'use strict';
 	
 	exports.__esModule = true;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function createChainedFunction() {
 	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
 	    funcs[_key] = arguments[_key];
@@ -2652,6 +2681,10 @@
 /* 38 */
 /***/ (function(module, exports) {
 
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	'use strict';
 	
 	/**
@@ -3181,6 +3214,10 @@
 	
 	exports.__esModule = true;
 	exports.default = contains;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function contains(root, n) {
 	  var node = n;
 	  while (node) {
@@ -3212,6 +3249,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function addEventListenerWrap(target, eventType, cb) {
 	  /* eslint camelcase: 2 */
 	  var callback = _reactDom2.default.unstable_batchedUpdates ? function run(e) {
@@ -3731,7 +3772,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _Event = __webpack_require__(46);
 	
@@ -3922,6 +3967,10 @@
 	'use strict';
 	
 	exports.__esModule = true;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	var EVENT_NAME_MAP = {
 	  transitionend: {
 	    transition: 'transitionend',
@@ -4235,7 +4284,10 @@
 	    ret.push(c);
 	  });
 	  return ret;
-	}
+	} /**
+	   * This source code is quoted from rc-util.
+	   * homepage: https://github.com/react-component/util
+	   */
 
 /***/ }),
 /* 50 */
@@ -4271,7 +4323,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
 	
 	//import isWindow from './isWindow';
 	
@@ -5525,6 +5581,16 @@
 	  var viewportHeight = _utils2['default'].viewportHeight(win);
 	  var documentWidth = documentElement.scrollWidth;
 	  var documentHeight = documentElement.scrollHeight;
+	
+	  // scrollXXX on html is sync with body which means overflow: hidden on body gets wrong scrollXXX.
+	  // We should cut this ourself.
+	  var bodyStyle = getComputedStyle(body);
+	  if (bodyStyle.overflowX === 'hidden') {
+	    documentWidth = win.innerWidth;
+	  }
+	  if (bodyStyle.overflowY === 'hidden') {
+	    documentHeight = win.innerHeight;
+	  }
 	
 	  // Reset element position after calculate the visible area
 	  if (element.style) {
@@ -8064,7 +8130,7 @@
 	
 	var _beeSelect2 = _interopRequireDefault(_beeSelect);
 	
-	var _beeIcon = __webpack_require__(238);
+	var _beeIcon = __webpack_require__(241);
 	
 	var _beeIcon2 = _interopRequireDefault(_beeIcon);
 	
@@ -8076,11 +8142,11 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _i18n = __webpack_require__(240);
+	var _i18n = __webpack_require__(243);
 	
 	var _i18n2 = _interopRequireDefault(_i18n);
 	
-	var _tool = __webpack_require__(241);
+	var _tool = __webpack_require__(244);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
@@ -8729,13 +8795,13 @@
 	
 	var _Select2 = _interopRequireDefault(_Select);
 	
-	var _Option = __webpack_require__(223);
+	var _Option = __webpack_require__(226);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
-	var _PropTypes = __webpack_require__(236);
+	var _PropTypes = __webpack_require__(239);
 	
-	var _OptGroup = __webpack_require__(237);
+	var _OptGroup = __webpack_require__(240);
 	
 	var _OptGroup2 = _interopRequireDefault(_OptGroup);
 	
@@ -8772,11 +8838,11 @@
 	
 	var _RcSelect2 = _interopRequireDefault(_RcSelect);
 	
-	var _Option = __webpack_require__(223);
+	var _Option = __webpack_require__(226);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
-	var _OptGroup = __webpack_require__(237);
+	var _OptGroup = __webpack_require__(240);
 	
 	var _OptGroup2 = _interopRequireDefault(_OptGroup);
 	
@@ -8794,7 +8860,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-select.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/select
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	var SelectContext = {
 	  antLocale: {
@@ -8966,17 +9036,17 @@
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _Option = __webpack_require__(223);
+	var _Option = __webpack_require__(226);
 	
 	var _Option2 = _interopRequireDefault(_Option);
 	
-	var _util = __webpack_require__(224);
+	var _util = __webpack_require__(227);
 	
-	var _SelectTrigger = __webpack_require__(225);
+	var _SelectTrigger = __webpack_require__(228);
 	
 	var _SelectTrigger2 = _interopRequireDefault(_SelectTrigger);
 	
-	var _PropTypes = __webpack_require__(236);
+	var _PropTypes = __webpack_require__(239);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
@@ -8988,9 +9058,10 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /* eslint func-names: 1 */
-	/* eslint-disable no-multi-assign, no-lonely-if, jsx-a11y/no-noninteractive-element-interactions, no-restricted-syntax, jsx-a11y/role-has-required-aria-props */
-	// TODO: Fix eslint later
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-select.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/select
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
 	
 	
 	function noop() {}
@@ -10599,19 +10670,19 @@
 	
 	var _Menu2 = _interopRequireDefault(_Menu);
 	
-	var _SubMenu = __webpack_require__(191);
+	var _SubMenu = __webpack_require__(194);
 	
 	var _SubMenu2 = _interopRequireDefault(_SubMenu);
 	
-	var _MenuItem = __webpack_require__(217);
+	var _MenuItem = __webpack_require__(220);
 	
 	var _MenuItem2 = _interopRequireDefault(_MenuItem);
 	
-	var _MenuItemGroup = __webpack_require__(221);
+	var _MenuItemGroup = __webpack_require__(224);
 	
 	var _MenuItemGroup2 = _interopRequireDefault(_MenuItemGroup);
 	
-	var _Divider = __webpack_require__(222);
+	var _Divider = __webpack_require__(225);
 	
 	var _Divider2 = _interopRequireDefault(_Divider);
 	
@@ -10663,11 +10734,11 @@
 	
 	var _miniStore = __webpack_require__(177);
 	
-	var _SubPopupMenu = __webpack_require__(184);
+	var _SubPopupMenu = __webpack_require__(187);
 	
 	var _SubPopupMenu2 = _interopRequireDefault(_SubPopupMenu);
 	
-	var _util = __webpack_require__(187);
+	var _util = __webpack_require__(190);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -11047,7 +11118,7 @@
 /* 100 */
 /***/ (function(module, exports) {
 
-	var core = module.exports = { version: '2.6.2' };
+	var core = module.exports = { version: '2.6.5' };
 	if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -12542,7 +12613,7 @@
 	
 	var _connect3 = _interopRequireDefault(_connect2);
 	
-	var _create2 = __webpack_require__(183);
+	var _create2 = __webpack_require__(186);
 	
 	var _create3 = _interopRequireDefault(_create2);
 	
@@ -12857,7 +12928,7 @@
 
 /***/ }),
 /* 182 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -12865,12 +12936,15 @@
 	 * Copyright 2015, Yahoo! Inc.
 	 * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
 	 */
+	var ReactIs = __webpack_require__(183);
 	var REACT_STATICS = {
 	    childContextTypes: true,
+	    contextType: true,
 	    contextTypes: true,
 	    defaultProps: true,
 	    displayName: true,
 	    getDefaultProps: true,
+	    getDerivedStateFromError: true,
 	    getDerivedStateFromProps: true,
 	    mixins: true,
 	    propTypes: true,
@@ -12887,15 +12961,43 @@
 	    arity: true
 	};
 	
+	var FORWARD_REF_STATICS = {
+	    '$$typeof': true,
+	    render: true,
+	    defaultProps: true,
+	    displayName: true,
+	    propTypes: true
+	};
+	
+	var MEMO_STATICS = {
+	    '$$typeof': true,
+	    compare: true,
+	    defaultProps: true,
+	    displayName: true,
+	    propTypes: true,
+	    type: true
+	};
+	
+	var TYPE_STATICS = {};
+	TYPE_STATICS[ReactIs.ForwardRef] = FORWARD_REF_STATICS;
+	
+	function getStatics(component) {
+	    if (ReactIs.isMemo(component)) {
+	        return MEMO_STATICS;
+	    }
+	    return TYPE_STATICS[component['$$typeof']] || REACT_STATICS;
+	}
+	
 	var defineProperty = Object.defineProperty;
 	var getOwnPropertyNames = Object.getOwnPropertyNames;
 	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 	var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 	var getPrototypeOf = Object.getPrototypeOf;
-	var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
+	var objectPrototype = Object.prototype;
 	
 	function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
-	    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
+	    if (typeof sourceComponent !== 'string') {
+	        // don't hoist over string (html) components
 	
 	        if (objectPrototype) {
 	            var inheritedComponent = getPrototypeOf(sourceComponent);
@@ -12910,11 +13012,15 @@
 	            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
 	        }
 	
+	        var targetStatics = getStatics(targetComponent);
+	        var sourceStatics = getStatics(sourceComponent);
+	
 	        for (var i = 0; i < keys.length; ++i) {
 	            var key = keys[i];
-	            if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
+	            if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
 	                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
-	                try { // Avoid failures from read-only properties
+	                try {
+	                    // Avoid failures from read-only properties
 	                    defineProperty(targetComponent, key, descriptor);
 	                } catch (e) {}
 	            }
@@ -12931,6 +13037,275 @@
 
 /***/ }),
 /* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	if (process.env.NODE_ENV === 'production') {
+	  module.exports = __webpack_require__(184);
+	} else {
+	  module.exports = __webpack_require__(185);
+	}
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports) {
+
+	/** @license React v16.8.3
+	 * react-is.production.min.js
+	 *
+	 * Copyright (c) Facebook, Inc. and its affiliates.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+	
+	'use strict';Object.defineProperty(exports,"__esModule",{value:!0});
+	var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?Symbol.for("react.memo"):
+	60115,r=b?Symbol.for("react.lazy"):60116;function t(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case h:return a;default:return u}}case r:case q:case d:return u}}}function v(a){return t(a)===m}exports.typeOf=t;exports.AsyncMode=l;exports.ConcurrentMode=m;exports.ContextConsumer=k;exports.ContextProvider=h;exports.Element=c;exports.ForwardRef=n;
+	exports.Fragment=e;exports.Lazy=r;exports.Memo=q;exports.Portal=d;exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||"object"===typeof a&&null!==a&&(a.$$typeof===r||a.$$typeof===q||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n)};exports.isAsyncMode=function(a){return v(a)||t(a)===l};exports.isConcurrentMode=v;exports.isContextConsumer=function(a){return t(a)===k};
+	exports.isContextProvider=function(a){return t(a)===h};exports.isElement=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===c};exports.isForwardRef=function(a){return t(a)===n};exports.isFragment=function(a){return t(a)===e};exports.isLazy=function(a){return t(a)===r};exports.isMemo=function(a){return t(a)===q};exports.isPortal=function(a){return t(a)===d};exports.isProfiler=function(a){return t(a)===g};exports.isStrictMode=function(a){return t(a)===f};
+	exports.isSuspense=function(a){return t(a)===p};
+
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/** @license React v16.8.3
+	 * react-is.development.js
+	 *
+	 * Copyright (c) Facebook, Inc. and its affiliates.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+	
+	'use strict';
+	
+	
+	
+	if (process.env.NODE_ENV !== "production") {
+	  (function() {
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', { value: true });
+	
+	// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+	// nor polyfill, then a plain number is used for performance.
+	var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+	
+	var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+	var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+	var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+	var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+	var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+	var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+	var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
+	var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+	var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+	var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+	var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+	var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+	var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+	
+	function isValidElementType(type) {
+	  return typeof type === 'string' || typeof type === 'function' ||
+	  // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+	  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE);
+	}
+	
+	/**
+	 * Forked from fbjs/warning:
+	 * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
+	 *
+	 * Only change is we use console.warn instead of console.error,
+	 * and do nothing when 'console' is not supported.
+	 * This really simplifies the code.
+	 * ---
+	 * Similar to invariant but only logs a warning if the condition is not met.
+	 * This can be used to log issues in development environments in critical
+	 * paths. Removing the logging code for production environments will keep the
+	 * same logic and follow the same code paths.
+	 */
+	
+	var lowPriorityWarning = function () {};
+	
+	{
+	  var printWarning = function (format) {
+	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	      args[_key - 1] = arguments[_key];
+	    }
+	
+	    var argIndex = 0;
+	    var message = 'Warning: ' + format.replace(/%s/g, function () {
+	      return args[argIndex++];
+	    });
+	    if (typeof console !== 'undefined') {
+	      console.warn(message);
+	    }
+	    try {
+	      // --- Welcome to debugging React ---
+	      // This error was thrown as a convenience so that you can use this stack
+	      // to find the callsite that caused this warning to fire.
+	      throw new Error(message);
+	    } catch (x) {}
+	  };
+	
+	  lowPriorityWarning = function (condition, format) {
+	    if (format === undefined) {
+	      throw new Error('`lowPriorityWarning(condition, format, ...args)` requires a warning ' + 'message argument');
+	    }
+	    if (!condition) {
+	      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+	        args[_key2 - 2] = arguments[_key2];
+	      }
+	
+	      printWarning.apply(undefined, [format].concat(args));
+	    }
+	  };
+	}
+	
+	var lowPriorityWarning$1 = lowPriorityWarning;
+	
+	function typeOf(object) {
+	  if (typeof object === 'object' && object !== null) {
+	    var $$typeof = object.$$typeof;
+	    switch ($$typeof) {
+	      case REACT_ELEMENT_TYPE:
+	        var type = object.type;
+	
+	        switch (type) {
+	          case REACT_ASYNC_MODE_TYPE:
+	          case REACT_CONCURRENT_MODE_TYPE:
+	          case REACT_FRAGMENT_TYPE:
+	          case REACT_PROFILER_TYPE:
+	          case REACT_STRICT_MODE_TYPE:
+	          case REACT_SUSPENSE_TYPE:
+	            return type;
+	          default:
+	            var $$typeofType = type && type.$$typeof;
+	
+	            switch ($$typeofType) {
+	              case REACT_CONTEXT_TYPE:
+	              case REACT_FORWARD_REF_TYPE:
+	              case REACT_PROVIDER_TYPE:
+	                return $$typeofType;
+	              default:
+	                return $$typeof;
+	            }
+	        }
+	      case REACT_LAZY_TYPE:
+	      case REACT_MEMO_TYPE:
+	      case REACT_PORTAL_TYPE:
+	        return $$typeof;
+	    }
+	  }
+	
+	  return undefined;
+	}
+	
+	// AsyncMode is deprecated along with isAsyncMode
+	var AsyncMode = REACT_ASYNC_MODE_TYPE;
+	var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+	var ContextConsumer = REACT_CONTEXT_TYPE;
+	var ContextProvider = REACT_PROVIDER_TYPE;
+	var Element = REACT_ELEMENT_TYPE;
+	var ForwardRef = REACT_FORWARD_REF_TYPE;
+	var Fragment = REACT_FRAGMENT_TYPE;
+	var Lazy = REACT_LAZY_TYPE;
+	var Memo = REACT_MEMO_TYPE;
+	var Portal = REACT_PORTAL_TYPE;
+	var Profiler = REACT_PROFILER_TYPE;
+	var StrictMode = REACT_STRICT_MODE_TYPE;
+	var Suspense = REACT_SUSPENSE_TYPE;
+	
+	var hasWarnedAboutDeprecatedIsAsyncMode = false;
+	
+	// AsyncMode should be deprecated
+	function isAsyncMode(object) {
+	  {
+	    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+	      hasWarnedAboutDeprecatedIsAsyncMode = true;
+	      lowPriorityWarning$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+	    }
+	  }
+	  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+	}
+	function isConcurrentMode(object) {
+	  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+	}
+	function isContextConsumer(object) {
+	  return typeOf(object) === REACT_CONTEXT_TYPE;
+	}
+	function isContextProvider(object) {
+	  return typeOf(object) === REACT_PROVIDER_TYPE;
+	}
+	function isElement(object) {
+	  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+	}
+	function isForwardRef(object) {
+	  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+	}
+	function isFragment(object) {
+	  return typeOf(object) === REACT_FRAGMENT_TYPE;
+	}
+	function isLazy(object) {
+	  return typeOf(object) === REACT_LAZY_TYPE;
+	}
+	function isMemo(object) {
+	  return typeOf(object) === REACT_MEMO_TYPE;
+	}
+	function isPortal(object) {
+	  return typeOf(object) === REACT_PORTAL_TYPE;
+	}
+	function isProfiler(object) {
+	  return typeOf(object) === REACT_PROFILER_TYPE;
+	}
+	function isStrictMode(object) {
+	  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+	}
+	function isSuspense(object) {
+	  return typeOf(object) === REACT_SUSPENSE_TYPE;
+	}
+	
+	exports.typeOf = typeOf;
+	exports.AsyncMode = AsyncMode;
+	exports.ConcurrentMode = ConcurrentMode;
+	exports.ContextConsumer = ContextConsumer;
+	exports.ContextProvider = ContextProvider;
+	exports.Element = Element;
+	exports.ForwardRef = ForwardRef;
+	exports.Fragment = Fragment;
+	exports.Lazy = Lazy;
+	exports.Memo = Memo;
+	exports.Portal = Portal;
+	exports.Profiler = Profiler;
+	exports.StrictMode = StrictMode;
+	exports.Suspense = Suspense;
+	exports.isValidElementType = isValidElementType;
+	exports.isAsyncMode = isAsyncMode;
+	exports.isConcurrentMode = isConcurrentMode;
+	exports.isContextConsumer = isContextConsumer;
+	exports.isContextProvider = isContextProvider;
+	exports.isElement = isElement;
+	exports.isForwardRef = isForwardRef;
+	exports.isFragment = isFragment;
+	exports.isLazy = isLazy;
+	exports.isMemo = isMemo;
+	exports.isPortal = isPortal;
+	exports.isProfiler = isProfiler;
+	exports.isStrictMode = isStrictMode;
+	exports.isSuspense = isSuspense;
+	  })();
+	}
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
+
+/***/ }),
+/* 186 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -12974,7 +13349,7 @@
 	}
 
 /***/ }),
-/* 184 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13015,11 +13390,11 @@
 	
 	var _miniStore = __webpack_require__(177);
 	
-	var _KeyCode = __webpack_require__(185);
+	var _KeyCode = __webpack_require__(188);
 	
 	var _KeyCode2 = _interopRequireDefault(_KeyCode);
 	
-	var _createChainedFunction = __webpack_require__(186);
+	var _createChainedFunction = __webpack_require__(189);
 	
 	var _createChainedFunction2 = _interopRequireDefault(_createChainedFunction);
 	
@@ -13027,9 +13402,9 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _util = __webpack_require__(187);
+	var _util = __webpack_require__(190);
 	
-	var _DOMWrap = __webpack_require__(189);
+	var _DOMWrap = __webpack_require__(192);
 	
 	var _DOMWrap2 = _interopRequireDefault(_DOMWrap);
 	
@@ -13424,7 +13799,7 @@
 	exports['default'] = connected;
 
 /***/ }),
-/* 185 */
+/* 188 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13953,7 +14328,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 186 */
+/* 189 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -13987,7 +14362,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 187 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14006,7 +14381,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var isMobile = __webpack_require__(188);
+	var isMobile = __webpack_require__(191);
 	
 	function noop() {}
 	
@@ -14083,13 +14458,13 @@
 	};
 
 /***/ }),
-/* 188 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){var n=/iPhone/i,t=/iPod/i,r=/iPad/i,a=/\bAndroid(?:.+)Mobile\b/i,p=/Android/i,l=/\bAndroid(?:.+)SD4930UR\b/i,b=/\bAndroid(?:.+)(?:KF[A-Z]{2,4})\b/i,f=/Windows Phone/i,u=/\bWindows(?:.+)ARM\b/i,c=/BlackBerry/i,s=/BB10/i,v=/Opera Mini/i,h=/\b(CriOS|Chrome)(?:.+)Mobile/i,w=/\Mobile(?:.+)Firefox\b/i;function m(e,i){return e.test(i)}function i(e){var i=e||("undefined"!=typeof navigator?navigator.userAgent:""),o=i.split("[FBAN");void 0!==o[1]&&(i=o[0]),void 0!==(o=i.split("Twitter"))[1]&&(i=o[0]);var d={apple:{phone:m(n,i)&&!m(f,i),ipod:m(t,i),tablet:!m(n,i)&&m(r,i)&&!m(f,i),device:(m(n,i)||m(t,i)||m(r,i))&&!m(f,i)},amazon:{phone:m(l,i),tablet:!m(l,i)&&m(b,i),device:m(l,i)||m(b,i)},android:{phone:!m(f,i)&&m(l,i)||!m(f,i)&&m(a,i),tablet:!m(f,i)&&!m(l,i)&&!m(a,i)&&(m(b,i)||m(p,i)),device:!m(f,i)&&(m(l,i)||m(b,i)||m(a,i)||m(p,i))},windows:{phone:m(f,i),tablet:m(u,i),device:m(f,i)||m(u,i)},other:{blackberry:m(c,i),blackberry10:m(s,i),opera:m(v,i),firefox:m(w,i),chrome:m(h,i),device:m(c,i)||m(s,i)||m(v,i)||m(w,i)||m(h,i)}};return d.any=d.apple.device||d.android.device||d.windows.device||d.other.device,d.phone=d.apple.phone||d.android.phone||d.windows.phone,d.tablet=d.apple.tablet||d.android.tablet||d.windows.tablet,d}"undefined"!=typeof module&&module.exports&&"undefined"==typeof window?module.exports=i:"undefined"!=typeof module&&module.exports&&"undefined"!=typeof window?module.exports=i(): true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (e.isMobile=i()), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):e.isMobile=i()}(this);
 
 /***/ }),
-/* 189 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14128,15 +14503,15 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _resizeObserverPolyfill = __webpack_require__(190);
+	var _resizeObserverPolyfill = __webpack_require__(193);
 	
 	var _resizeObserverPolyfill2 = _interopRequireDefault(_resizeObserverPolyfill);
 	
-	var _SubMenu = __webpack_require__(191);
+	var _SubMenu = __webpack_require__(194);
 	
 	var _SubMenu2 = _interopRequireDefault(_SubMenu);
 	
-	var _util = __webpack_require__(187);
+	var _util = __webpack_require__(190);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -14147,7 +14522,7 @@
 	
 	// Fix ssr
 	if (canUseDOM) {
-	  __webpack_require__(216);
+	  __webpack_require__(219);
 	}
 	
 	var DOMWrap = function (_React$Component) {
@@ -14468,7 +14843,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 190 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {(function (global, factory) {
@@ -15411,7 +15786,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 191 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15447,11 +15822,11 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _rcTrigger = __webpack_require__(192);
+	var _rcTrigger = __webpack_require__(195);
 	
 	var _rcTrigger2 = _interopRequireDefault(_rcTrigger);
 	
-	var _KeyCode = __webpack_require__(185);
+	var _KeyCode = __webpack_require__(188);
 	
 	var _KeyCode2 = _interopRequireDefault(_KeyCode);
 	
@@ -15461,19 +15836,19 @@
 	
 	var _miniStore = __webpack_require__(177);
 	
-	var _SubPopupMenu = __webpack_require__(184);
+	var _SubPopupMenu = __webpack_require__(187);
 	
 	var _SubPopupMenu2 = _interopRequireDefault(_SubPopupMenu);
 	
-	var _placements = __webpack_require__(215);
+	var _placements = __webpack_require__(218);
 	
 	var _placements2 = _interopRequireDefault(_placements);
 	
-	var _rcAnimate = __webpack_require__(206);
+	var _rcAnimate = __webpack_require__(209);
 	
 	var _rcAnimate2 = _interopRequireDefault(_rcAnimate);
 	
-	var _util = __webpack_require__(187);
+	var _util = __webpack_require__(190);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -16059,7 +16434,7 @@
 	exports['default'] = connected;
 
 /***/ }),
-/* 192 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16092,19 +16467,19 @@
 	
 	var _reactDom = __webpack_require__(12);
 	
-	var _contains = __webpack_require__(193);
+	var _contains = __webpack_require__(196);
 	
 	var _contains2 = _interopRequireDefault(_contains);
 	
-	var _addEventListener = __webpack_require__(194);
+	var _addEventListener = __webpack_require__(197);
 	
 	var _addEventListener2 = _interopRequireDefault(_addEventListener);
 	
-	var _ContainerRender = __webpack_require__(195);
+	var _ContainerRender = __webpack_require__(198);
 	
 	var _ContainerRender2 = _interopRequireDefault(_ContainerRender);
 	
-	var _Portal = __webpack_require__(200);
+	var _Portal = __webpack_require__(203);
 	
 	var _Portal2 = _interopRequireDefault(_Portal);
 	
@@ -16112,9 +16487,9 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _utils = __webpack_require__(201);
+	var _utils = __webpack_require__(204);
 	
-	var _Popup = __webpack_require__(202);
+	var _Popup = __webpack_require__(205);
 	
 	var _Popup2 = _interopRequireDefault(_Popup);
 	
@@ -16837,7 +17212,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 193 */
+/* 196 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -16860,7 +17235,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 194 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16890,7 +17265,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 195 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16903,7 +17278,7 @@
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(196);
+	var _createClass2 = __webpack_require__(199);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
@@ -17022,14 +17397,14 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 196 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	exports.__esModule = true;
 	
-	var _defineProperty = __webpack_require__(197);
+	var _defineProperty = __webpack_require__(200);
 	
 	var _defineProperty2 = _interopRequireDefault(_defineProperty);
 	
@@ -17054,16 +17429,16 @@
 	}();
 
 /***/ }),
-/* 197 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(198), __esModule: true };
+	module.exports = { "default": __webpack_require__(201), __esModule: true };
 
 /***/ }),
-/* 198 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(199);
+	__webpack_require__(202);
 	var $Object = __webpack_require__(100).Object;
 	module.exports = function defineProperty(it, key, desc) {
 	  return $Object.defineProperty(it, key, desc);
@@ -17071,7 +17446,7 @@
 
 
 /***/ }),
-/* 199 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $export = __webpack_require__(98);
@@ -17080,7 +17455,7 @@
 
 
 /***/ }),
-/* 200 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17093,7 +17468,7 @@
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(196);
+	var _createClass2 = __webpack_require__(199);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
@@ -17180,7 +17555,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 201 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17226,7 +17601,7 @@
 	}
 
 /***/ }),
-/* 202 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17261,23 +17636,23 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _rcAlign = __webpack_require__(203);
+	var _rcAlign = __webpack_require__(206);
 	
 	var _rcAlign2 = _interopRequireDefault(_rcAlign);
 	
-	var _rcAnimate = __webpack_require__(206);
+	var _rcAnimate = __webpack_require__(209);
 	
 	var _rcAnimate2 = _interopRequireDefault(_rcAnimate);
 	
-	var _PopupInner = __webpack_require__(213);
+	var _PopupInner = __webpack_require__(216);
 	
 	var _PopupInner2 = _interopRequireDefault(_PopupInner);
 	
-	var _LazyRenderBox = __webpack_require__(214);
+	var _LazyRenderBox = __webpack_require__(217);
 	
 	var _LazyRenderBox2 = _interopRequireDefault(_LazyRenderBox);
 	
-	var _utils = __webpack_require__(201);
+	var _utils = __webpack_require__(204);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -17613,14 +17988,16 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 203 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	exports.__esModule = true;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
-	var _Align = __webpack_require__(204);
+	var _Align = __webpack_require__(207);
 	
 	var _Align2 = _interopRequireDefault(_Align);
 	
@@ -17631,16 +18008,22 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 204 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	exports.__esModule = true;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
 	var _classCallCheck2 = __webpack_require__(134);
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(199);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
 	
 	var _possibleConstructorReturn2 = __webpack_require__(135);
 	
@@ -17664,11 +18047,11 @@
 	
 	var _domAlign = __webpack_require__(51);
 	
-	var _addEventListener = __webpack_require__(194);
+	var _addEventListener = __webpack_require__(197);
 	
 	var _addEventListener2 = _interopRequireDefault(_addEventListener);
 	
-	var _util = __webpack_require__(205);
+	var _util = __webpack_require__(208);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -17686,6 +18069,8 @@
 	  (0, _inherits3['default'])(Align, _Component);
 	
 	  function Align() {
+	    var _ref;
+	
 	    var _temp, _this, _ret;
 	
 	    (0, _classCallCheck3['default'])(this, Align);
@@ -17694,7 +18079,7 @@
 	      args[_key] = arguments[_key];
 	    }
 	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3['default'])(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.forceAlign = function () {
+	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3['default'])(this, (_ref = Align.__proto__ || Object.getPrototypeOf(Align)).call.apply(_ref, [this].concat(args))), _this), _this.forceAlign = function () {
 	      var _this$props = _this.props,
 	          disabled = _this$props.disabled,
 	          target = _this$props.target,
@@ -17708,11 +18093,17 @@
 	        var element = getElement(target);
 	        var point = getPoint(target);
 	
+	        // IE lose focus after element realign
+	        // We should record activeElement and restore later
+	        var activeElement = document.activeElement;
+	
 	        if (element) {
 	          result = (0, _domAlign.alignElement)(source, element, align);
 	        } else if (point) {
 	          result = (0, _domAlign.alignPoint)(source, point, align);
 	        }
+	
+	        (0, _util.restoreFocus)(activeElement, source);
 	
 	        if (onAlign) {
 	          onAlign(source, result);
@@ -17721,101 +18112,108 @@
 	    }, _temp), (0, _possibleConstructorReturn3['default'])(_this, _ret);
 	  }
 	
-	  Align.prototype.componentDidMount = function componentDidMount() {
-	    var props = this.props;
-	    // if parent ref not attached .... use document.getElementById
-	    this.forceAlign();
-	    if (!props.disabled && props.monitorWindowResize) {
-	      this.startMonitorWindowResize();
+	  (0, _createClass3['default'])(Align, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var props = this.props;
+	      // if parent ref not attached .... use document.getElementById
+	      this.forceAlign();
+	      if (!props.disabled && props.monitorWindowResize) {
+	        this.startMonitorWindowResize();
+	      }
 	    }
-	  };
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate(prevProps) {
+	      var reAlign = false;
+	      var props = this.props;
 	
-	  Align.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
-	    var reAlign = false;
-	    var props = this.props;
+	      if (!props.disabled) {
+	        var source = _reactDom2['default'].findDOMNode(this);
+	        var sourceRect = source ? source.getBoundingClientRect() : null;
 	
-	    if (!props.disabled) {
-	      var source = _reactDom2['default'].findDOMNode(this);
-	      var sourceRect = source ? source.getBoundingClientRect() : null;
-	
-	      if (prevProps.disabled) {
-	        reAlign = true;
-	      } else {
-	        var lastElement = getElement(prevProps.target);
-	        var currentElement = getElement(props.target);
-	        var lastPoint = getPoint(prevProps.target);
-	        var currentPoint = getPoint(props.target);
-	
-	        if ((0, _util.isWindow)(lastElement) && (0, _util.isWindow)(currentElement)) {
-	          // Skip if is window
-	          reAlign = false;
-	        } else if (lastElement !== currentElement || // Element change
-	        lastElement && !currentElement && currentPoint || // Change from element to point
-	        lastPoint && currentPoint && currentElement || // Change from point to element
-	        currentPoint && !(0, _util.isSamePoint)(lastPoint, currentPoint)) {
+	        if (prevProps.disabled) {
 	          reAlign = true;
+	        } else {
+	          var lastElement = getElement(prevProps.target);
+	          var currentElement = getElement(props.target);
+	          var lastPoint = getPoint(prevProps.target);
+	          var currentPoint = getPoint(props.target);
+	
+	          if ((0, _util.isWindow)(lastElement) && (0, _util.isWindow)(currentElement)) {
+	            // Skip if is window
+	            reAlign = false;
+	          } else if (lastElement !== currentElement || // Element change
+	          lastElement && !currentElement && currentPoint || // Change from element to point
+	          lastPoint && currentPoint && currentElement || // Change from point to element
+	          currentPoint && !(0, _util.isSamePoint)(lastPoint, currentPoint)) {
+	            reAlign = true;
+	          }
+	
+	          // If source element size changed
+	          var preRect = this.sourceRect || {};
+	          if (!reAlign && source && (!(0, _util.isSimilarValue)(preRect.width, sourceRect.width) || !(0, _util.isSimilarValue)(preRect.height, sourceRect.height))) {
+	            reAlign = true;
+	          }
 	        }
 	
-	        // If source element size changed
-	        var preRect = this.sourceRect || {};
-	        if (!reAlign && source && (preRect.width !== sourceRect.width || preRect.height !== sourceRect.height)) {
-	          reAlign = true;
-	        }
+	        this.sourceRect = sourceRect;
 	      }
 	
-	      this.sourceRect = sourceRect;
-	    }
+	      if (reAlign) {
+	        this.forceAlign();
+	      }
 	
-	    if (reAlign) {
-	      this.forceAlign();
+	      if (props.monitorWindowResize && !props.disabled) {
+	        this.startMonitorWindowResize();
+	      } else {
+	        this.stopMonitorWindowResize();
+	      }
 	    }
-	
-	    if (props.monitorWindowResize && !props.disabled) {
-	      this.startMonitorWindowResize();
-	    } else {
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
 	      this.stopMonitorWindowResize();
 	    }
-	  };
-	
-	  Align.prototype.componentWillUnmount = function componentWillUnmount() {
-	    this.stopMonitorWindowResize();
-	  };
-	
-	  Align.prototype.startMonitorWindowResize = function startMonitorWindowResize() {
-	    if (!this.resizeHandler) {
-	      this.bufferMonitor = (0, _util.buffer)(this.forceAlign, this.props.monitorBufferTime);
-	      this.resizeHandler = (0, _addEventListener2['default'])(window, 'resize', this.bufferMonitor);
+	  }, {
+	    key: 'startMonitorWindowResize',
+	    value: function startMonitorWindowResize() {
+	      if (!this.resizeHandler) {
+	        this.bufferMonitor = (0, _util.buffer)(this.forceAlign, this.props.monitorBufferTime);
+	        this.resizeHandler = (0, _addEventListener2['default'])(window, 'resize', this.bufferMonitor);
+	      }
 	    }
-	  };
-	
-	  Align.prototype.stopMonitorWindowResize = function stopMonitorWindowResize() {
-	    if (this.resizeHandler) {
-	      this.bufferMonitor.clear();
-	      this.resizeHandler.remove();
-	      this.resizeHandler = null;
+	  }, {
+	    key: 'stopMonitorWindowResize',
+	    value: function stopMonitorWindowResize() {
+	      if (this.resizeHandler) {
+	        this.bufferMonitor.clear();
+	        this.resizeHandler.remove();
+	        this.resizeHandler = null;
+	      }
 	    }
-	  };
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
 	
-	  Align.prototype.render = function render() {
-	    var _this2 = this;
+	      var _props = this.props,
+	          childrenProps = _props.childrenProps,
+	          children = _props.children;
 	
-	    var _props = this.props,
-	        childrenProps = _props.childrenProps,
-	        children = _props.children;
+	      var child = _react2['default'].Children.only(children);
+	      if (childrenProps) {
+	        var newProps = {};
+	        var propList = Object.keys(childrenProps);
+	        propList.forEach(function (prop) {
+	          newProps[prop] = _this2.props[childrenProps[prop]];
+	        });
 	
-	    var child = _react2['default'].Children.only(children);
-	    if (childrenProps) {
-	      var newProps = {};
-	      var propList = Object.keys(childrenProps);
-	      propList.forEach(function (prop) {
-	        newProps[prop] = _this2.props[childrenProps[prop]];
-	      });
-	
-	      return _react2['default'].cloneElement(child, newProps);
+	        return _react2['default'].cloneElement(child, newProps);
+	      }
+	      return child;
 	    }
-	    return child;
-	  };
-	
+	  }]);
 	  return Align;
 	}(_react.Component);
 	
@@ -17846,15 +18244,26 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 205 */
-/***/ (function(module, exports) {
+/* 208 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	exports.__esModule = true;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.buffer = buffer;
 	exports.isSamePoint = isSamePoint;
 	exports.isWindow = isWindow;
+	exports.isSimilarValue = isSimilarValue;
+	exports.restoreFocus = restoreFocus;
+	
+	var _contains = __webpack_require__(196);
+	
+	var _contains2 = _interopRequireDefault(_contains);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
 	function buffer(fn, ms) {
 	  var timer = void 0;
 	
@@ -17893,9 +18302,22 @@
 	function isWindow(obj) {
 	  return obj && typeof obj === 'object' && obj.window === obj;
 	}
+	
+	function isSimilarValue(val1, val2) {
+	  var int1 = Math.floor(val1);
+	  var int2 = Math.floor(val2);
+	  return Math.abs(int1 - int2) <= 1;
+	}
+	
+	function restoreFocus(activeElement, container) {
+	  // Focus back if is in the container
+	  if (activeElement !== document.activeElement && (0, _contains2['default'])(container, activeElement)) {
+	    activeElement.focus();
+	  }
+	}
 
 /***/ }),
-/* 206 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17908,7 +18330,7 @@
 	
 	var _extends3 = _interopRequireDefault(_extends2);
 	
-	var _defineProperty2 = __webpack_require__(207);
+	var _defineProperty2 = __webpack_require__(210);
 	
 	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 	
@@ -17916,7 +18338,7 @@
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(196);
+	var _createClass2 = __webpack_require__(199);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
@@ -17936,13 +18358,13 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _ChildrenUtils = __webpack_require__(208);
+	var _ChildrenUtils = __webpack_require__(211);
 	
-	var _AnimateChild = __webpack_require__(209);
+	var _AnimateChild = __webpack_require__(212);
 	
 	var _AnimateChild2 = _interopRequireDefault(_AnimateChild);
 	
-	var _animate = __webpack_require__(212);
+	var _animate = __webpack_require__(215);
 	
 	var _animate2 = _interopRequireDefault(_animate);
 	
@@ -18289,14 +18711,14 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 207 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	exports.__esModule = true;
 	
-	var _defineProperty = __webpack_require__(197);
+	var _defineProperty = __webpack_require__(200);
 	
 	var _defineProperty2 = _interopRequireDefault(_defineProperty);
 	
@@ -18318,7 +18740,7 @@
 	};
 
 /***/ }),
-/* 208 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18440,7 +18862,7 @@
 	}
 
 /***/ }),
-/* 209 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18453,7 +18875,7 @@
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 	
-	var _createClass2 = __webpack_require__(196);
+	var _createClass2 = __webpack_require__(199);
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
@@ -18477,11 +18899,11 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _cssAnimation = __webpack_require__(210);
+	var _cssAnimation = __webpack_require__(213);
 	
 	var _cssAnimation2 = _interopRequireDefault(_cssAnimation);
 	
-	var _animate = __webpack_require__(212);
+	var _animate = __webpack_require__(215);
 	
 	var _animate2 = _interopRequireDefault(_animate);
 	
@@ -18589,7 +19011,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 210 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18603,7 +19025,7 @@
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
-	var _Event = __webpack_require__(211);
+	var _Event = __webpack_require__(214);
 	
 	var _Event2 = _interopRequireDefault(_Event);
 	
@@ -18785,7 +19207,7 @@
 	exports['default'] = cssAnimation;
 
 /***/ }),
-/* 211 */
+/* 214 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -18925,7 +19347,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 212 */
+/* 215 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -18957,7 +19379,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 213 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18984,7 +19406,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _LazyRenderBox = __webpack_require__(214);
+	var _LazyRenderBox = __webpack_require__(217);
 	
 	var _LazyRenderBox2 = _interopRequireDefault(_LazyRenderBox);
 	
@@ -19039,7 +19461,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 214 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19114,7 +19536,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 215 */
+/* 218 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -19151,7 +19573,7 @@
 	exports['default'] = placements;
 
 /***/ }),
-/* 216 */
+/* 219 */
 /***/ (function(module, exports) {
 
 	// mutationobserver-shim v0.3.2 (github.com/megawac/MutationObserver.js)
@@ -19166,7 +19588,7 @@
 
 
 /***/ }),
-/* 217 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19202,7 +19624,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _KeyCode = __webpack_require__(185);
+	var _KeyCode = __webpack_require__(188);
 	
 	var _KeyCode2 = _interopRequireDefault(_KeyCode);
 	
@@ -19210,13 +19632,13 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _domScrollIntoView = __webpack_require__(218);
+	var _domScrollIntoView = __webpack_require__(221);
 	
 	var _domScrollIntoView2 = _interopRequireDefault(_domScrollIntoView);
 	
 	var _miniStore = __webpack_require__(177);
 	
-	var _util = __webpack_require__(187);
+	var _util = __webpack_require__(190);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -19446,20 +19868,20 @@
 	exports['default'] = connected;
 
 /***/ }),
-/* 218 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	module.exports = __webpack_require__(219);
+	module.exports = __webpack_require__(222);
 
 /***/ }),
-/* 219 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var util = __webpack_require__(220);
+	var util = __webpack_require__(223);
 	
 	function scrollIntoView(elem, container, config) {
 	  config = config || {};
@@ -19588,7 +20010,7 @@
 	module.exports = scrollIntoView;
 
 /***/ }),
-/* 220 */
+/* 223 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -20032,7 +20454,7 @@
 	}, domUtils);
 
 /***/ }),
-/* 221 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20067,7 +20489,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _util = __webpack_require__(187);
+	var _util = __webpack_require__(190);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -20150,7 +20572,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 222 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20217,7 +20639,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 223 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20242,7 +20664,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-select.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/select
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	var Option = function (_React$Component) {
 	  _inherits(Option, _React$Component);
@@ -20264,7 +20690,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 224 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20479,7 +20905,7 @@
 	}
 
 /***/ }),
-/* 225 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20490,7 +20916,7 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _trigger = __webpack_require__(226);
+	var _trigger = __webpack_require__(229);
 	
 	var _trigger2 = _interopRequireDefault(_trigger);
 	
@@ -20510,9 +20936,9 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _util = __webpack_require__(224);
+	var _util = __webpack_require__(227);
 	
-	var _DropdownMenu = __webpack_require__(233);
+	var _DropdownMenu = __webpack_require__(236);
 	
 	var _DropdownMenu2 = _interopRequireDefault(_DropdownMenu);
 	
@@ -20528,7 +20954,10 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } // import Trigger from 'rc-trigger';
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-select.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/select
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
 	
 	
 	_trigger2["default"].displayName = 'Trigger';
@@ -20730,15 +21159,15 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 226 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	module.exports = __webpack_require__(227);
+	module.exports = __webpack_require__(230);
 
 /***/ }),
-/* 227 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20761,17 +21190,17 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _contains = __webpack_require__(228);
+	var _contains = __webpack_require__(231);
 	
 	var _contains2 = _interopRequireDefault(_contains);
 	
 	var _tinperBeeCore = __webpack_require__(27);
 	
-	var _Popup = __webpack_require__(229);
+	var _Popup = __webpack_require__(232);
 	
 	var _Popup2 = _interopRequireDefault(_Popup);
 	
-	var _utils = __webpack_require__(232);
+	var _utils = __webpack_require__(235);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
@@ -21331,7 +21760,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 228 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21369,7 +21798,7 @@
 	module.exports = exports["default"];
 
 /***/ }),
-/* 229 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21400,11 +21829,11 @@
 	
 	var _beeAnimate2 = _interopRequireDefault(_beeAnimate);
 	
-	var _PopupInner = __webpack_require__(230);
+	var _PopupInner = __webpack_require__(233);
 	
 	var _PopupInner2 = _interopRequireDefault(_PopupInner);
 	
-	var _LazyRenderBox = __webpack_require__(231);
+	var _LazyRenderBox = __webpack_require__(234);
 	
 	var _LazyRenderBox2 = _interopRequireDefault(_LazyRenderBox);
 	
@@ -21644,7 +22073,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 230 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21661,7 +22090,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _LazyRenderBox = __webpack_require__(231);
+	var _LazyRenderBox = __webpack_require__(234);
 	
 	var _LazyRenderBox2 = _interopRequireDefault(_LazyRenderBox);
 	
@@ -21725,7 +22154,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 231 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21800,7 +22229,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 232 */
+/* 235 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -21835,7 +22264,7 @@
 	}
 
 /***/ }),
-/* 233 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21862,15 +22291,15 @@
 	
 	var _rcMenu2 = _interopRequireDefault(_rcMenu);
 	
-	var _domScrollIntoView = __webpack_require__(218);
+	var _domScrollIntoView = __webpack_require__(221);
 	
 	var _domScrollIntoView2 = _interopRequireDefault(_domScrollIntoView);
 	
-	var _raf = __webpack_require__(234);
+	var _raf = __webpack_require__(237);
 	
 	var _raf2 = _interopRequireDefault(_raf);
 	
-	var _util = __webpack_require__(224);
+	var _util = __webpack_require__(227);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 	
@@ -21880,7 +22309,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-select.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/select
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	var DropdownMenu = function (_React$Component) {
 	  _inherits(DropdownMenu, _React$Component);
@@ -22077,10 +22510,10 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 234 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(235)
+	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(238)
 	  , root = typeof window === 'undefined' ? global : window
 	  , vendors = ['moz', 'webkit']
 	  , suffix = 'AnimationFrame'
@@ -22159,7 +22592,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 235 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
@@ -22202,7 +22635,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
-/* 236 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22237,8 +22670,10 @@
 	    var _validate = _propTypes2["default"].oneOfType([_propTypes2["default"].arrayOf(basicType), basicType]);
 	    return _validate.apply(undefined, arguments);
 	  }
-	} /* eslint-disable consistent-return, prefer-rest-params, import/prefer-default-export */
-	// TODO: Fix eslint later
+	} /**
+	  * This source code is quoted from rc-select.
+	  * homepage: https://github.com/react-component/select
+	  */
 	var SelectPropTypes = exports.SelectPropTypes = {
 	  id: _propTypes2["default"].string,
 	  defaultActiveFirstOption: _propTypes2["default"].bool,
@@ -22287,7 +22722,7 @@
 	};
 
 /***/ }),
-/* 237 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22327,7 +22762,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 238 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22336,7 +22771,7 @@
 	  value: true
 	});
 	
-	var _Icon = __webpack_require__(239);
+	var _Icon = __webpack_require__(242);
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
@@ -22346,7 +22781,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 239 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22425,7 +22860,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 240 */
+/* 243 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -22455,7 +22890,7 @@
 	};
 
 /***/ }),
-/* 241 */
+/* 244 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -22493,7 +22928,7 @@
 	}
 
 /***/ }),
-/* 242 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22568,7 +23003,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 243 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22638,7 +23073,7 @@
 	module.exports = exports["default"];
 
 /***/ }),
-/* 244 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22730,7 +23165,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 245 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22814,7 +23249,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 246 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22913,7 +23348,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 247 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22997,7 +23432,7 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 248 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

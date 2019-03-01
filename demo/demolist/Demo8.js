@@ -76,44 +76,6 @@ class Demo8 extends React.Component {
                     dataNum={2}
                     size="lg"
                 />
-                {/* <Pagination
-                    className="demo8-pagination"
-                    first
-                    last
-                    prev
-                    next
-                    boundaryLinks
-                    items={11}
-                    maxButtons={5}
-                    activePage={this.state.activePage}
-                    onSelect={this.handleSelect.bind(this)}
-                    size="sm"
-                />
-                <Pagination
-                    className="demo8-pagination"
-                    first
-                    last
-                    prev
-                    next
-                    boundaryLinks
-                    items={11}
-                    maxButtons={5}
-                    activePage={this.state.activePage}
-                    onSelect={this.handleSelect.bind(this)}
-                />
-                <Pagination
-                    className="demo8-pagination"
-                    first
-                    last
-                    prev
-                    next
-                    boundaryLinks
-                    items={11}
-                    maxButtons={5}
-                    activePage={this.state.activePage}
-                    onSelect={this.handleSelect.bind(this)}
-                    size="lg"
-                /> */}
             </div>
         );
     }

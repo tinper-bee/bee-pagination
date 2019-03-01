@@ -258,7 +258,7 @@ $pagination-sm-size:26px;
   }
 }
 
-// Size Modifier
+//Size Modifier
 .u-pagination-lg {
   @include pagination-size( $pagination-lg-padding-vertical, 
                             $pagination-lg-padding-horizontal, 
@@ -279,9 +279,6 @@ $pagination-sm-size:26px;
 .u-pagination-lg {
   & > li.iconBtn > a {
     padding: 7.5px 12px;
-    // &> i{
-    //   font-size: 16px;
-    // }
   }
   & + .u-pagination-total + .data_per_select {
     .u-select{
@@ -302,9 +299,6 @@ $pagination-sm-size:26px;
 .u-pagination-sm {
   & > li.iconBtn > a {
     padding: 4px 7px;
-    // & > i {
-    //   font-size: 12px;
-    // }
   }
   & + .u-pagination-total + .data_per_select{
     .u-select{
