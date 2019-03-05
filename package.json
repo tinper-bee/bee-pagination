@@ -33,10 +33,10 @@
   "coveralls": "bee-tools run coverage"
  },
  "dependencies": {
-  "bee-button": "^2.0.4",
-  "bee-icon": "^1.0.9",
+  "bee-button": "latest",
+  "bee-icon": "latest",
   "bee-locale": "0.0.9",
-  "bee-select": "^2.0.1",
+  "bee-select": "^2.0.4",
   "classnames": "^2.2.5",
   "tinper-bee-core": "latest"
  },
