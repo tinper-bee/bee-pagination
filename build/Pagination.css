@@ -16,9 +16,9 @@
     .u-pagination-list > li > a, .u-pagination-list > li > span {
       display: inline-block;
       text-decoration: none;
-      border-top: 1px solid #d7d7d7;
-      border-bottom: 1px solid #d7d7d7;
-      border-left: 1px solid #d7d7d7;
+      border-top: 1px solid rgb(165, 173, 186);
+      border-bottom: 1px solid rgb(165, 173, 186);
+      border-left: 1px solid rgb(165, 173, 186);
       background-color: transparent;
       text-align: center;
       color: #666666;
@@ -36,14 +36,14 @@
     .u-pagination-list > li[role="next"] > a {
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
-      border-right: 1px solid #d7d7d7; }
+      border-right: 1px solid rgb(165, 173, 186); }
     .u-pagination-list > li {
       float: left;
       list-style-type: none; }
       .u-pagination-list > li > a:hover, .u-pagination-list > li > span:hover, .u-pagination-list > li > a:focus, .u-pagination-list > li > span:focus {
         color: #666;
         background-color: rgb(235, 236, 240);
-        border-color: #d7d7d7;
+        border-color: rgb(165, 173, 186);
         cursor: pointer; }
       .u-pagination-list > li > a > i {
         color: #7a869a; }
@@ -57,13 +57,13 @@
       color: #777;
       cursor: not-allowed;
       background-color: transparent;
-      border-color: #ddd; }
+      border-color: rgb(165, 173, 186); }
     .u-pagination-list > .disabled > a > i {
       color: #C1C7D0; }
     .u-pagination-list > li[role="gap"] > a {
       background-color: transparent;
-      border-bottom: 0 solid #d7d7d7;
-      border-top: 0 solid #d7d7d7;
+      border-bottom: 0 solid rgb(165, 173, 186);
+      border-top: 0 solid rgb(165, 173, 186);
       padding: 7px 11px;
       line-height: 1.57142857; }
     .u-pagination-list > li[role="gap"] > a:hover, .u-pagination-list > li[role="gap"] > a:focus {
@@ -78,7 +78,7 @@
       padding: 0px;
       font-size: 14px; }
     .u-pagination-list > li:last-child > a, .u-pagination-list > li:last-child > span {
-      border-right: 1px solid #d7d7d7; }
+      border-right: 1px solid rgb(165, 173, 186); }
   .u-pagination .temp-main {
     width: 100px;
     height: 100px;
@@ -299,13 +299,13 @@
 .u-pagination-gap > li > a {
   margin: 0 5px;
   border-radius: 5px;
-  border: 1px solid #d7d7d7; }
+  border: 1px solid rgb(165, 173, 186); }
   .u-pagination-gap > li > a:hover {
-    background-color: transparent;
-    border-color: #7A869A; }
+    background-color: rgb(235, 236, 240);
+    border-color: rgb(165, 173, 186); }
 
 .u-pagination-gap > li:first-child > a, .u-pagination-gap > li:last-child > a {
   border-radius: 5px; }
 
 .u-pagination-gap > li[role="gap"] > a {
-  border: 0 solid #d7d7d7; }
+  border: 0 solid rgb(165, 173, 186); }
