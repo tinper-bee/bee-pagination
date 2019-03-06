@@ -8789,7 +8789,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.SelectPropTypes = exports.OptGroup = exports.Option = undefined;
 	
 	var _Select = __webpack_require__(89);
 	
@@ -8809,10 +8808,8 @@
 	
 	_Select2["default"].Option = _Option2["default"];
 	_Select2["default"].OptGroup = _OptGroup2["default"];
-	exports.Option = _Option2["default"];
-	exports.OptGroup = _OptGroup2["default"];
-	exports.SelectPropTypes = _PropTypes.SelectPropTypes;
 	exports["default"] = _Select2["default"];
+	module.exports = exports['default'];
 
 /***/ }),
 /* 89 */
