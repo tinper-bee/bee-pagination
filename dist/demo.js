@@ -8346,7 +8346,7 @@
 	                activePage: nextProps.activePage
 	            });
 	        }
-	        if (nextProps.dataNum && this.props.dataNum !== nextProps.dataNum) {
+	        if ((nextProps.dataNum === 0 || nextProps.dataNum) && this.props.dataNum !== nextProps.dataNum) {
 	            this.setState({
 	                dataNum: nextProps.dataNum,
 	                // 20181210因为dataNumSelect的某项不是数字或者数字字符串
