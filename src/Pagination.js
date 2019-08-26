@@ -5,7 +5,7 @@ import Button from 'bee-button';
 import Select from 'bee-select';
 import Icon from 'bee-icon';
 import assign from 'object-assign';
-
+import cookie from 'react-cookies';
 import PropTypes from "prop-types";
 import i18n from './i18n';
 import { getComponentLocale } from 'bee-locale/build/tool';
@@ -98,6 +98,11 @@ const propTypes = {
      *  渲染确认按钮的dom
      */
     confirmBtn: PropTypes.func,
+
+    /**
+     * 通过cookie来确定分页的size,需设定唯一的key值
+     */
+    sizeWithCookie: PropTypes.string,
 };
 
 
@@ -124,17 +129,20 @@ const defaultProps = {
     locale: {},
     disabled: false,
     btnType: { shape: 'border' },
-    confirmBtn: () => {}
+    confirmBtn: () => {},
+    sizeWithCookie: '',
 };
 
 
 class Pagination extends React.Component {
     constructor(props, context) {
         super(props, context);
+        let size = parseInt(cookie.load(props.sizeWithCookie));
+        let dataNum = Number.isNaN(size) ? props.dataNum : size;
         this.state = {
             activePage: this.props.activePage,//当前的页码
-            dataNum: props.dataNum,
-            items: props.items ? props.items : props.total ? Math.ceil(props.total / props.dataNumSelect[props.dataNum]) : 1,
+            dataNum: dataNum,
+            items: props.items ? props.items : props.total ? Math.ceil(props.total / props.dataNumSelect[dataNum]) : 1,
             jumpPageState: ''
         }
     }
@@ -146,6 +154,9 @@ class Pagination extends React.Component {
             })
         }
         if ((nextProps.dataNum === 0 || nextProps.dataNum) && this.props.dataNum !== nextProps.dataNum) {
+            if(nextProps.sizeWithCookie){
+                cookie.save(nextProps.sizeWithCookie,nextProps.dataNum,{maxAge: 60*60*24});
+            }
             this.setState({
                 dataNum: nextProps.dataNum,
                 // 20181210因为dataNumSelect的某项不是数字或者数字字符串
@@ -201,7 +212,7 @@ class Pagination extends React.Component {
      */
     dataNumSelect = (value) => {
         // console.log(value);
-        const { onDataNumSelect, total } = this.props;
+        const { onDataNumSelect, total, sizeWithCookie } = this.props;
         let dataNumValue = this.props.dataNumSelect[value];
         // console.log("dataNumValue", dataNumValue);
         if (total) {
@@ -213,6 +224,10 @@ class Pagination extends React.Component {
         this.setState({
             dataNum: value
         })
+        // 塞cookie
+        if(sizeWithCookie){
+            cookie.save(sizeWithCookie,value,{maxAge: 60*60*24});
+        }
         if (typeof onDataNumSelect === 'function') {
             onDataNumSelect(value, dataNumValue)
         }
@@ -325,7 +340,6 @@ class Pagination extends React.Component {
 
     render() {
         const local = getComponentLocale(this.props, this.context, 'Pagination', () => i18n);
-
         const {
             items,
             maxButtons,
