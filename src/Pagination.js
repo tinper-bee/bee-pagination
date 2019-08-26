@@ -155,7 +155,7 @@ class Pagination extends React.Component {
         }
         if ((nextProps.dataNum === 0 || nextProps.dataNum) && this.props.dataNum !== nextProps.dataNum) {
             if(nextProps.sizeWithCookie){
-                cookie.save(nextProps.sizeWithCookie,nextProps.dataNum,{maxAge: 60*60*24});
+                cookie.save(nextProps.sizeWithCookie,nextProps.dataNum,{maxAge: 60*60*24*7});
             }
             this.setState({
                 dataNum: nextProps.dataNum,
@@ -226,7 +226,7 @@ class Pagination extends React.Component {
         })
         // 塞cookie
         if(sizeWithCookie){
-            cookie.save(sizeWithCookie,value,{maxAge: 60*60*24});
+            cookie.save(sizeWithCookie,value,{maxAge: 60*60*24*7});
         }
         if (typeof onDataNumSelect === 'function') {
             onDataNumSelect(value, dataNumValue)
