@@ -42,4 +42,4 @@ import 'bee-pagination/build/Pagination.css';
 |total|一共多少条|num|1|
 |disabled|pagination不可用，不可点击|bool|false|
 |confirmBtn|渲染确认按钮dom的方法|func|() => {}|
- 
+|sizeWithCookie|分页的大小存储在cookie中,需保证其唯一性|string|''|
