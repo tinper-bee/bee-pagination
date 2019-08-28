@@ -137,8 +137,8 @@ const defaultProps = {
 class Pagination extends React.Component {
     constructor(props, context) {
         super(props, context);
-        let size = parseInt(cookie.load(props.sizeWithCookie));
-        let dataNum = Number.isNaN(size) ? props.dataNum : size;
+        let size = props.dataNumSelect.findIndex(item=>String(item) === String(cookie.load(props.sizeWithCookie)));
+        let dataNum = size === -1 ? props.dataNum : size;
         this.state = {
             activePage: this.props.activePage,//当前的页码
             dataNum: dataNum,
@@ -148,23 +148,25 @@ class Pagination extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.state.activePage !== nextProps.activePage) {
+        let { activePage, dataNum, sizeWithCookie, dataNumSelect, total,items} = nextProps;
+        if (this.state.activePage !== activePage) {
             this.setState({
-                activePage: nextProps.activePage,
+                activePage: activePage,
             })
         }
-        if ((nextProps.dataNum === 0 || nextProps.dataNum) && this.props.dataNum !== nextProps.dataNum) {
-            if(nextProps.sizeWithCookie){
-                cookie.save(nextProps.sizeWithCookie,nextProps.dataNum,{maxAge: 60*60*24*7});
+        // 判断条件从 this.props.dataNum !== dataNum  改为 this.state.dataNum !== dataNum; Hua
+        if ((dataNum === 0 || dataNum) && this.state.dataNum !== dataNum) {
+            if(sizeWithCookie){
+                cookie.save(sizeWithCookie,dataNumSelect[dataNum],{maxAge: 60*60*24*7});
             }
             this.setState({
-                dataNum: nextProps.dataNum,
+                dataNum: dataNum,
                 // 20181210因为dataNumSelect的某项不是数字或者数字字符串
-                items: Number.isNaN(parseInt(nextProps.dataNumSelect[nextProps.dataNum])) ? 1:Math.ceil(nextProps.total / nextProps.dataNumSelect[nextProps.dataNum])
+                items: Number.isNaN(parseInt(dataNumSelect[dataNum])) ? 1:Math.ceil(total / dataNumSelect[dataNum])
             })
         }
-        if ('items' in nextProps && this.props.items !== nextProps.items) {
-            let newItems = nextProps.items === 0 ? 1 : nextProps.items;
+        if ('items' in nextProps && this.props.items !== items) {
+            let newItems = items === 0 ? 1 : items;
             this.setState({
                 items: newItems,
             })
@@ -226,7 +228,7 @@ class Pagination extends React.Component {
         })
         // 塞cookie
         if(sizeWithCookie){
-            cookie.save(sizeWithCookie,value,{maxAge: 60*60*24*7});
+            cookie.save(sizeWithCookie,dataNumValue,{maxAge: 60*60*24*7});
         }
         if (typeof onDataNumSelect === 'function') {
             onDataNumSelect(value, dataNumValue)
