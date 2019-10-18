@@ -245,7 +245,7 @@ var Pagination = function (_React$Component) {
         var size = props.dataNumSelect.findIndex(function (item) {
             return String(item) === String(_reactCookies2["default"].load(props.sizeWithCookie));
         });
-        var dataNum = size === -1 ? props.dataNum || 1 : size;
+        var dataNum = size === -1 ? props.dataNum != undefined ? props.dataNum : 1 : size;
         _this.state = {
             activePage: _this.props.activePage, //当前的页码
             dataNum: dataNum,

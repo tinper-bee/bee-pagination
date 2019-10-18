@@ -10,7 +10,8 @@ class Demo1 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activePage: 1
+            activePage: 1,
+            dataNum:0
         }
     }
     handleSelect(eventKey) {
@@ -24,10 +25,15 @@ class Demo1 extends React.Component {
         console.log(index, value);
 
     }
-
+    click=()=>{
+        this.setState({
+            dataNum:0
+        })
+    }
     render() {
         return (
             <div>
+                <button onClick={this.click}>dianji</button>
                 <Pagination
                     first
                     last
@@ -40,7 +46,7 @@ class Demo1 extends React.Component {
                     onDataNumSelect={this.dataNumSelect}
                     showJump={true}
                     total={100}
-                    dataNum={2}
+                    dataNum={this.state.dataNum}
                 />
 
             </div>
