@@ -139,7 +139,7 @@ class Pagination extends React.Component {
     constructor(props, context) {
         super(props, context);
         let size = props.dataNumSelect.findIndex(item=>String(item) === String(cookie.load(props.sizeWithCookie)));
-        let dataNum = size === -1 ? (props.dataNum || 1) : size;
+        let dataNum = size === -1 ? (props.dataNum!=undefined?props.dataNum:1) : size;
         this.state = {
             activePage: this.props.activePage,//当前的页码
             dataNum: dataNum,
