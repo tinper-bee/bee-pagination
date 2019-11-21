@@ -504,6 +504,7 @@ class Pagination extends React.Component {
                                 </select> */}
                             <Select
                                 // className="data_select"
+                                dropdownClassName={`${clsPrefix}-data_per_select`}
                                 value={this.state.dataNum}
                                 onChange={this.dataNumSelect}>
                                 {dataNumSelect.length > 0 &&

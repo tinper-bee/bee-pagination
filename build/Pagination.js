@@ -549,7 +549,8 @@ var Pagination = function (_React$Component) {
                     _beeSelect2["default"]
                     // className="data_select"
                     ,
-                    { value: this.state.dataNum,
+                    { dropdownClassName: clsPrefix + "-data_per_select",
+                        value: this.state.dataNum,
                         onChange: this.dataNumSelect },
                     dataNumSelect.length > 0 && dataNumSelect.map(function (item, i) {
                         return _react2["default"].createElement(
