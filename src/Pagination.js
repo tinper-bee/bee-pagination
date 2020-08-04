@@ -172,6 +172,13 @@ class Pagination extends React.Component {
                 items: newItems,
             })
         }
+        if ('total' in nextProps && this.props.total !== total) {
+            let pageSize = parseInt(dataNumSelect[dataNum]);
+            let defaultPageSize = parseInt(dataNumSelect[1]);
+            this.setState({
+                items: Number.isNaN(pageSize) ? Math.ceil(total / defaultPageSize):Math.ceil(total / pageSize)
+            })
+        }
     }
 
     onKeyup = (e) => {

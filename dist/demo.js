@@ -37275,6 +37275,13 @@
 	                items: newItems
 	            });
 	        }
+	        if ('total' in nextProps && this.props.total !== total) {
+	            var pageSize = parseInt(dataNumSelect[dataNum]);
+	            var defaultPageSize = parseInt(dataNumSelect[1]);
+	            this.setState({
+	                items: Number.isNaN(pageSize) ? Math.ceil(total / defaultPageSize) : Math.ceil(total / pageSize)
+	            });
+	        }
 	    };
 	
 	    /**
@@ -51728,11 +51735,12 @@
 	    'page': '页',
 	    'ok': '确认',
 	    'en-us': {
-	        'total': 'total',
+	        'total': 'Total',
 	        'items': 'items',
-	        'show': 'page',
-	        'goto': 'goto',
-	        'ok': 'ok'
+	        'show': 'Show',
+	        'goto': 'Goto',
+	        'page': '',
+	        'ok': 'OK'
 	    },
 	    'zh-tw': {
 	        'total': '共',

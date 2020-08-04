@@ -289,6 +289,13 @@ var Pagination = function (_React$Component) {
                 items: newItems
             });
         }
+        if ('total' in nextProps && this.props.total !== total) {
+            var pageSize = parseInt(dataNumSelect[dataNum]);
+            var defaultPageSize = parseInt(dataNumSelect[1]);
+            this.setState({
+                items: Number.isNaN(pageSize) ? Math.ceil(total / defaultPageSize) : Math.ceil(total / pageSize)
+            });
+        }
     };
 
     /**
