@@ -1,3 +1,7 @@
+# [3.0.0](https://github.com/tinper-bee/bee-pagination/compare/v2.0.18...v3.0.0) (2020-08-06)
+
+
+
 ## [2.0.18](https://github.com/tinper-bee/bee-pagination/compare/v2.0.17...v2.0.18) (2020-08-04)
 
 
