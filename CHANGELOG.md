@@ -1,3 +1,12 @@
+## [3.0.3](https://github.com/tinper-bee/bee-pagination/compare/v3.0.2...v3.0.3) (2020-09-09)
+
+
+### Bug Fixes
+
+* #JCJS-3945 maxButton设置为1以后，点击下一页，页码没变 ([baa39cf](https://github.com/tinper-bee/bee-pagination/commit/baa39cff51810b1e49eb40a152234224cb44b057)), closes [#JCJS-3945](https://github.com/tinper-bee/bee-pagination/issues/JCJS-3945)
+
+
+
 ## [3.0.2](https://github.com/tinper-bee/bee-pagination/compare/v3.0.1...v3.0.2) (2020-08-13)
 
 
