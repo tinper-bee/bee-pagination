@@ -995,6 +995,21 @@
 .uf-globe:before {
   content: "\e9db"; }
 
+.uf-yybs:before {
+  content: "\e9dc"; }
+
+.uf-iuap5:before {
+  content: "\e9dd"; }
+
+.uf-iuap5c:before {
+  content: "\e9ff"; }
+
+.uf-qingkong:before {
+  content: "\e666"; }
+
+.uf-location:before {
+  content: "\e78b"; }
+
 /* FormGroup */
 /*  Navlayout  */
 /* keyframes 定义 */
@@ -1903,6 +1918,17 @@ ul {
     bottom: 0;
     right: 0;
     background: transparent; }
+
+.u-select-nowarp {
+  overflow: hidden; }
+  .u-select-nowarp .u-select-selection-rendered {
+    display: -ms-flexbox;
+    display: flex;
+    white-space: nowrap; }
+    .u-select-nowarp .u-select-selection-rendered ul {
+      display: -ms-flexbox;
+      display: flex;
+      white-space: nowrap; }
 
 .u-pagination {
   font-size: 14px;

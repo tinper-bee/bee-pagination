@@ -264,7 +264,7 @@ class Pagination extends React.Component {
         if (maxButtons) {
             //根据max很当前activepage计算出应隐藏activeButton之前的页数
             let hiddenPagesBefore = activePage - parseInt(maxButtons / 2, 10);
-            startPage = hiddenPagesBefore > 2 ? hiddenPagesBefore : 1;
+            startPage = hiddenPagesBefore >= 2 ? hiddenPagesBefore : 1;
             //计算出是否存在隐藏activeButton之后的页数
             hasHiddenPagesAfter = startPage + maxButtons < items + 1;
 
