@@ -520,6 +520,7 @@ class Pagination extends React.Component {
                                 className="page_jump_value"
                                 value={jumpPageState}
                                 onKeyDown={this.onKeyup}
+                                onBlur = {this.handleEnsurePageJump}
                                 onChange={this.setPageJump}
                             />
                             <span>{local['page']}</span>

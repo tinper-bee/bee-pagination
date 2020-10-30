@@ -40075,6 +40075,7 @@
 	                    className: "page_jump_value",
 	                    value: jumpPageState,
 	                    onKeyDown: this.onKeyup,
+	                    onBlur: this.handleEnsurePageJump,
 	                    onChange: this.setPageJump
 	                }),
 	                _react2["default"].createElement(
