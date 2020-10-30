@@ -1,3 +1,12 @@
+## [3.0.4](https://github.com/tinper-bee/bee-pagination/compare/v3.0.3...v3.0.4) (2020-10-30)
+
+
+### Bug Fixes
+
+* 跳转页在失去焦点时进行页面跳转,跳转后跳转页面消失 #JCJS-5171 ([e7eb806](https://github.com/tinper-bee/bee-pagination/commit/e7eb806969d2958d6fa139813449d33ac2894d18)), closes [#JCJS-5171](https://github.com/tinper-bee/bee-pagination/issues/JCJS-5171)
+
+
+
 ## [3.0.3](https://github.com/tinper-bee/bee-pagination/compare/v3.0.2...v3.0.3) (2020-09-09)
 
 
