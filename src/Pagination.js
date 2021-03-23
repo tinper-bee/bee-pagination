@@ -161,7 +161,7 @@ class Pagination extends React.Component {
                 cookie.save(sizeWithCookie,dataNumSelect[dataNum],{maxAge: 60*60*24*7});
             }
             this.setState({
-                dataNum: dataNum,
+                // dataNum: dataNum,
                 // 20181210因为dataNumSelect的某项不是数字或者数字字符串
                 items: Number.isNaN(parseInt(dataNumSelect[dataNum])) ? 1:Math.ceil(total / parseInt(dataNumSelect[dataNum]))
             })
